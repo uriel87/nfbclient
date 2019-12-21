@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav { 
+    display: flex;
+    justify-content: space-between;
+    padding: .5%;
+    // border: 1px solid #000;
+
+    #logo {
+        flex: 1 1 100%;
+        background-image: url('../../../images/nfb.png');
+        background-repeat: no-repeat;
+        display: block;
+        height: 100px;
+        justify-content: flex-start;
+        // border: 1px solid #08bb08;
+    }
+
+    ul {
+        display: flex;
+        flex: 1 1 100%;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.2rem;
+        // border: 1px solid #e70909;
+        margin: 0;
+        
+        li {
+            list-style-type: none;
+            padding: 5px;
+            // border: 1px solid #0829bb;
+            border-bottom: none;
+            color: #06005e;
+            transition: color 0.3s linear;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover, &:active, &:link {
+                color: #6ec5ff;
+                border-bottom: 2px solid #6ec5ff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
