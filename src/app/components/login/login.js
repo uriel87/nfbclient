@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../actions/auth.action"
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import axios from "axios";
@@ -7,10 +10,12 @@ import useAuth from "../../useComponent/useAuth/useAuth"
 import validationAuth from "../../useComponent/useAuth/validationAuth"
 
 
-export const Login = () => {
+const Login = () => {
 
   const { authInputs, handleOnSubmit, handleOnChange, errors } = useAuth(submit, validationAuth);
   const [ isLoading, setIsLoading ] = useState(false)
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   function submit() {
     console.log("submitted in login.js")
@@ -28,6 +33,23 @@ export const Login = () => {
     }`
   } 
 
+
+  // const requestBody = {
+  //   query : `
+  //     query Login($email: String!, $password: String!) {
+  //       login(email: $email, password: $password) {
+  //         userId
+  //         token
+  //         tokenEcpiration
+  //       }
+  //     }
+  //   `,
+  //   variables: {
+  //     email: authInputs.email,
+  //     password: authInputs.password
+  //   }
+  // }
+
   const getUserToken = async () => {
     console.log("getUserToken in login.js")
     try {
@@ -39,8 +61,13 @@ export const Login = () => {
       });
 
       setIsLoading(false);
-      console.log("getUserToken in login.js - token", token.data.data)
-      return token;
+      console.log("getUserToken in login.js - token", token.data.data.login)
+      if(token.status !== 200 && token.status !== 201) {
+        throw new console.error("Failed");
+      }
+      dispatch(setLogin(token.data.data.login))
+      history.push(`/about`);	
+      //return token;
     } catch(err) {
       console.log("error login.js - getUserToken")
       setIsLoading(false);
