@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
+import Cookies from 'js-cookie'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 export const Logout = () => {
 
+  const history = useHistory();
+
     const logout = (event) => {
       console.log("submitted in logOut.js")
-      //event.preventDefault();
+      Cookies.remove('token')
+      Cookies.remove('userId')
+      history.push(`/`);	
     }
 
     return(

@@ -7,7 +7,6 @@ const About = () => {
 
     const user = useSelector(state => state.auth);
 
-
     return(
         <div>
             <h1>About page</h1>

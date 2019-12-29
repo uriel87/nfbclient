@@ -20,7 +20,6 @@ export default function validation(values) {
     else if (values.password.length < 7) {
         errors.password = "Password should be more than 6 characters";
         console.log("validation - password", errors.password)
-
     }
 
     return errors;

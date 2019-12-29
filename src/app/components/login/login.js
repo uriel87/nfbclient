@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../actions/auth.action"
+import Cookies from 'js-cookie'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import axios from "axios";
 import { envRoutes } from "../../routes/constant.routes"
-import useAuth from "../../useComponent/useAuth/useAuth"
-import validationAuth from "../../useComponent/useAuth/validationAuth"
+import useAuth from "./useAuth"
+import validationAuth from "./validationAuth"
 
 
 const Login = () => {
@@ -23,15 +24,28 @@ const Login = () => {
   }
 
   const requestBody = {
-    query : `
-    query {
-      login(email:"${authInputs.email}", password:"${authInputs.password}") {
+    query : 
+    `query {
+      login(loginInput: {
+        email: "${authInputs.email}",
+        password: "${authInputs.password}"
+      }) {
         userId
         token
         tokenEcpiration
       }
     }`
   } 
+
+  // query {
+  //   login(email:"${authInputs.email}", password:"${authInputs.password}") {
+  //     userId
+  //     token
+  //     tokenEcpiration
+  //   }
+  // }`
+
+
 
 
   // const requestBody = {
@@ -65,9 +79,11 @@ const Login = () => {
       if(token.status !== 200 && token.status !== 201) {
         throw new console.error("Failed");
       }
+
       dispatch(setLogin(token.data.data.login))
+      Cookies.set('token', token.data.data.login.token)
+      Cookies.set('userId', token.data.data.login.userId)
       history.push(`/about`);	
-      //return token;
     } catch(err) {
       console.log("error login.js - getUserToken")
       setIsLoading(false);
@@ -81,6 +97,9 @@ const Login = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <form onSubmit={handleOnSubmit}>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
               <div className="modal-header">
                 <h4 className="modal-title">Login</h4>
               </div>
@@ -105,17 +124,17 @@ const Login = () => {
                   <input
                   className={errors.password && "input-error"} 
                   name="password"
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   value={authInputs.password}
                   onChange={handleOnChange}
                   />
-                  {errors && <p className="mediaInput-input-error">{errors.password}</p>}
+                  {errors && <p className="mediaInput-input-error" >{errors.password}</p>}
                 </div>
               </div>
 
               <div className="modal-footer">
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary" >Login</button>
               </div>
             </form>
           </div>
@@ -126,6 +145,3 @@ const Login = () => {
 }
 
 export default Login;
-
-
-
