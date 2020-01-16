@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
 import Cookies from 'js-cookie'
-import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+import axios from "axios"
+import useSignup from "./useSignup"
+import validationSignup from "./validationSignup"
 import { setLogin } from "../../actions/auth.action"
 import { envRoutes } from "../../routes/constant.routes"
 import { setErrors } from "../../helpers/errors"
-
-import useSignup from "./useSignup"
-import validationSignup from "./validationSignup"
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 
 
 
@@ -22,20 +21,8 @@ export const Signup = () => {
   const history = useHistory();
 
   function submit() {
-    console.log("submitted in Signup.js")
     signup();
   }
-
-  // const requestBody = {
-  //   query : `
-  //   query {
-  //     login(email:"${authInputs.email}", password:"${authInputs.password}") {
-  //       userId
-  //       token
-  //       tokenEcpiration
-  //     }
-  //   }`
-  // } 
 
   const requestBody = {
     query: `
@@ -56,30 +43,31 @@ export const Signup = () => {
   
 
   const signup = async () => {
-      console.log("getUserToken in login.js")
-      try {
-        
+    try {
         setIsLoading(true);  
         const token = await axios.post(envRoutes.envDev, {
-          query: requestBody.query
+          query: requestBody.query,
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: ''
+          }
         });
-
-        if(token.data.errors[0].message === setErrors(1)) {
+        
+        if(token.data.errors) {
           errors.userExist = setErrors(1)
-          console.log("errors.userExist", errors.userExist)
           return;
         }
   
         setIsLoading(false);
-        console.log("getUserToken in login.js - token", token.data.data.createUser)
         if(token.status !== 200 && token.status !== 201) {
           throw new console.error("Failed");
         }
+        
+        dispatch(setLogin(token.data.data.createUser))
+        Cookies.set('auth', token.data.data.createUser)
+        history.push('/');
+        setIsLoading(false);
 
-        dispatch(setLogin(token.data.data.createUser.token))
-        Cookies.set('token', token.data.data.createUser.token)
-        Cookies.set('userId', token.data.data.createUser.userId)
-        history.push(`/about`);	
       } catch(err) {
         console.log("error login.js - getUserToken")
         setIsLoading(false);
@@ -94,74 +82,64 @@ export const Signup = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <form onSubmit={handleOnSubmit}>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
               <div className="modal-header">
                 <h4 className="modal-title">Signup</h4>
               </div>
-
-
-            <div className="modal-body">
-              <div className="input-group mb-3">
-                <label>Please enter your name</label>
-                <input
-                  className={errors.name && "input-error"} 
-                  name="name"
-                  type="text"
-                  placeholder="name"
-                  value={signupInputs.name}
-                  onChange={handleOnChange}
-                  />
-                {errors && <p className="mediaInput-input-error">{errors.name}</p>}
+              <div className="modal-body">
+                <div className="input-group mb-3">
+                  <input
+                    className={errors.name && "input-error"} 
+                    name="name"
+                    type="text"
+                    placeholder="Please enter your name"
+                    value={signupInputs.name}
+                    onChange={handleOnChange}
+                    />
+                  {errors && <p className="mediaInput-input-error">{errors.name}</p>}
+                </div>
               </div>
-            </div>
-
-            <div className="modal-body">
-              <div className="input-group mb-3">
-                <label>Please enter your Email</label>
-                <input
-                  className={errors.email && "input-error"} 
-                  name="email"
-                  type="text"
-                  placeholder="Email"
-                  value={signupInputs.email}
-                  onChange={handleOnChange}
-                  />
-                {errors && <p className="mediaInput-input-error">{errors.email}</p>}
+              <div className="modal-body">
+                <div className="input-group mb-3">
+                  <input
+                    className={errors.email && "input-error"} 
+                    name="email"
+                    type="text"
+                    placeholder="Please enter your Email"
+                    value={signupInputs.email}
+                    onChange={handleOnChange}
+                    />
+                  {errors && <p className="mediaInput-input-error">{errors.email}</p>}
+                </div>
               </div>
-            </div>
-
-            <div className="modal-body">
-              <div className="input-group mb-3">
-                <label>Please enter your password</label>
-                <input
-                  className={errors.password && "input-error"} 
-                  name="password"
-                  type="text"
-                  placeholder="Password"
-                  value={signupInputs.password}
-                  onChange={handleOnChange}
-                  />
-                {errors && <p className="mediaInput-input-error">{errors.password}</p>}
+              <div className="modal-body">
+                <div className="input-group mb-3">
+                  <input
+                    className={errors.password && "input-error"} 
+                    name="password"
+                    type="text"
+                    placeholder="Please enter your password"
+                    value={signupInputs.password}
+                    onChange={handleOnChange}
+                    />
+                  {errors && <p className="mediaInput-input-error">{errors.password}</p>}
+                </div>
               </div>
-            </div>
-
-            <div className="modal-body">
-              <div className="input-group mb-3">
-                <label>Please enter your Telephone</label>
-                <input
-                  className={errors.tel && "input-error"} 
-                  name="tel"
-                  type="tel"
-                  placeholder="tel"
-                  value={signupInputs.tel}
-                  onChange={handleOnChange}
-                  />
-                {errors && <p className="mediaInput-input-error">{errors.tel}</p>}
+              <div className="modal-body">
+                <div className="input-group mb-3">
+                  <input
+                    className={errors.tel && "input-error"} 
+                    name="tel"
+                    type="tel"
+                    placeholder="Please enter your Telephone"
+                    value={signupInputs.tel}
+                    onChange={handleOnChange}
+                    />
+                  {errors && <p className="mediaInput-input-error">{errors.tel}</p>}
+                </div>
               </div>
-            </div>
-
               <div className="modal-footer">
                 <button type="submit" className="btn btn-primary">Create user</button>
               </div>

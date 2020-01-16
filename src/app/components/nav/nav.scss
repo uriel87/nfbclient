@@ -4,10 +4,33 @@
     box-sizing: border-box;
 }
 
+
+// a {
+//     &:hover {
+//         text-decoration: none;
+//     }
+// }
+
+
+// .modal.show {
+//     background-color:rgba(0, 0, 0, 0.5)
+// }
+
+.modal-content {
+    z-index: 2;
+}
+
+.modal-backdrop {
+    z-index: 0;
+}
+
 nav { 
     display: flex;
+    flex: 1 2 100%;
     justify-content: space-between;
     padding: .5%;
+    margin: 0 0 60px 0;
+    background-color: rgba(0, 0, 0, 0.1);
     // border: 1px solid #000;
 
     #logo {
@@ -20,31 +43,52 @@ nav {
         // border: 1px solid #08bb08;
     }
 
-    ul {
+    .container-link {
         display: flex;
         flex: 1 1 100%;
-        justify-content: space-around;
+        justify-content: flex-end;
         align-items: center;
         font-size: 1.2rem;
-        // border: 1px solid #e70909;
+        //border: 1px solid #e70909;
         margin: 0;
-        
-        li {
-            list-style-type: none;
-            padding: 5px;
-            // border: 1px solid #0829bb;
-            border-bottom: none;
-            color: #06005e;
-            transition: color 0.3s linear;
-            text-decoration: none;
-            cursor: pointer;
 
-            &:hover, &:active, &:link {
-                color: #6ec5ff;
-                border-bottom: 2px solid #6ec5ff;
+        .nav-base {
+            display: flex;
+
+            .container-logout {
+                display: flex;
+                flex: 1;
+                justify-content: space-around;
+                align-items: center;
+                .link-logout {
+                    //border: 1px solid #008ac0;
+                    margin-left: 2em;
+                }
+            }
+
+            button {
+                all: unset;
+            }
+            
+            a, button {
+                list-style-type: none;
+                padding: 5px;
+                //border: 1px solid #0829bb;
+                //border-bottom: none;
+                color: #06005e;
+                transition: all  0.3s linear;
                 text-decoration: none;
+                margin: 0.8em;
+                cursor: pointer;
+
+
+                &:hover {
+                    color: #6ec5ff;
+                    border-bottom: 0.5px solid #6ec5ff;
+                }
             }
         }
     }
 }
+
 

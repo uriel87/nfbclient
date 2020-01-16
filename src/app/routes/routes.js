@@ -4,8 +4,9 @@ import { Switch, Route } from "react-router-dom";
 import React from "react";
 import Home from "../components/home/home";
 import About from "../components/about/about"
-//import NoPageFound from "../components/noPageFound/noPageFound.js";
-
+import Balance from '../components/balance/balance'
+import Loading from "../components/loading/loading";
+import PageNoFound from "../components/pageNoFound/pageNoFound";
 
 
 const Routes = () => {
@@ -14,8 +15,11 @@ const Routes = () => {
         <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" exact component={About} />
+            <Route path="/balance" exact component={Balance} />
+            <Route path="/loading" exact component={Loading} />
+
             {/* <Route path="/mediaItem/:id" exact component={MediaItem} /> */}
-			{/* <Route component={NoPageFound} /> */}
+			<Route component={PageNoFound} />
         </Switch>
     );
 	

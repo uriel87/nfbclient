@@ -1,4 +1,8 @@
-
-.home-text {
-	text-align: center;
+.home-container {
+  height: 100%;
 }
+
+.home-container .home-text {
+  text-align: center;
+}
+/*# sourceMappingURL=home.css.map */

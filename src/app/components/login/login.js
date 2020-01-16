@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
 import { setLogin } from "../../actions/auth.action"
 import Cookies from 'js-cookie'
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import axios from "axios";
-import { envRoutes } from "../../routes/constant.routes"
+import axios from "axios"
 import useAuth from "./useAuth"
 import validationAuth from "./validationAuth"
+import { LOGIN_USER } from "../../queries/query"
+import { envRoutes } from "../../routes/constant.routes"
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
+import "./login.css"
 
 
 const Login = () => {
@@ -19,75 +21,32 @@ const Login = () => {
   const history = useHistory();
 
   function submit() {
-    console.log("submitted in login.js")
     getUserToken();
   }
 
-  const requestBody = {
-    query : 
-    `query {
-      login(loginInput: {
-        email: "${authInputs.email}",
-        password: "${authInputs.password}"
-      }) {
-        userId
-        token
-        tokenEcpiration
-      }
-    }`
-  } 
-
-  // query {
-  //   login(email:"${authInputs.email}", password:"${authInputs.password}") {
-  //     userId
-  //     token
-  //     tokenEcpiration
-  //   }
-  // }`
-
-
-
-
-  // const requestBody = {
-  //   query : `
-  //     query Login($email: String!, $password: String!) {
-  //       login(email: $email, password: $password) {
-  //         userId
-  //         token
-  //         tokenEcpiration
-  //       }
-  //     }
-  //   `,
-  //   variables: {
-  //     email: authInputs.email,
-  //     password: authInputs.password
-  //   }
-  // }
-
   const getUserToken = async () => {
-    console.log("getUserToken in login.js")
     try {
       setIsLoading(true);
-      console.log("requestBody.query", requestBody)
-
       const token = await axios.post(envRoutes.envDev, {
-        query: requestBody.query
+        query: LOGIN_USER(authInputs.email, authInputs.password),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: ''
+        }
       });
 
-      setIsLoading(false);
-      console.log("getUserToken in login.js - token", token.data.data.login)
       if(token.status !== 200 && token.status !== 201) {
         throw new console.error("Failed");
       }
 
       dispatch(setLogin(token.data.data.login))
-      Cookies.set('token', token.data.data.login.token)
-      Cookies.set('userId', token.data.data.login.userId)
-      history.push(`/about`);	
-    } catch(err) {
-      console.log("error login.js - getUserToken")
+      Cookies.set('auth', token.data.data.login)
+      history.push('/balance');
       setIsLoading(false);
-      throw err;
+    } catch(err) {
+        console.log("error login.js - getUserToken")
+        setIsLoading(false);
+        throw err;
     }
   }
 
@@ -97,7 +56,7 @@ const Login = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <form onSubmit={handleOnSubmit}>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
               <div className="modal-header">
@@ -105,12 +64,11 @@ const Login = () => {
               </div>
               <div className="modal-body">
                 <div className="input-group mb-3">
-                  <label>Please enter your Email</label>
                   <input
                   className={errors.email && "input-error"} 
                   name="email"
                   type="text"
-                  placeholder="Email"
+                  placeholder="Please enter your Email"
                   value={authInputs.email}
                   onChange={handleOnChange}
                   />
@@ -120,12 +78,11 @@ const Login = () => {
 
               <div className="modal-body">
                 <div className="input-group mb-3">
-                  <label>Please enter your password</label>
                   <input
                   className={errors.password && "input-error"} 
                   name="password"
                   type="password"
-                  placeholder="Password"
+                  placeholder="Please enter your password"
                   value={authInputs.password}
                   onChange={handleOnChange}
                   />

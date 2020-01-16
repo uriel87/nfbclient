@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AACI,qBADiB,CACjB,YAAY,CAAA;EACR,UAAU,EAAE,MAAM;CACrB",
+    "sources": [
+        "balance.scss"
+    ],
+    "names": [],
+    "file": "balance.css"
+}

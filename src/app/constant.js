@@ -1,6 +1,7 @@
 
 const constantUser = {
     setUser: "SET_USER",
+    setUserBalance: "SET_USER_BALANCE"
 };
 
 const constantAuth = {

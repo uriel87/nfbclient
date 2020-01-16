@@ -18,11 +18,9 @@ const UseAuth = (callback, validation) => {
             ...authInputs,
             [name]: value
         })
-        console.log("handleOnChange", authInputs)
 	};
 
     const handleOnSubmit = (event) => {
-        console.log("handleOnSubmit", authInputs)
         event.preventDefault();
         setErrors(validation(authInputs));
         setIsSubmitted(true);

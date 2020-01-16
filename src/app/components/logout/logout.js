@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from "react-router-dom";
 import Cookies from 'js-cookie'
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+import './logout.css'
 
 export const Logout = () => {
 
@@ -10,13 +9,13 @@ export const Logout = () => {
 
     const logout = (event) => {
       console.log("submitted in logOut.js")
-      Cookies.remove('token')
-      Cookies.remove('userId')
-      history.push(`/`);	
+      Cookies.remove('auth')
+      Cookies.remove('user')
+      history.push('/');	
     }
 
     return(
-        <div className="container">
+      <div className="container">
         <div className="modal" id="logout">
           <div className="modal-dialog">
             <div className="modal-content">
@@ -39,12 +38,8 @@ export const Logout = () => {
             </div>
           </div>
         </div>
-        
       </div>
     )
 }
 
 export default Logout;
-
-
-

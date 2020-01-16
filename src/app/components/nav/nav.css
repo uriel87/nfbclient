@@ -5,14 +5,27 @@
           box-sizing: border-box;
 }
 
+.modal-content {
+  z-index: 2;
+}
+
+.modal-backdrop {
+  z-index: 0;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 2 100%;
+          flex: 1 2 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: .5%;
+  margin: 0 0 60px 0;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 nav #logo {
@@ -28,15 +41,16 @@ nav #logo {
           justify-content: flex-start;
 }
 
-nav ul {
+nav .container-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -44,20 +58,47 @@ nav ul {
   margin: 0;
 }
 
-nav ul li {
+nav .container-link .nav-base {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .container-link .nav-base .container-logout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .container-link .nav-base .container-logout .link-logout {
+  margin-left: 2em;
+}
+
+nav .container-link .nav-base button {
+  all: unset;
+}
+
+nav .container-link .nav-base a, nav .container-link .nav-base button {
   list-style-type: none;
   padding: 5px;
-  border-bottom: none;
   color: #06005e;
-  -webkit-transition: color 0.3s linear;
-  transition: color 0.3s linear;
+  -webkit-transition: all  0.3s linear;
+  transition: all  0.3s linear;
   text-decoration: none;
+  margin: 0.8em;
   cursor: pointer;
 }
 
-nav ul li:hover, nav ul li:active, nav ul li:link {
+nav .container-link .nav-base a:hover, nav .container-link .nav-base button:hover {
   color: #6ec5ff;
-  border-bottom: 2px solid #6ec5ff;
-  text-decoration: none;
+  border-bottom: 0.5px solid #6ec5ff;
 }
 /*# sourceMappingURL=nav.css.map */

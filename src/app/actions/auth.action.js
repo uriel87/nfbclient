@@ -1,6 +1,7 @@
 
 import { constantAuth } from '../constant'
 
+
 export function setLogin(auth) {
     return {
         type: constantAuth.setLogin,

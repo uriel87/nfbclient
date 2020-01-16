@@ -8,9 +8,6 @@ const initalState = {
 }
 
 const authReducer = (state = initalState, action) => {
-
-    console.log("authReducer - action.payload", action.payload)
-
     switch(action.type) {
         
         case constantAuth.setLogin:

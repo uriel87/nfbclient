@@ -20,11 +20,11 @@ const UseSignup = (callback, validation) => {
             ...signupInputs,
             [name]: value
         })
-        console.log("handleOnChange", signupInputs)
+        // console.log("handleOnChange", signupInputs)
 	};
 
     const handleOnSubmit = (event) => {
-        console.log("handleOnSubmit", signupInputs)
+        // console.log("handleOnSubmit", signupInputs)
         event.preventDefault();
         setErrors(validation(signupInputs));
         setIsSubmitted(true);
