@@ -4,7 +4,7 @@ import { constantAuth } from '../constant'
 const initalState = {
     token: null,
     userId: null,
-    tokenEcpiration: null
+    tokenExpiration: null
 }
 
 const authReducer = (state = initalState, action) => {
@@ -15,13 +15,13 @@ const authReducer = (state = initalState, action) => {
                 ...state,
                 token: action.payload.token,
                 userId: action.payload.userId,
-                tokenEcpiration: action.payload.tokenEcpiration
+                tokenExpiration: action.payload.tokenExpiration
             }
         case constantAuth.setLogout:
             return state = {
                 token: null,
                 userId: null,
-                tokenEcpiration: null
+                tokenExpiration: null
             }
         default:
             return state;

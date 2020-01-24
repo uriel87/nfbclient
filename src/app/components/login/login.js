@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setLogin } from "../../actions/auth.action"
@@ -14,6 +14,7 @@ import "./login.css"
 
 
 const Login = () => {
+  console.log("render Login")
 
   const { authInputs, handleOnSubmit, handleOnChange, errors } = useAuth(submit, validationAuth);
   const [ isLoading, setIsLoading ] = useState(false)
@@ -101,4 +102,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default memo(Login);

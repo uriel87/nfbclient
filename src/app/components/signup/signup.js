@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import Cookies from 'js-cookie'
@@ -14,7 +14,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 
 
 export const Signup = () => {
-
+  console.log("render Signup")
   const { signupInputs, handleOnSubmit, handleOnChange, errors } = useSignup(submit, validationSignup);
   const [ isLoading, setIsLoading ] = useState(false)
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export const Signup = () => {
       ){
         userId
         token
-        tokenEcpiration
+        tokenExpiration
       }
     }`
   }
@@ -152,7 +152,7 @@ export const Signup = () => {
   )
 }
 
-export default Signup;
+export default memo(Signup);
 
 
 

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { useDispatch } from "react-redux"
 import {Link, useHistory} from 'react-router-dom'
 import axios from "axios"
@@ -12,6 +12,8 @@ import './navLogin.css'
 
 
 export const NavLogin = () => {
+    console.log("render NavLogin")
+
     const dispatch = useDispatch();
     const history = useHistory();
     const [ isLoading, setIsLoading ] = useState(false)
@@ -20,6 +22,10 @@ export const NavLogin = () => {
     useEffect(() => {
         getUserDetails(JSON.parse(Cookies.get('auth')))
     }, []);
+
+    // const submit = useCallback(() => {
+    //   getUserToken();
+    // }, [authInputs])
 
     const getUserDetails = async (auth) => {
         try {
@@ -55,4 +61,4 @@ export const NavLogin = () => {
     )
 }
 
-export default NavLogin;
+export default memo(NavLogin);

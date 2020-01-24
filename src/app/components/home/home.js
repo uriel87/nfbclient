@@ -1,9 +1,11 @@
 
-import React from "react";
+import React, { memo } from "react";
 import "./home.css"
 
 
 export const Home = () => {
+	console.log("render Home")
+
     return (
 		<div className="home-container">
 			<div>
@@ -13,4 +15,4 @@ export const Home = () => {
     )
 }
 
-export default Home;
+export default memo(Home);

@@ -5,12 +5,15 @@ import { constantUser } from "../constant";
 const initialState = {
 	id: null,
 	name: null,
-	email: null
+	email: null,
+	tel: null,
+	taskList: [],
+	monthlyExpensesList: []
 }
 
 
 const userReducer = (state = initialState, action) => {
-	//console.log("userReducer - action:", action)
+	// console.log("userReducer - action:", action)
     switch (action.type) {
         case constantUser.setUser:
 			return state = {
@@ -18,6 +21,9 @@ const userReducer = (state = initialState, action) => {
 				id: action.payload._id,
 				name: action.payload.name,
 				email: action.payload.email,
+				tel: action.payload.tel,
+				taskList: action.payload.taskList,
+				monthlyExpensesList: action.payload.monthlyExpensesList
 			};
         default:
             return state;

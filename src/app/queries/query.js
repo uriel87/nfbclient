@@ -7,36 +7,60 @@ export const LOGIN_USER = (email, password) => `query {
     }) {
       userId
       token
-      tokenEcpiration
+      tokenExpiration
     }
   }`
 
 
-export const GET_MOUNTHLY_EXPENSES = (year, month) => `query {
-    getMonthlyExpenses(monthlyExpensesDateInput: {
-        year: ${parseInt(year)},
-        month: ${parseInt(month)}
-    }) {
-        name
-        description
-        amount
-        category
-        payment
-        paymentLeft
-        purchaseTime
-        year
-        month
+
+
+
+export const GET_MOUNTHLY_EXPENSES_USER = () => `query {
+    getUserDetails {
+        monthlyExpensesList {
+          name
+          description
+          amount
+          category
+          payment
+          paymentLeft
+          purchaseTime
+          year
+          month
+        }
     }
 }`
 
 
 
 
-export const GET_USER_DETAILS = (userId) => `query {
-    getUserDetails(id: "${userId}") {
+export const GET_USER_DETAILS = () => `query {
+    getUserDetails {
         _id
         name
         email
+        tel
+        taskList {
+          name
+          description
+          category
+          priority
+          daily
+          startTime
+          endTime
+          createTime
+        }
+        monthlyExpensesList {
+          name
+          description
+          amount
+          category
+          payment
+          paymentLeft
+          purchaseTime
+          year
+          month
+        }
     }
 }`
 
@@ -56,6 +80,31 @@ export const GET_MOUNTHLY_BALANCE = (userId) => `query {
         }
     }
 }`
+
+
+
+
+
+// export const GET_MOUNTHLY_EXPENSES = (year, month) => `query {
+//     getMonthlyExpenses(monthlyExpensesDateInput: {
+//         year: ${parseInt(year)},
+//         month: ${parseInt(month)}
+//     }) {
+//         name
+//         description
+//         amount
+//         category
+//         payment
+//         paymentLeft
+//         purchaseTime
+//         year
+//         month
+//     }
+// }`
+
+
+
+
 
 
 // export const GET_MOUNTHLY_BALANCE = (userId) => {

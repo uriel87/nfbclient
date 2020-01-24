@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { useHistory } from "react-router-dom";
 import Cookies from 'js-cookie'
 import './logout.css'
@@ -6,6 +6,7 @@ import './logout.css'
 export const Logout = () => {
 
   const history = useHistory();
+  console.log("render Logout")
 
     const logout = (event) => {
       console.log("submitted in logOut.js")
@@ -42,4 +43,4 @@ export const Logout = () => {
     )
 }
 
-export default Logout;
+export default memo(Logout);

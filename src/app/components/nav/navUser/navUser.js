@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import {Link} from 'react-router-dom'
 import Logout from '../../logout/logout'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -9,6 +9,8 @@ import './navUser.css'
 
 
 export const NavUser = (props) => {
+    console.log("render NavUser")
+
     const [isDropdown, setIsDropDown] = useState(false)
     const [showLogout, setShowLogout] = useState(false)
     const [user, setUser] = useState(props.user)
@@ -38,7 +40,7 @@ export const NavUser = (props) => {
     )
 }
 
-export default NavUser
+export default memo(NavUser)
 
 
 

@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { memo } from "react";
 import Login from '../../login/login'
 import Signup from '../../signup/signup'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -8,6 +8,8 @@ import './navLogout.css'
 
 
 export const NavLogout = () => {
+    console.log("render NavLogout")
+
     return(
         <div className="container-logout">
             <div className="link-logout">
@@ -22,4 +24,4 @@ export const NavLogout = () => {
     )
 }
 
-export default NavLogout;
+export default memo(NavLogout)

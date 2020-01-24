@@ -1,9 +1,11 @@
 
-import React from 'react'
+import React, { memo } from 'react'
 import './loading.css'
 
 
 export const Loading = () => {
+    console.log("render Loading")
+
     return (
         <div className="loader-container">
             <div className="loader"></div>
@@ -11,4 +13,4 @@ export const Loading = () => {
     )
 }
 
-export default Loading
+export default memo(Loading)

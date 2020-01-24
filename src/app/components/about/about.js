@@ -1,18 +1,16 @@
 
-import React from 'react'
+import React, {memo} from 'react'
 import { useSelector } from "react-redux";
 
 
 const About = () => {
-
-    const user = useSelector(state => state.auth);
+    console.log("render About")
 
     return(
         <div>
             <h1>About page</h1>
-            <h2 className="user-name-title"> Hello {user.userId} </h2>
         </div>
     )
 }
 
-export default About
+export default memo(About)

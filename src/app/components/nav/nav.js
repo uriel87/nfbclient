@@ -1,7 +1,7 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback, memo } from 'react'
 import { useSelector } from 'react-redux'
-import {Link} from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import NavLogout from './navLogout/navLogout'
 import NavLogin from './navLogin/navLogin'
@@ -11,16 +11,22 @@ import './nav.css'
 
 
 export const Nav  = () => {
+    console.log("render Nav")
+    const history = useHistory();
     const auth = useSelector(state => state.auth);
     const[isLoggedin, setIsLoggedin] = useState(false)
     const [ isLoading, setIsLoading ] = useState(false)
 
     useEffect(() => {
-        if(Cookies.get('auth')) {
-            setIsLoggedin(true)
-        }
+        Cookies.get('auth')? setIsLoggedin(true) : setLogout()
     }, [auth]);
-    
+
+    const setLogout = () => {
+        console.log("submitted in logOut.js")
+        Cookies.remove('auth')
+        Cookies.remove('user')
+        history.push('/');	
+    }
 
     if(isLoading) {return <div></div>}
 
@@ -39,4 +45,4 @@ export const Nav  = () => {
     )
 }
 
-export default Nav;
+export default memo(Nav);

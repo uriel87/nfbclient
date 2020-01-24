@@ -9,8 +9,6 @@ const useFetch = (query, ...args) => {
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    //console.log("in fetchData - query:", query)
-    console.log("in fetchData - args:", args)
     
     useEffect(() => {
         async function fetchData() {
@@ -23,7 +21,6 @@ const useFetch = (query, ...args) => {
                         Authorization: auth.token
                     }
                 })
-                console.log("in fetchData - res.data.data:", res.data.data)
                 setResponse(res.data.data);
                 setIsLoading(false)
             } catch (error) {
@@ -46,6 +43,8 @@ export default useFetch
     // console.log("in fetchData - url:", url)
     // console.log("in fetchData - query:", query)
     // console.log("in fetchData - args:", args)
+    //console.log("in fetchData - res.data.data:", res.data.data)
+
 
 
 

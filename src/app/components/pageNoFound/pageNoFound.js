@@ -1,8 +1,10 @@
 
-import React from 'react'
+import React, { memo } from 'react'
 import './pageNoFound.css'
 
 export const PageNoFound = () => {
+    console.log("render PageNoFound")
+
     return (
         <div className="title-page-not-found">
 			<h1>404</h1>
@@ -12,4 +14,4 @@ export const PageNoFound = () => {
     )
 }
 
-export default PageNoFound
+export default memo(PageNoFound)
