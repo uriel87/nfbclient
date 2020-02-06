@@ -2,21 +2,19 @@ import React, { useState, memo } from 'react'
 import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setLogin } from "../../actions/auth.action"
+import { fetchData } from "../../helpers/fetchData"
 import Cookies from 'js-cookie'
-import axios from "axios"
-import useAuth from "./useAuth"
 import validationAuth from "./validationAuth"
+import UseForm from '../../helpers/useForm'
 import { LOGIN_USER } from "../../queries/query"
-import { envRoutes } from "../../routes/constant.routes"
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import "./login.css"
 
 
-const Login = () => {
-  console.log("render Login")
 
-  const { authInputs, handleOnSubmit, handleOnChange, errors } = useAuth(submit, validationAuth);
+const Login = () => {
+  const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, validationAuth);
   const [ isLoading, setIsLoading ] = useState(false)
   const dispatch = useDispatch();
   const history = useHistory();
@@ -28,20 +26,9 @@ const Login = () => {
   const getUserToken = async () => {
     try {
       setIsLoading(true);
-      const token = await axios.post(envRoutes.envDev, {
-        query: LOGIN_USER(authInputs.email, authInputs.password),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: ''
-        }
-      });
-
-      if(token.status !== 200 && token.status !== 201) {
-        throw new console.error("Failed");
-      }
-
-      dispatch(setLogin(token.data.data.login))
-      Cookies.set('auth', token.data.data.login)
+      const data = await fetchData(LOGIN_USER(inputs))
+      dispatch(setLogin(data.login))
+      Cookies.set('auth', data.login)
       history.push('/balance');
       setIsLoading(false);
     } catch(err) {
@@ -70,7 +57,7 @@ const Login = () => {
                   name="email"
                   type="text"
                   placeholder="Please enter your Email"
-                  value={authInputs.email}
+                  value={inputs.email}
                   onChange={handleOnChange}
                   />
                   {errors && <p className="mediaInput-input-error">{errors.email}</p>}
@@ -84,7 +71,7 @@ const Login = () => {
                   name="password"
                   type="password"
                   placeholder="Please enter your password"
-                  value={authInputs.password}
+                  value={inputs.password}
                   onChange={handleOnChange}
                   />
                   {errors && <p className="mediaInput-input-error" >{errors.password}</p>}
@@ -103,3 +90,25 @@ const Login = () => {
 }
 
 export default memo(Login);
+
+
+
+
+// console.log("render Login")
+// let options = {
+//   headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: ''
+//   }
+// } 
+// const token = await axios.post(
+//   envRoutes.envDev,
+//   LOGIN_USER(inputs),
+//   options
+// );
+
+// const {data, status} = await fetchData(LOGIN_USER(inputs))
+// if(status !== 200 && status !== 201) {
+//   throw new console.error("Failed");
+// }
+

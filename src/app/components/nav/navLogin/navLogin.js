@@ -5,6 +5,7 @@ import {Link, useHistory} from 'react-router-dom'
 import axios from "axios"
 import Cookies from 'js-cookie'
 import NavUser from '../navUser/navUser'
+import { fetchData } from "../../../helpers/fetchData"
 import { setUser } from "../../../actions/user.action"
 import { envRoutes } from "../../../routes/constant.routes"
 import { GET_USER_DETAILS } from "../../../queries/query"
@@ -20,30 +21,20 @@ export const NavLogin = () => {
     const [userDetails, setUserDetails] = useState()
 
     useEffect(() => {
-        getUserDetails(JSON.parse(Cookies.get('auth')))
+        getUserDetails()
     }, []);
 
-    // const submit = useCallback(() => {
-    //   getUserToken();
-    // }, [authInputs])
-
-    const getUserDetails = async (auth) => {
+    const getUserDetails = async () => {
         try {
             setIsLoading(true);
-            const userDetalis = await axios.post(envRoutes.envDev, {
-                query: GET_USER_DETAILS(auth.userId),
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: auth.token
-                }
-            });
-
-            dispatch(setUser(userDetalis.data.data.getUserDetails))
-            Cookies.set('user', userDetalis.data.data.getUserDetails)
-            setUserDetails(userDetalis.data.data.getUserDetails)
+            const auth = JSON.parse(Cookies.get('auth'))
+            const userDetalis = await fetchData(GET_USER_DETAILS(auth.userId))
+            dispatch(setUser(userDetalis.getUserDetails))
+            Cookies.set('user', userDetalis.getUserDetails)
+            setUserDetails(userDetalis.getUserDetails)
             setIsLoading(false);
         } catch(err) {
-            console.log("error personalArea.js - getUserDetails")
+            console.log("error personalArea.js - getUserDetails", err)
             setIsLoading(false);
             throw err;
         }

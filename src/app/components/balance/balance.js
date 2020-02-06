@@ -26,11 +26,6 @@ const Balance = () => {
                 <h1 className="header-page">Balance</h1>
                 <form>
                     <input type="month" value={date} onChange={handleChange} />
-                    <div className="input-group-append">
-                        <button className="btn btn-info" type="submit">
-                            <span className="glyphicon glyphicon-search">Search</span>
-                        </button>
-				    </div>
                 </form>
                 <ExpensesList userMonthlyExpenses = { userMonthlyExpenses } date={date} />
             </div>
