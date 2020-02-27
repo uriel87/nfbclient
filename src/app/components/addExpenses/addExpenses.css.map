@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAEA,AAAA,IAAI,CAAC;EACD,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;CACjB",
     "sources": [
-        "actions.scss"
+        "addExpenses.scss"
     ],
     "names": [],
-    "file": "actions.css"
+    "file": "addExpenses.css"
 }

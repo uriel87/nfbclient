@@ -1,22 +1,17 @@
 
 import React, { useState, useEffect, memo } from 'react'
 import { useDispatch } from "react-redux"
-import {Link, useHistory} from 'react-router-dom'
-import axios from "axios"
+import { Link } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import NavUser from '../navUser/navUser'
 import { fetchData } from "../../../helpers/fetchData"
 import { setUser } from "../../../actions/user.action"
-import { envRoutes } from "../../../routes/constant.routes"
 import { GET_USER_DETAILS } from "../../../queries/query"
 import './navLogin.css'
 
 
 export const NavLogin = () => {
-    console.log("render NavLogin")
-
     const dispatch = useDispatch();
-    const history = useHistory();
     const [ isLoading, setIsLoading ] = useState(false)
     const [userDetails, setUserDetails] = useState()
 
@@ -45,11 +40,13 @@ export const NavLogin = () => {
     return(
         <div className="container-logout">
             <Link to="/balance">Balance</Link>
-            <Link to="/personalArea">Operation</Link>
-            <Link to="/actions">actions</Link>
+            <Link to="/tasks">Tasks</Link>
             <NavUser user={userDetails}/>
         </div>
     )
 }
 
 export default memo(NavLogin);
+
+
+// console.log("render NavLogin")

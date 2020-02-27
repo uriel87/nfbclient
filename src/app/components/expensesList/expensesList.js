@@ -6,15 +6,15 @@ import { filterByDate } from '../../helpers/filters'
 
 export const ExpensesList = (props) => {
     
-    const [userMonthlyExpenses, setExpensesList] = useState(props.userMonthlyExpenses)
+    const [monthlyExpenses, setMonthlyExpenses] = useState(props.monthlyExpenses)
 
     useEffect(() => {
-        setExpensesList(filterByDate(props.userMonthlyExpenses, props.date))
+        setMonthlyExpenses(filterByDate(props.monthlyExpenses, props.date))
     }, [props]);
 
     return (
         <div>
-            { userMonthlyExpenses.map((expense, index) => (
+            { monthlyExpenses.map((expense, index) => (
                 <ExpensesListItem key={index} expense={expense} />
             ))}
         </div>

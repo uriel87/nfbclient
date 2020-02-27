@@ -6,16 +6,16 @@ export default function validation(values) {
 
     if (!values.name) {
         errors.name = "Name is requierd";
-    } else if (!/^[a-zA-Z\s]*$/
+    } else if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
         .test(values.name)) {
-        errors.name = "Name should have only in English"
+        errors.name = "Name should have only in English characters and numbers"
     }
 
     if (!values.description) {
         errors.description = "Description is requierd";
-    } else if (!/^[a-zA-Z\s]*$/
+    } else if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
         .test(values.description)) {
-        errors.description = "Description should have only in English"
+        errors.description = "Description should have only in English characters and numbers"
     }
 
     if (!values.amount) {

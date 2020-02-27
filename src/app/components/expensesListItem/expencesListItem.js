@@ -1,8 +1,10 @@
 
-import React, { useState } from 'react'
+import React from 'react'
 
 export const ExpencesListItem = (props) => {
+
     const expenseItem = props.expense
+    
     return (
         <div>
             <p className="">name - {expenseItem.name}</p>

@@ -12,8 +12,15 @@ module.exports = {
         }
         return item.filter(
             (item) => {
-                return (item.year == year) && (item.month == month)
+                return (item.year === year) && (item.month === month)
             }
         )
-    } 
+    },
+    filterTasksByDate: (tasks) => {
+        return tasks.filter(
+            (task) => {
+                return (task.daily === true) || (Date.parse(task.endTime) > Date.parse(task.startTime))
+            }
+        )
+    }
 }

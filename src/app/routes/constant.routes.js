@@ -5,15 +5,6 @@ const envRoutes = {
 };
 
 
-const userRoutes = {
-    getUser: "getUser/",
-    getLastMediaList: "getLastMediaList/",
-	AddMediaItemToUser: "AddMediaItemToUser/"
-};
-
-
-
 export {
-	envRoutes,
-	userRoutes,
+    envRoutes
 };

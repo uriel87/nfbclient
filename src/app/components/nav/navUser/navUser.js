@@ -29,7 +29,7 @@ export const NavUser = (props) => {
             <button onClick= {setDropdown} className="">Hi {user.name}</button>
             <div id="navUser" className= { `dropdown-content ${isDropdown ? "" : "hide" }`}>
                 <ul>
-                    <li><Link to="/settings" >settings</Link></li>
+                    <li><Link to="/settings" >Settings</Link></li>
                     <li>
                         <button onClick= {setLogout} type="button" className="" data-toggle="modal" data-target="#logout" >Logout</button>
                         <Logout />

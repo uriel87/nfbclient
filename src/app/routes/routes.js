@@ -4,10 +4,11 @@ import { Switch, Route } from "react-router-dom";
 import React from "react";
 import Home from "../components/home/home";
 import About from "../components/about/about"
+import Tasks from '../components/tasks/tasks'
 import Balance from '../components/balance/balance'
 import Loading from "../components/loading/loading";
 import PageNoFound from "../components/pageNoFound/pageNoFound";
-import Actions from '../components/actions/actions'
+import Settings from '../components/settings/settings'
 
 
 const Routes = () => {
@@ -17,10 +18,9 @@ const Routes = () => {
             <Route path="/" exact component={Home} />
             <Route path="/about" exact component={About} />
             <Route path="/balance" exact component={Balance} />
-            <Route path="/actions" exact component={Actions} />
+            <Route path="/tasks" exact component={Tasks} />
+            <Route path="/settings" exact component={Settings} />
             <Route path="/loading" exact component={Loading} />
-
-            {/* <Route path="/mediaItem/:id" exact component={MediaItem} /> */}
 			<Route component={PageNoFound} />
         </Switch>
     );
@@ -28,3 +28,5 @@ const Routes = () => {
 };
 
 export default Routes;
+
+{/* <Route path="/mediaItem/:id" exact component={MediaItem} /> */}

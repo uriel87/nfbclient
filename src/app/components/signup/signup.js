@@ -2,13 +2,10 @@ import React, { useState, memo } from 'react'
 import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import Cookies from 'js-cookie'
-import axios from "axios"
-import useSignup from "./useSignup"
+import Loading from '../loading/loading'
 import UseForm from '../../helpers/useForm'
 import validationSignup from "./validationSignup"
 import { setLogin } from "../../actions/auth.action"
-import { envRoutes } from "../../routes/constant.routes"
-import { setErrors } from "../../helpers/errors"
 import { SIGNUP } from '../../queries/mutation'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
@@ -44,7 +41,7 @@ export const Signup = () => {
       }
     }
   
-
+  if(isLoading) {return (<Loading />)}
   return(
     <div className="container">
       <div className="modal" id="signup">

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useCallback, memo } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import Cookies from 'js-cookie'
