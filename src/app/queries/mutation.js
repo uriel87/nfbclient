@@ -73,11 +73,11 @@ export const CREATE_TASK = (inputs, userId) => {
 }
 
 
-export const EDIT_USER = (inputs, userId) => {
+export const UPDATE_USER = (inputs, userId) => {
   return {
     query: `
-      mutation EditUser($updateUserInput: UpdateUserInput) {
-        editUser(updateUserInput: $updateUserInput) {
+      mutation UpdateUser($updateUserInput: UpdateUserInput) {
+        updateUser(updateUserInput: $updateUserInput) {
           userId
           token
           tokenExpiration

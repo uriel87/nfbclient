@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import UseForm from '../../helpers/useForm'
 import validationSettings from './validationSettings'
 import { fetchData } from "../../helpers/fetchData"
-import { EDIT_USER } from '../../queries/mutation'
+import { UPDATE_USER } from '../../queries/mutation'
 import { setLogin } from "../../actions/auth.action"
 import { Loading } from '../loading/loading';
 import './settings.css'
@@ -43,10 +43,11 @@ const Settings = () => {
         try {
             setIsLoading(true);
             const auth = JSON.parse(Cookies.get('auth'))
-            const data = await fetchData(EDIT_USER(inputs, auth.userId))
+            const data = await fetchData(UPDATE_USER(inputs, auth.userId))
+            console.log("addExpenses - data", data)
             setIsLoading(false);
-            dispatch(setLogin(data.editUser))
-            Cookies.set('auth', data.editUser)
+            dispatch(setLogin(data.updateUser))
+            Cookies.set('auth', data.updateUser)
             window.location.reload()
         } catch(err) {
             console.log("error addExpenses.js - addExpenses")
@@ -82,7 +83,7 @@ const Settings = () => {
                     <label htmlFor="exampleFormControlInput1">Email</label>
                     <input
                         className={errors.email && "input-error"} 
-                        name="email"
+                        name="updateEmail"
                         type="text"
                         placeholder={user.email}
                         value={inputs.email}
