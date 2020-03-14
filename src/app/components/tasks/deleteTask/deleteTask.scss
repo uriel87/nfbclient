@@ -1,8 +1,19 @@
 
+
 @mixin centerDiv($width, $height, $zIndex) {
+    // position: fixed;
+    // width: $width;
+    // height: $height;
+    // z-index: $zIndex;
+    // margin: 0;
+    // top: 50%;
+    // left: 50%;
+    // margin-right: -50%;
+    // transform: translate(-50%, -50%);
+
     position: fixed;
-    width: $width;
-    height: $height;
+    width: auto;
+    height: auto;
     z-index: $zIndex;
     margin: 0;
     top: 50%;
@@ -22,7 +33,7 @@
 }
 
 .lightBoxContainer {
-    @include centerDiv(auto, auto, 2);
+    @include centerDiv(80%, 80% , 2);
     text-align: center;
     background-color: #fff;
     span {

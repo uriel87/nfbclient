@@ -120,6 +120,7 @@ const AddTask = () => {
                                 placeholder="Please enter task startTime"
                                 value={inputs.startTime}
                                 onChange={handleOnChange}
+                                min={new Date().toISOString().substring(0,16)}
                                 />
                                 {errors && <p className="mediaInput-input-error">{errors.startTime}</p>}
                             </div>
@@ -135,6 +136,7 @@ const AddTask = () => {
                                 placeholder="Please enter task endTime"
                                 value={inputs.endTime}
                                 onChange={handleOnChange}
+                                min={inputs.startTime}
                                 />
                                 {errors && <p className="mediaInput-input-error">{errors.endTime}</p>}
                             </div>

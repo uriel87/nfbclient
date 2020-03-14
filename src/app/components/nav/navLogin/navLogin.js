@@ -24,6 +24,7 @@ export const NavLogin = () => {
             setIsLoading(true);
             const auth = JSON.parse(Cookies.get('auth'))
             const userDetalis = await fetchData(GET_USER_DETAILS(auth.userId))
+            console.log("getUserDetails.js - userDetalis", userDetalis)
             dispatch(setUser(userDetalis.getUserDetails))
             Cookies.set('user', userDetalis.getUserDetails)
             setUserDetails(userDetalis.getUserDetails)

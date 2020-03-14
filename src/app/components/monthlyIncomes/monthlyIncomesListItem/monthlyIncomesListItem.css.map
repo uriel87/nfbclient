@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "taskListItem.scss"
+        "monthlyIncomesListItem.scss"
     ],
     "names": [],
-    "file": "taskListItem.css"
+    "file": "monthlyIncomesListItem.css"
 }

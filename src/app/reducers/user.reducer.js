@@ -7,8 +7,9 @@ const initialState = {
 	name: null,
 	email: null,
 	tel: null,
-	taskList: [],
-	monthlyExpensesList: []
+	tasksList: [],
+	monthlyExpensesList: [],
+	monthlyIncomesList: []
 }
 
 
@@ -22,11 +23,12 @@ const userReducer = (state = initialState, action) => {
 				name: action.payload.name,
 				email: action.payload.email,
 				tel: action.payload.tel,
-				taskList: action.payload.taskList,
-				monthlyExpensesList: action.payload.monthlyExpensesList
+				tasksList: action.payload.tasksList,
+				monthlyExpensesList: action.payload.monthlyExpensesList,
+				monthlyIncomesList: action.payload.monthlyIncomesList
 			};
         default:
-            return state;
+            return state
     }
 };
 

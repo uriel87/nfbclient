@@ -1,17 +1,24 @@
-import React, { useEffect, memo } from 'react'
+
+import React, { memo, useCallback, useState } from 'react'
 import { useSelector } from "react-redux";
-import TaskListItem from '../tasks/taskListItem/taskListItem'
+import TasksList from './tasksList/tasksList'
 import Loading from '../loading/loading'
 import AddTask from '../tasks/addTask/addTask'
-import { filterTasksByDate } from '../../helpers/filters'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
 
 const Tasks = () => {
 
-    const tasksList = filterTasksByDate(useSelector(state => state.user.taskList))
+    const tasksList = useSelector(state => state.user.tasksList)
+    const [date, setDate] = useState("")
 
+    const handleChange = useCallback((event) => {
+        event.preventDefault();
+        const { value } = event.target;
+        setDate(value)
+    }, [])
+    
     if(!tasksList) {return (<Loading />)}
     return(
         <div>
@@ -19,11 +26,12 @@ const Tasks = () => {
                 <button type="button" className="check" data-toggle="modal" data-target="#addTask" data-backdrop="false">add task</button>
                 <AddTask />
             </div>
-            <div>
-                <h1>TaskList</h1>
-                { tasksList.map((task, index) => (
-                    <TaskListItem key={index} task={task} />
-                ))}
+            <div className="header-personal-page">
+                <h1 className="header-page">Tasks List</h1>
+                <form>
+                    <input type="month" value={date} onChange={handleChange} />
+                </form>
+                { tasksList.length ? <TasksList tasksList = { tasksList } date={date} /> : <h4>Don't have tasks</h4> }
             </div>
         </div>
     )

@@ -5,13 +5,15 @@ import Loading from '../loading/loading'
 import ExpensesList from '../expensesList/expensesList'
 import AddExpenses from '../addExpenses/addExpenses'
 import "./balance.css"
-import 'bootstrap/dist/css/bootstrap.css'
+import './node_modules/bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
 
 const Balance = () => {
     const [date, setDate] = useState("")
     const userMonthlyExpenses = useSelector(state => state.user.monthlyExpensesList)
+    console.log("in userMonthlyExpenses - props:", userMonthlyExpenses)
+
     
     const handleChange = useCallback((event) => {
         event.preventDefault();
@@ -23,7 +25,7 @@ const Balance = () => {
     return (
         <div>
             <div className="link-logout">
-                <button type="button" className="check" data-toggle="modal" data-target="#addExpenses" data-backdrop="false">Add Expenses</button>
+                <button type="button" className="check" data-toggle="modal" data-target="#addExpenses" data-backdrop="false">Add expenses</button>
                 <AddExpenses />
             </div>
             <div className="header-personal-page">
@@ -31,9 +33,7 @@ const Balance = () => {
                 <form>
                     <input type="month" value={date} onChange={handleChange} />
                 </form>
-                { userMonthlyExpenses.length ? <ExpensesList monthlyExpenses = { userMonthlyExpenses } date={date} /> : "Don't have monthly expenses" }
-
-                {/* <ExpensesList monthlyExpenses = { userMonthlyExpenses } date={date} /> */}
+                <ExpensesList monthlyExpenses = { userMonthlyExpenses } date={date} />
             </div>
       </div>
     )

@@ -1,10 +1,17 @@
 
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import "./home.css"
+import About from "../about/about";
 
 
 export const Home = () => {
 	console.log("render Home")
+	const [isOpenAbout, setIsOpenAbout] = useState(false)
+
+
+	const openAbout = () => {
+		setIsOpenAbout(!isOpenAbout)
+	}
 
     return (
 		<div className="home-container">

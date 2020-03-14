@@ -27,7 +27,8 @@ export const GET_USER_DETAILS = (userId) => {
               name
               email
               tel
-              taskList {
+              tasksList {
+                _id
                 name
                 description
                 category
@@ -45,6 +46,16 @@ export const GET_USER_DETAILS = (userId) => {
                 payment
                 paymentLeft
                 purchaseTime
+                year
+                month
+              }
+              monthlyIncomesList {
+                _id
+                name
+                description
+                amount
+                monthly
+                incomeTime
                 year
                 month
               }
