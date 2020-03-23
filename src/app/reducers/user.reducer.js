@@ -25,7 +25,8 @@ const userReducer = (state = initialState, action) => {
 				tel: action.payload.tel,
 				tasksList: action.payload.tasksList,
 				monthlyExpensesList: action.payload.monthlyExpensesList,
-				monthlyIncomesList: action.payload.monthlyIncomesList
+				monthlyIncomesList: action.payload.monthlyIncomesList,
+				monthlyBalanceList: action.payload.monthlyExpensesList.concat(action.payload.monthlyIncomesList)
 			};
         default:
             return state

@@ -1,7 +1,9 @@
 
 import React, { useState, memo } from 'react'
 import DeleteIncome from '../deleteIncome/deleteIncome'
-import EditIncomes from '../editIncomes/editIncomes'
+import EditIncome from '../editIncome/editIncome'
+import './monthlyIncomesListItem.css'
+
 
 export const MonthlyIncomesListItem = (props) => {
 
@@ -18,20 +20,19 @@ export const MonthlyIncomesListItem = (props) => {
 	}
 
     return (
-        <div>
+        <div className="MonthlyIncomesListItem"> 
             <p className="">ID - {income._id}</p>
             <p className="">name - {income.name}</p>
             <p className="">description - {income.description}</p>
             <p className="">amount - {income.amount}</p>
-            <p className="">incomeTime - {income.incomeTime}</p>
-            <p className="">startTime - {income.startTime}</p>
+            <p className="">time - {income.time}</p>
             <p className="">year - {income.year}</p>
             <p className="">month - {income.month}</p>
             <p className="">monthly - {String(income.monthly)}</p>
 
             <div className="link-logout">
                 <button onClick={openUpdateCmp.bind(this)}>Edit</button>
-			    { isEditCmpOpen? <EditIncomes income={income} isOpenCmp={isEditCmpOpen}/> : "" }
+			    { isEditCmpOpen? <EditIncome income={income} isOpenCmp={isEditCmpOpen}/> : "" }
             </div>
 
             <div className="link-logout">

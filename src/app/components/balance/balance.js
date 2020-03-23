@@ -1,43 +1,110 @@
 
-import React, { memo, useCallback, useState } from 'react'
-import { useSelector } from "react-redux";
-import Loading from '../loading/loading'
-import ExpensesList from '../expensesList/expensesList'
-import AddExpenses from '../addExpenses/addExpenses'
+import React, { memo } from 'react'
+import { Route, NavLink, HashRouter } from "react-router-dom";
+import MonthlyBalance from '../monthlyBalance/monthlyBalance'
+import MonthlyExpenses from '../monthlyExpenses/monthlyExpenses'
+import MonthlyIncomes from '../monthlyIncomes/monthlyIncomes'
+import AddIncome from '../monthlyIncomes/addIncome/addIncome'
+import AddExpense from '../monthlyExpenses/addExpense/addExpense'
 import "./balance.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
 
-const Balance = () => {
-    const [date, setDate] = useState("")
-    const userMonthlyExpenses = useSelector(state => state.user.monthlyExpensesList)
-    
-    const handleChange = useCallback((event) => {
-        event.preventDefault();
-        const { value } = event.target;
-        setDate(value)
-    }, [])
-    
-    if(!userMonthlyExpenses) {return (<Loading />)}
+const Balance = (props) => {
     return (
         <div>
-            <div className="link-logout">
-                <button type="button" className="check" data-toggle="modal" data-target="#addExpenses" data-backdrop="false">Add Expenses</button>
-                <AddExpenses />
+            <div>
+                <div>
+                    <div className="link-logout">
+                        <button type="button" className="check" data-toggle="modal" data-target="#addIncome" data-backdrop="false">Add Incomes</button>
+                        <AddIncome />
+                    </div>
+                    <div className="link-logout">
+                        <button type="button" className="check" data-toggle="modal" data-target="#addExpense" data-backdrop="false">Add Expenses</button>
+                        <AddExpense />
+                    </div>
+                </div>
             </div>
-            <div className="header-personal-page">
-                <h1 className="header-page">Balance</h1>
-                <form>
-                    <input type="month" value={date} onChange={handleChange} />
-                </form>
-                { userMonthlyExpenses.length ? <ExpensesList monthlyExpenses = { userMonthlyExpenses } date={date} /> : "Don't have monthly expenses" }
-
-                {/* <ExpensesList monthlyExpenses = { userMonthlyExpenses } date={date} /> */}
-            </div>
-      </div>
+            <HashRouter>
+                <div>
+                    <nav>
+                        <ul className="header">
+                            <li><NavLink to="/" >Monthly balance</NavLink></li>
+                            <li><NavLink to="/monthlyExpenses" >Monthly expenses</NavLink></li>
+                            <li><NavLink to="/monthlyIncomes" >Monthly incomes</NavLink></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div className="content">
+                    <Route path="/" exact component={MonthlyBalance} />
+                    <Route path="/monthlyExpenses" component={MonthlyExpenses} />
+                    <Route path="/monthlyIncomes" component={MonthlyIncomes} />
+                </div>
+            </HashRouter>
+        </div>
     )
 }
 
 export default memo(Balance)
+
+
+
+
+// const [page, setPage ] = useState()
+// const [monthlyBalance, setMonthlyBalance] = useState(useSelector(state => state.user.monthlyBalanceList))
+// const aaa="aaa"
+
+// const Epage = {
+//     MONTHLY_BALANCE: 'MonthlyBalance',
+//     MONTHLY_EXPENSES: 'MonthlyExpenses',
+//     MONTHLY_INCOMES: 'MonthlyIncomes'
+// }
+
+// const showPage = () => {
+//     switch(page) {
+//         case Epage.MONTHLY_BALANCE:
+//             return <MonthlyBalance monthlyBalance={monthlyBalance} date={date} />
+//         case Epage.MONTHLY_EXPENSES:
+//             return <MonthlyExpenses date={date} />
+//         case Epage.MONTHLY_INCOMES:
+//             return <MonthlyIncomes date={date} />
+//         default:
+//             return <MonthlyBalance monthlyBalance={monthlyBalance} date={date} />
+//     }
+// }
+
+
+// Provider.propTypes = {
+//     users: PropTypes.array,
+//     selectedUser: PropTypes.object
+//   };
+  
+//   Provider.defaultProps = {
+//     users: [],
+//     selectedUser: {}
+//   };
+
+
+
+// const [date, setDate] = useState()
+// // console.log("Balance - props.match.params", props.match.params)
+
+// useEffect(() => {
+//     // console.log("!useEffect - props.match.params", props.match.params)
+//     console.log("!useEffect - data", date)
+// }, [date]);
+
+// const handleChange = useCallback((event) => {
+//     event.preventDefault();
+//     const { value } = event.target;
+//     setDate(value)
+// }, [])
+
+
+
+
+
+
+
 

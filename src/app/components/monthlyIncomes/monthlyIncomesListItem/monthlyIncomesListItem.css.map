@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AACA,AAAA,uBAAuB,CAAC;EACpB,MAAM,EAAE,cAAc;EACtB,gBAAgB,EAAE,OAAO;CAC5B",
     "sources": [
         "monthlyIncomesListItem.scss"
     ],

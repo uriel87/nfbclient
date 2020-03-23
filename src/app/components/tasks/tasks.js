@@ -1,17 +1,23 @@
 
-import React, { memo, useCallback, useState } from 'react'
+import React, { memo, useCallback, useState, useEffect } from 'react'
 import { useSelector } from "react-redux";
 import TasksList from './tasksList/tasksList'
 import Loading from '../loading/loading'
 import AddTask from '../tasks/addTask/addTask'
+import{ filterTasksByDate } from '../../helpers/filters'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
 
 const Tasks = () => {
+    
+    const tasksListRedux = useSelector(state => state.user.tasksList)
+    const [date, setDate] = useState(new Date().toISOString().substr(0,7))
+    const [tasksList, setTasksList] = useState(filterTasksByDate(tasksListRedux, date))
 
-    const tasksList = useSelector(state => state.user.tasksList)
-    const [date, setDate] = useState("")
+    useEffect(() => {
+        setTasksList(filterTasksByDate(tasksListRedux, date))
+    }, [date, tasksListRedux]);
 
     const handleChange = useCallback((event) => {
         event.preventDefault();

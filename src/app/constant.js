@@ -9,8 +9,21 @@ const constantAuth = {
     setLogout: "SET_LOGOUT"
 }
 
+const constantLightBox = {
+    setOpenEditTask: "SET_OPEN_EDIT_TASK",
+    setOpenDeleteTask: "SET_OPEN_DELETE_TASK",
+
+    setOpenEditExpense: "SET_OPEN_EDIT_EXPENSE",
+    setOpenDeleteExpense: "SET_OPEN_DELETE_EXPENSE",
+
+    setOpenEditIncome: "SET_CLOSE_EDIT_INCOME",
+    setOpenDeleteIncome: "SET_CLOSE_DELETE_INCOME"
+}
+
+
 export {
     constantUser,
-    constantAuth
+    constantAuth,
+    constantLightBox
 }
 

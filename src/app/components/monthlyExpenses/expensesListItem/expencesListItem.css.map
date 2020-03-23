@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,iBAAiB,CAAC;EACd,MAAM,EAAE,cAAc;EACtB,gBAAgB,EAAE,OAAO;CAE5B",
+    "sources": [
+        "expencesListItem.scss"
+    ],
+    "names": [],
+    "file": "expencesListItem.css"
+}

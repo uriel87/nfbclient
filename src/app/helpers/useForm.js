@@ -8,6 +8,9 @@ const UseForm = (callback, validation) => {
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     const handleOnChange = (event) => {
+        console.log("handleOnChange - inputs", inputs)
+        console.log("handleOnChange - event", event.target)
+
         const { name, value, checked } = event.target;
 
         setSignupInputs({

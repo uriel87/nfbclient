@@ -39,15 +39,17 @@ export const GET_USER_DETAILS = (userId) => {
                 createTime
               }
               monthlyExpensesList {
+                _id
                 name
                 description
                 amount
+                monthly
                 category
-                payment
-                paymentLeft
-                purchaseTime
+                payments
+                time
                 year
                 month
+                isExpense
               }
               monthlyIncomesList {
                 _id
@@ -55,9 +57,10 @@ export const GET_USER_DETAILS = (userId) => {
                 description
                 amount
                 monthly
-                incomeTime
+                time
                 year
                 month
+                isExpense
               }
           }
       }`,

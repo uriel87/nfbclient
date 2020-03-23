@@ -28,16 +28,18 @@ export const CREATE_MONTHLY_EXPENSES = (inputs, userId) => {
           name
           description
           amount
+          monthly
           category
-          payment
+          payments
         }
       }`,
     variables: {
       name: inputs.name,
       description: inputs.description,
       amount: parseInt(inputs.amount),
+      monthly: inputs.monthly,
       category: inputs.category,
-      payment: parseInt(inputs.payments)
+      payments: parseInt(inputs.payments),
     },
     userId: userId
   }
@@ -74,8 +76,6 @@ export const CREATE_TASK = (inputs, userId) => {
 
 
 export const EDIT_USER = (inputs, userId) => {
-  console.log("render EDIT_USER inputs", inputs)
-
   return {
     query: `
       mutation editUser($editUserInput: EditUserInput) {
@@ -105,7 +105,7 @@ export const CREATE_MONTHLY_INCOMES = (inputs, userId) => {
           description
           amount
           monthly
-          incomeTime
+          time
           year
           month
         }
@@ -114,7 +114,7 @@ export const CREATE_MONTHLY_INCOMES = (inputs, userId) => {
       name: inputs.name,
       description: inputs.description,
       amount: parseInt(inputs.amount),
-      monthly: inputs.monthly || false
+      monthly: inputs.monthly || false,
     },
     userId: userId
   }
@@ -166,13 +166,26 @@ export const DELETE_TASK = (inputs, userId) => {
 }
 
 export const DELETE_INCOME = (inputs, userId) => {
-  console.log("in DELETE_INCOME inputs:", inputs)
-  console.log("in DELETE_INCOME userId:", userId)
-
   return {
     query: `
       mutation DeleteMonthlyIncomes($deleteMonthlyIncomesInput: DeleteMonthlyIncomesInput) {
         deleteMonthlyIncomes(deleteMonthlyIncomesInput: $deleteMonthlyIncomesInput){
+          _id
+        }
+      }`,
+    variables: {
+      _id: inputs._id,
+    },
+    userId: userId
+  }
+}
+
+
+export const DELETE_EXPENSE = (inputs, userId) => {
+  return {
+    query: `
+      mutation DeleteMonthlyExpense($deleteMonthlyExpenseInput: DeleteMonthlyExpenseInput) {
+        deleteMonthlyExpense(deleteMonthlyExpenseInput: $deleteMonthlyExpenseInput){
           _id
         }
       }`,
@@ -197,11 +210,34 @@ export const EDIT_INCOME = (inputs, userId) => {
       name: inputs.name,
       description: inputs.description,
       amount: parseInt(inputs.amount),
-      monthly: inputs.monthly || false
+      monthly: inputs.monthly || false,
     },
     userId: userId
   }
 }
+
+
+export const EDIT_EXPENSE = (inputs, userId) => {
+  return {
+    query: `
+      mutation EditMonthlyExpense($editMonthlyExpenseInput: EditMonthlyExpenseInput) {
+        editMonthlyExpense(editMonthlyExpenseInput: $editMonthlyExpenseInput){
+          _id
+        }
+      }`,
+    variables: {
+      _id: inputs.id,name: inputs.name,
+      description: inputs.description,
+      amount: parseInt(inputs.amount),
+      monthly: inputs.monthly,
+      category: inputs.category,
+      payments: parseInt(inputs.payments)
+    },
+    userId: userId
+  }
+}
+
+
 
 
 

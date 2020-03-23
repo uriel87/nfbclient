@@ -1,41 +1,44 @@
 
-import React, { memo, useCallback, useState } from 'react'
-import { useSelector, useDispatch } from "react-redux";
+import React, { memo, useState, useEffect, useCallback } from 'react'
+import { useSelector } from "react-redux";
 import Loading from '../loading/loading'
-import MonthlyIncomesList from './monthlyIncomesList/monthlyIncomesList'
-import AddIncomes from './addIncomes/addIncomes'
-import { filterByDate } from '../../helpers/filters'
-
-
+import MonthlyIncomesListItem from './monthlyIncomesListItem/monthlyIncomesListItem'
+import { filterMonthlyIncomesByDate, filterCheck } from '../../helpers/filters'
 import './monthlyIncomes.css'
 
 
-const MonthlyIncomes = () => {
-    // console.log("in MonthlyIncomes - monthlyIncomesList:", monthlyIncomesList)
-    const monthlyIncomesList = useSelector(state => state.user.monthlyIncomesList)
-    const [date, setDate] = useState("")
+const MonthlyIncomes = (props) => {
+    
+    const monthlyIncomesRedux = useSelector(state => state.user.monthlyIncomesList)
+    const [monthlyIncomes, setMonthlyIncomes] = useState(monthlyIncomesRedux)
+    const [date, setDate] = useState(new Date().toISOString().substr(0,7))
 
-
+    useEffect(() => {
+        setMonthlyIncomes(monthlyIncomesRedux)
+        // console.log("MonthlyIncomes - data", date)
+        // console.log("MonthlyIncomes - monthlyIncomesRedux", monthlyIncomesRedux)
+    }, [date, monthlyIncomesRedux]);
+    
     const handleChange = useCallback((event) => {
         event.preventDefault();
         const { value } = event.target;
         setDate(value)
     }, [])
 
+
+    if(!monthlyIncomes) {return (<Loading />)}
     return(
         <div>
             <div className="">
                 <h4 className="">Monthly incomes page</h4>
             </div>
-            <div className="link-logout">
-                <button type="button" className="check" data-toggle="modal" data-target="#addIncomes" data-backdrop="false">Add Incomes</button>
-                <AddIncomes />
-            </div>
+            <form>
+                <input type="month" value={date} onChange={handleChange} />
+            </form>
             <div className="header-personal-page">
-                <form>
-                    <input type="month" value={date} onChange={handleChange} />
-                </form>
-                { monthlyIncomesList.length ? <MonthlyIncomesList monthlyIncomesList = { monthlyIncomesList } date={date} /> : "Don't have monthly expenses" }
+                { monthlyIncomes.length ? monthlyIncomes.map((income, index) => (
+                    <MonthlyIncomesListItem key={index} income={income} />
+                )) : "Don't have monthly incomes"}
             </div>
         </div>
     )

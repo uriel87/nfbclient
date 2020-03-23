@@ -29,7 +29,7 @@ const Login = () => {
       const data = await fetchData(LOGIN_USER(inputs))
       dispatch(setLogin(data.login))
       Cookies.set('auth', data.login)
-      history.push('/balance');
+      history.push('/');
       setIsLoading(false);
     } catch(err) {
         console.log("error login.js - getUserToken")

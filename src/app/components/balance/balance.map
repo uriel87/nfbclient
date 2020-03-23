@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AACI,qBADiB,CACjB,YAAY,CAAA;EACR,UAAU,EAAE,MAAM;CACrB",
-    "sources": [
-        "personalArea.scss"
-    ],
-    "names": [],
-    "file": "personalArea.css"
-}

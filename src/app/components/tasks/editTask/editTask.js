@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from 'react'
+import React, { useState, useEffect, memo, useContext } from 'react'
 import UseForm from '../../../helpers/useForm'
 import validationEditTask from './validationEditTask'
 import Cookies from 'js-cookie'
@@ -14,7 +14,7 @@ const EditTask = (props) => {
     const priorities = ["LOW", "NORMAL", "HIGH", "URGENT"];
     const [ isLoading, setIsLoading ] = useState(false)
     const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, validationEditTask);
-    const task = props.task
+    const task = props.task    
 
     useEffect(() => {
 
@@ -76,134 +76,135 @@ const EditTask = (props) => {
 
     if(isLoading) {return (<Loading />)}
     return(
-        <div>
-            { isOpenCmp?
             <div>
-            <div className="lightBoxBackground" onClick={openCmp.bind(this)}></div>
-            <div className="lightBoxContainer">
-                <form onSubmit={handleOnSubmit.bind(task)}> 
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span onClick={openCmp.bind(this)}>&times;</span>
-                        </button>
-                        <div className="modal-header">
-                            <h4 className="modal-title">Edit task</h4>
-                            <h4 className="modal-title">{task.name}</h4>
-                        </div>
-                        <div className="modal-body">
-                            <div className="input-group mb-3">
-                                <input
-                                className={errors.name && "input-error"} 
-                                name="name"
-                                type="text"
-                                placeholder={task.name}
-                                value={inputs.name}
-                                onChange={handleOnChange}
-                                />
-                                {errors && <p className="mediaInput-input-error">{errors.name}</p>}
+                { isOpenCmp?
+                <div>
+                <div className="lightBoxBackground" onClick={openCmp.bind(this)}></div>
+                <div className="lightBoxContainer">
+                    <form onSubmit={handleOnSubmit.bind(task)}> 
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span onClick={openCmp.bind(this)}>&times;</span>
+                            </button>
+                            <div className="modal-header">
+                                <h4 className="modal-title">Edit task</h4>
+                                <h4 className="modal-title">{task.name}</h4>
                             </div>
-                        </div>
-
-                        <div className="modal-body">
-                            <div className="input-group mb-3">
-                                <input
-                                className={errors.description && "input-error"} 
-                                name="description"
-                                type="text"
-                                placeholder={task.description}
-                                value={inputs.description}
-                                onChange={handleOnChange}
-                                />
-                                {errors && <p className="mediaInput-input-error">{errors.description}</p>}
-                            </div>
-                        </div>
-
-                        <div className="form-group">
-                            <select
-                                className="form-control"
-                                id="taskCategory"
-                                name="category"
-                                onChange={handleOnChange}
-                                defaultValue={'DEFAULT'}
-                            >
-                                <option value="DEFAULT" disabled>Choose category</option>
-                                { categories.map((category, index) => { 
-                                    return <option key = {index} value={inputs.category}  >{category}</option>;
-                                })
-                                }
-                            </select>
-                            {errors && <p className="mediaInput-input-error">{errors.category}</p>}
-                        </div>
-
-                        <div className="form-group">
-                            <select
-                                className="form-control"
-                                id="taskPriority"
-                                name="priority"
-                                defaultValue={'DEFAULT'}
-                                onChange={handleOnChange}
-                            >
-                                <option value="DEFAULT" disabled>Choose priority</option>
-                                { priorities.map((priority, index) => { 
-                                    return <option key = {index} value={inputs.priority} >{priority}</option>;
-                                })
-                                }
-                            </select>
-                            {errors && <p className="mediaInput-input-error">{errors.priority}</p>}
-                        </div>
-
-                        <div className="modal-body">
-                            <div className="input-group mb-3">
-                                <label htmlFor="exampleFormControlSelect1">Start Time</label>
-                                <input
-                                className={errors.startTime && "input-error"} 
-                                name="startTime"
-                                type="datetime-local"
-                                placeholder="Please enter task startTime"
-                                value={inputs.startTime}
-                                onChange={handleOnChange}
-                                />
-                                {errors && <p className="mediaInput-input-error">{errors.startTime}</p>}
-                            </div>
-                        </div>
-
-                        <div className="modal-body">
-                            <div className="input-group mb-3">
-                                <label htmlFor="exampleFormControlSelect1">End time</label>
-                                <input
-                                className={errors.endTime && "input-error"} 
-                                name="endTime"
-                                type="datetime-local"
-                                placeholder="Please enter task endTime"
-                                value={inputs.endTime}
-                                onChange={handleOnChange}
-                                min={inputs.startTime}
-                                />
-                                {errors && <p className="mediaInput-input-error">{errors.endTime}</p>}
-                            </div>
-                        </div>
-
-                        <div className="form-group">
-                            <div className="form-check">
-                                <input
-                                    className={errors.daily && "input-error"} 
-                                    id="daily"
-                                    name="daily"
-                                    type="checkbox"
-                                    value={this}
+                            <div className="modal-body">
+                                <div className="input-group mb-3">
+                                    <input
+                                    className={errors.name && "input-error"} 
+                                    name="name"
+                                    type="text"
+                                    placeholder={task.name}
+                                    value={inputs.name}
                                     onChange={handleOnChange}
-                                />
-                                <label htmlFor="daily" className="form-check-label">Daily</label>
+                                    />
+                                    {errors && <p className="mediaInput-input-error">{errors.name}</p>}
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="modal-footer">
-                            <button type="submit" className="btn btn-primary">Edit task</button>
-                        </div>
-                    </form>
+                            <div className="modal-body">
+                                <div className="input-group mb-3">
+                                    <input
+                                    className={errors.description && "input-error"} 
+                                    name="description"
+                                    type="text"
+                                    placeholder={task.description}
+                                    value={inputs.description}
+                                    onChange={handleOnChange}
+                                    />
+                                    {errors && <p className="mediaInput-input-error">{errors.description}</p>}
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <select
+                                    className="form-control"
+                                    id="taskCategory"
+                                    name="category"
+                                    onChange={handleOnChange}
+                                    defaultValue={'DEFAULT'}
+                                >
+                                    <option value="DEFAULT" disabled>Choose category</option>
+                                    { categories.map((category, index) => { 
+                                        return <option key = {index} value={inputs.category}  >{category}</option>;
+                                    })
+                                    }
+                                </select>
+                                {errors && <p className="mediaInput-input-error">{errors.category}</p>}
+                            </div>
+
+                            <div className="form-group">
+                                <select
+                                    className="form-control"
+                                    id="taskPriority"
+                                    name="priority"
+                                    defaultValue={'DEFAULT'}
+                                    onChange={handleOnChange}
+                                >
+                                    <option value="DEFAULT" disabled>Choose priority</option>
+                                    { priorities.map((priority, index) => { 
+                                        return <option key = {index} value={inputs.priority} >{priority}</option>;
+                                    })
+                                    }
+                                </select>
+                                {errors && <p className="mediaInput-input-error">{errors.priority}</p>}
+                            </div>
+
+                            <div className="modal-body">
+                                <div className="input-group mb-3">
+                                    <label htmlFor="exampleFormControlSelect1">Start Time</label>
+                                    <input
+                                    className={errors.startTime && "input-error"} 
+                                    name="startTime"
+                                    type="datetime-local"
+                                    placeholder="Please enter task startTime"
+                                    value={inputs.startTime}
+                                    onChange={handleOnChange}
+                                    />
+                                    {errors && <p className="mediaInput-input-error">{errors.startTime}</p>}
+                                </div>
+                            </div>
+
+                            <div className="modal-body">
+                                <div className="input-group mb-3">
+                                    <label htmlFor="exampleFormControlSelect1">End time</label>
+                                    <input
+                                    className={errors.endTime && "input-error"} 
+                                    name="endTime"
+                                    type="datetime-local"
+                                    placeholder="Please enter task endTime"
+                                    value={inputs.endTime}
+                                    onChange={handleOnChange}
+                                    min={inputs.startTime}
+                                    />
+                                    {errors && <p className="mediaInput-input-error">{errors.endTime}</p>}
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <div className="form-check">
+                                    <input
+                                        className={errors.daily && "input-error"} 
+                                        id="daily"
+                                        name="daily"
+                                        type="checkbox"
+                                        value={this}
+                                        onChange={handleOnChange}
+                                    />
+                                    <label htmlFor="daily" className="form-check-label">Daily</label>
+                                </div>
+                            </div>
+
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-danger" onClick={openCmp.bind(this)} >Cancel</button>
+                                <button type="submit" className="btn btn-success">Edit task</button>
+                            </div>
+                        </form>
+                </div>
+                </div> : ""
+                }
             </div>
-            </div> : ""
-            }
-        </div>
     )
 
     // return(
