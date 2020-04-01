@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAEA,AACI,qBADiB,CACjB,YAAY,CAAA;EACR,UAAU,EAAE,MAAM;CACrB",
+    "mappings": "",
     "sources": [
         "balance.scss"
     ],

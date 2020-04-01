@@ -14,7 +14,15 @@ export const TasksList = (props) => {
 
     if(!tasks) {return (<Loading />)}
     return (
-        <div>
+        <div className="table-container">
+            <div className="flex-table-header">
+                <div className="flex-row">Name</div>
+                <div className="flex-row">Description</div>
+                <div className="flex-row">Category</div>
+                <div className="flex-row">priority</div>
+                <div className="flex-row">endTime</div>
+                <div className="flex-row">daily</div>
+            </div>
             { tasks.map((task, index) => (
                 <TasksListItem key={index} task={task} />
             ))}

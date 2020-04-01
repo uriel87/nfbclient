@@ -1,12 +1,12 @@
-import React, { createContext } from 'react'
+// import React, { createContext } from 'react'
 
 
-const editTaskContext = createContext({
-    isOpen: false,
-    setIsOpen: () => { return !this.isOpen }
-})
+// const editTaskContext = createContext({
+//     isOpen: false,
+//     setIsOpen: () => { return !this.isOpen }
+// })
 
 
-export default {
-    editTaskContext
-}
+// export default {
+//     editTaskContext
+// }

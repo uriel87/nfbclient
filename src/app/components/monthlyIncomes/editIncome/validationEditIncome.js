@@ -19,10 +19,6 @@ export default function validation(values) {
         }
     }
 
-    // if (values.amount) {
-    //     errors.amount = "Amount is requierd";
-    // }
-
     console.log("validation: ", errors)
 
     return errors;

@@ -1,7 +1,154 @@
 
 
-.header-personal-page {
-    .header-page{
-        text-align: center;
-    }
-}
+// // .header-personal-page {
+// //     .header-page{
+// //         text-align: center;
+// //     }
+// // }
+
+
+// $table-header: #e6e6e6;
+// $table-header-border: #47405d;
+// $table-border: #d9d9d9;
+// $row-bg: #e0e0e0;
+
+
+// .balance-actions{
+//     display: flex;
+//     flex-direction: row;
+//     margin: 2rem 0 0 0;
+//         .delete-income-btn, .add-income-btn {
+//             margin-left: 1rem;
+//             button {
+//                 background: linear-gradient(-45deg,#fff,#64b5f6);
+//                 width: 100px;
+//                 border-radius: 20px;
+//                 i {
+//                     margin: 0 0.5rem;
+//                 }
+//             }
+//         }
+// }
+
+// .nav-balance {
+//     margin: 1rem 0;
+//     ul {
+//         display: flex;
+//         margin: auto;
+//         li {
+//             flex-direction: row;
+//             list-style-type: none;
+//             text-decoration: none;
+//             margin: 0 1rem;
+//             a {
+//                 text-decoration: none;
+//             }
+//         }
+//     }
+// }
+
+
+// .header-content {
+//     h4 {
+//         font-size: 3rem;
+//         color: #79b0fa;
+//         text-align: center;
+//         margin: 2.5rem 0;
+//     }
+// }
+
+// .form-date {
+//     display: flex;
+//     flex-direction: column;
+// }
+
+// .table-container {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: nowrap;
+//     justify-content: center;
+//     align-items: stretch;
+//     align-content: space-around;
+//     font-size: 0.75rem;
+//     margin: 30px auto;
+//     width: 100%;
+//     text-align: center;
+
+//     // background: linear-gradient(-45deg,#f403d1,#64b5f6);
+
+//     .flex-table-header {
+//         display: flex;
+//         flex-flow: 1 1 100%;
+//         border-left: solid 1px $table-border;
+//         transition: 0.5s;
+//         background: $table-header-border;
+//         color: #eeeeee;
+//         font-weight: bold;
+//     }
+
+
+//     .flex-table-rows {
+//         display: flex;
+//         flex-direction: row; //row | row-reverse | column | column-reverse;
+//         // color: #eeeeee;
+//         &:nth-child(odd) {
+//             background: $table-header;
+//         }
+//     }
+
+//     .flex-row {
+//         width: calc(100% / 8);
+//         text-align: center;
+//         padding: 0.5em;
+//         border-bottom: solid 1px #d9d9d9;
+
+//         span {
+//             display: inline-block;
+//             color:  #2d2d2d;
+//             border: none;
+//             cursor: pointer;
+//         }
+
+//     }
+// }
+
+  
+//   @media screen and (max-width: 700px) {
+//     .table-container  {
+
+//         .flex-table-header {
+//             display: none;
+//         }
+        
+//         .flex-table-rows {
+//             display: block;
+//             width: 95%;
+//             margin: 0.35rem auto;
+//             border: 1px solid;
+//             padding: 0.35rem;
+//             box-shadow: 1px 2px #b9b9b9;
+            
+//             .flex-row {
+//                 display: block;
+//                 width: 90%;
+//                 text-align: right;
+//                 // padding: 4px 0px;
+//                 margin: 0px auto;
+
+//                 &:nth-last-child(-n+2) {
+//                     border-bottom: 0;
+//                     margin: 0 2.3rem;
+//                     display: flex;
+//                 }
+
+//                 &::before {
+//                     content: attr(data-label);
+//                     float: left;
+//                     font-weight: bold;
+//                     text-transform: uppercase;
+//                 }
+//             }
+//         }
+//     }
+
+// }

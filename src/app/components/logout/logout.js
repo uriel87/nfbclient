@@ -6,13 +6,12 @@ import './logout.css'
 export const Logout = () => {
 
   const history = useHistory();
-  console.log("render Logout")
+  // console.log("render Logout")
 
     const logout = (event) => {
-      console.log("submitted in logOut.js")
       Cookies.remove('auth')
       Cookies.remove('user')
-      history.push('/');	
+      history.push('/')
     }
 
     return(
@@ -20,10 +19,11 @@ export const Logout = () => {
         <div className="modal" id="logout">
           <div className="modal-dialog">
             <div className="modal-content">
-              <form onSubmit={logout}>
+              <form onSubmit={logout} className="form-lightBox">
+                
                 <div className="modal-header">
                   <h4 className="modal-title">logout</h4>
-                  <button type="button" className="close" data-dismiss="modal">&times;</button>
+                  <span type="button" className="close" data-dismiss="modal">&times;</span>
                 </div>
                 
                 <div className="modal-body">
@@ -34,8 +34,8 @@ export const Logout = () => {
                   <button type="submit" className="btn btn-success">Logout</button>
                   <button type="button" className="btn btn-danger" data-dismiss="modal">Cancel</button>
                 </div>
+
               </form>
-              
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { constantAuth } from '../constant'
 
 export function setLogin(auth) {
     return {
-        type: constantAuth.setLogin,
+        type: constantAuth.SET_LOGIN,
         payload: auth
     }
 }
@@ -12,7 +12,7 @@ export function setLogin(auth) {
 
 export function setLogout() {
     return {
-        type: constantAuth.setLogout,
+        type: constantAuth.SET_LOGOUT,
         payload: null
     }
 }

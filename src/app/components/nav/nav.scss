@@ -4,37 +4,34 @@
     box-sizing: border-box;
 }
 
-
-// a {
-//     &:hover {
-//         text-decoration: none;
-//     }
-// }
-
-
-// .modal.show {
-//     background-color:rgba(0, 0, 0, 0.5)
-// }
+nav {
+    display: flex;
+}
 
 .modal-content {
     z-index: 2;
+    padding: 20px 0px 35px;
+}
+
+.btn-danger {
+    margin-right: 20px;
 }
 
 .modal-backdrop {
     z-index: 0;
 }
 
-nav { 
+.nav-main { 
     display: flex;
-    flex: 1 2 100%;
-    justify-content: space-between;
+    // flex: 1 2 100%;
+    // justify-content: space-between;
     padding: .5%;
-    margin: 0 0 60px 0;
-    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 0 30px 0;
+    background: linear-gradient(-45deg, #ffe4fb, #b1dcff);
     // border: 1px solid #000;
 
     #logo {
-        flex: 1 1 100%;
+        flex: 1 3 100%;
         background-image: url('../../../images/nfb.png');
         background-repeat: no-repeat;
         display: block;
@@ -49,7 +46,7 @@ nav {
         justify-content: flex-end;
         align-items: center;
         font-size: 1.2rem;
-        //border: 1px solid #e70909;
+        // border: 1px solid #e70909;
         margin: 0;
 
         .nav-base {
@@ -61,7 +58,7 @@ nav {
                 justify-content: space-around;
                 align-items: center;
                 .link-logout {
-                    //border: 1px solid #008ac0;
+                    // border: 1px solid #008ac0;
                     margin-left: 2em;
                 }
             }
@@ -73,22 +70,216 @@ nav {
             a, button {
                 list-style-type: none;
                 padding: 5px;
-                //border: 1px solid #0829bb;
+                // border: 1px solid #0829bb;
                 //border-bottom: none;
                 color: #06005e;
                 transition: all  0.3s linear;
                 text-decoration: none;
-                margin: 0.8em;
+                margin-right: 0.8em;
+                font-size: 2vh;
                 cursor: pointer;
-
 
                 &:hover {
                     color: #6ec5ff;
-                    border-bottom: 0.5px solid #6ec5ff;
+                    // border-bottom: 0.5px solid #6ec5ff;
                 }
             }
         }
     }
 }
+
+
+
+$table-header: #e6e6e6;
+$table-header-border: #47405d;
+$table-border: #d9d9d9;
+$row-bg: #e0e0e0;
+
+
+.balance-actions{
+    display: flex;
+    flex-direction: row;
+    margin: 2rem 0 0 0;
+}
+
+.delete-income-btn, .add-income-btn {
+    margin-left: 1rem;
+    button {
+        background: linear-gradient(-45deg,#fff,#64b5f6);
+        width: 100px;
+        border-radius: 20px;
+        outline: none;
+        i, span {
+            margin: 0 0.5rem;
+        }
+    }
+}
+
+.nav-balance {
+    margin: 1rem 0;
+    ul {
+        display: flex;
+        margin: auto;
+        li {
+            flex-direction: row;
+            list-style-type: none;
+            text-decoration: none;
+            margin: 0 1rem;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+.header-content {
+    h4 {
+        font-size: 3rem;
+        color: #79b0fa;
+        text-align: center;
+        margin: 2.5rem 0;
+    }
+}
+
+.form-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: space-around;
+    font-size: 0.75rem;
+    margin: 30px auto;
+    width: 100%;
+    text-align: center;
+
+    // background: linear-gradient(-45deg,#f403d1,#64b5f6);
+
+    .flex-table-header {
+        display: flex;
+        flex-flow: 1 1 100%;
+        border-left: solid 1px $table-border;
+        transition: 0.5s;
+        background: $table-header-border;
+        color: #eeeeee;
+        font-weight: bold;
+    }
+
+
+    .flex-table-rows {
+        display: flex;
+        flex-direction: row; //row | row-reverse | column | column-reverse;
+        // color: #eeeeee;
+        &:nth-child(odd) {
+            background: $table-header;
+        }
+        &:nth-child(even) {
+            background: #d4d4d4;
+        }
+    }
+
+    .flex-row {
+        width: calc(100% / 8);
+        text-align: center;
+        padding: 0.5em;
+        border-bottom: solid 1px #d9d9d9;
+
+        span {
+            display: inline-block;
+            color:  #2d2d2d;
+            border: none;
+            cursor: pointer;
+        }
+
+    }
+}
+
+  
+  @media screen and (max-width: 700px) {
+    .table-container  {
+
+        .flex-table-header {
+            display: none;
+        }
+        
+        .flex-table-rows {
+            display: block;
+            width: 95%;
+            margin: 0.35rem auto;
+            border: 1px solid;
+            padding: 0.35rem;
+            box-shadow: 1px 2px #b9b9b9;
+            
+            .flex-row {
+                display: block;
+                width: 90%;
+                text-align: right;
+                // padding: 4px 0px;
+                margin: 0px auto;
+
+                &:nth-last-child(-n+2) {
+                    border-bottom: 0;
+                    margin: 0 2.3rem;
+                    display: flex;
+                }
+
+                &::before {
+                    content: attr(data-label);
+                    float: left;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+}
+
+
+  @media screen and (min-width: 520px) and (max-width: 820px) {
+    .nav-main { 
+        flex-direction: column;
+    
+        #logo {
+            flex: none;
+            // margin: auto;
+            text-align: center;
+        }
+    
+        .container-link {
+            justify-content: center;
+            margin: 20px 0;
+
+            .nav-base {
+    
+                .container-logout {
+
+                    .link-logout {
+
+                    }
+                }
+    
+                button {
+                    
+                }
+                
+                a, button {
+
+    
+                    &:hover {
+
+                    }
+                }
+            }
+        }
+    }
+  }
+
 
 

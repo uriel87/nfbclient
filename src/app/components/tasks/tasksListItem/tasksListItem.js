@@ -1,12 +1,13 @@
 
-import React, { useState, useCallback, memo } from 'react'
-import Loading from '../../loading/loading'
+import React, { useState, memo } from 'react'
+// import Loading from '../../loading/loading'
 import EditTask from '../editTask/editTask'
 import DeleteTask from '../deleteTask/deleteTask'
 
 
 export const TasksListItem = (props) => {
-    const [task, setTask] = useState(props.task)
+    // const [task, setTask] = useState(props.task)
+    const task = props.task
     const [isEditCmpOpen, setIsEditCmpOpen] = useState(false)
     const [isDeleteCmpOpen, setIsDeleteCmpOpen] = useState(false)
 
@@ -20,25 +21,23 @@ export const TasksListItem = (props) => {
 
     // if(isLoading) {return (<Loading />)}
     return (
-        <div>
-            <p className="">ID - {task._id}</p>
-            <p className="">name - {task.name}</p>
-            <p className="">description - {task.description}</p>
-            <p className="">category - {task.category}</p>
-            <p className="">priority - {task.priority}</p>
-            <p className="">startTime - {task.startTime}</p>
-            <p className="">endTime - {task.endTime}</p>
-            <p className="">createTime - {task.createTime}</p>
-            <p className="">daily - {String(task.daily)}</p>
 
-            <div className="link-logout">
-                <button onClick={openEditCmp.bind(this)}>Edit</button>
-			    { isEditCmpOpen? <EditTask task={task} isOpenCmp={isEditCmpOpen}/> : "" }
+        <div className="flex-table-rows"> 
+            <div className="flex-row" data-label="name">{task.name}</div>
+            <div className="flex-row" data-label="description">{task.description}</div>
+            <div className="flex-row" data-label="category">{task.category}</div>
+            <div className="flex-row" data-label="priority">{task.priority}</div>
+            <div className="flex-row" data-label="endTime">{task.endTime}</div>
+            <div className="flex-row" data-label="daily">{String(task.daily)}</div>
+
+            <div className="flex-row">
+                <span onClick={openEditCmp.bind(this)}><i className="far fa-edit action"></i></span>
+			    { isEditCmpOpen? <EditTask task={task} isOpenCmp={isEditCmpOpen}/> : <div></div> }
             </div>
 
-            <div className="link-logout">
-                <button onClick={openDeleteCmp.bind(this)}>Delete</button>
-			    { isDeleteCmpOpen? <DeleteTask task={task} isOpenCmp={isDeleteCmpOpen}/> : "" }
+            <div className="flex-row">
+                <span onClick={openDeleteCmp.bind(this)}><i className="far fa-trash-alt action"></i></span>
+			    { isDeleteCmpOpen? <DeleteTask task={task} isOpenCmp={isDeleteCmpOpen}/> : <div></div> }
             </div>
 
         </div>

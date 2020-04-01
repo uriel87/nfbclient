@@ -8,15 +8,17 @@ const initialState = {
 	email: null,
 	tel: null,
 	tasksList: [],
+	monthlyExpectedExpensesList: [],
 	monthlyExpensesList: [],
-	monthlyIncomesList: []
+	monthlyIncomesList: [],
+	monthlyBalanceList:[]
 }
 
 
 const userReducer = (state = initialState, action) => {
-	// console.log("userReducer - action:", action)
+	console.log("userReducer - action:", action)
     switch (action.type) {
-        case constantUser.setUser:
+        case constantUser.SET_USER:
 			return state = {
 				 ...state,
 				id: action.payload._id,
@@ -26,6 +28,7 @@ const userReducer = (state = initialState, action) => {
 				tasksList: action.payload.tasksList,
 				monthlyExpensesList: action.payload.monthlyExpensesList,
 				monthlyIncomesList: action.payload.monthlyIncomesList,
+				monthlyExpectedExpensesList: action.payload.monthlyExpectedExpensesList,
 				monthlyBalanceList: action.payload.monthlyExpensesList.concat(action.payload.monthlyIncomesList)
 			};
         default:

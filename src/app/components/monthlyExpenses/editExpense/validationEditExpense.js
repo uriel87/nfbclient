@@ -18,21 +18,12 @@ export default function validation(values) {
         }
     }
 
-    // if (!values.amount) {
-    //     errors.amount = "Amount is requierd";
-    // }
-
     if (values.payments) {
         if(parseInt(values.payments) < 1) {
             errors.payments = "Payments should at list 1 payments";
             console.log("validation - payments", errors.payments)
         }
     }
-
-    // if (!values.category) {
-    //     errors.category = "Please select category";
-    //     console.log("validation - category", errors.category)
-    // }
 
     return errors;   
 

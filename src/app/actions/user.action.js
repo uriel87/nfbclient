@@ -3,7 +3,7 @@ import { constantUser } from "../constant";
 
 export function setUser(user) {
     return {
-        type: constantUser.setUser,
+        type: constantUser.SET_USER,
         payload: user
     };
 }

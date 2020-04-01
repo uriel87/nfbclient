@@ -43,6 +43,7 @@ export const GET_USER_DETAILS = (userId) => {
                 name
                 description
                 amount
+                amountPerMonth
                 monthly
                 category
                 payments
@@ -57,10 +58,25 @@ export const GET_USER_DETAILS = (userId) => {
                 description
                 amount
                 monthly
+                category
                 time
                 year
                 month
                 isExpense
+              }
+              monthlyExpectedExpensesList {
+                _id
+                groceries
+                car
+                bills
+                fun
+                education
+                devices
+                clothings
+                other
+                year
+                month
+                totalExpectedExpenses
               }
           }
       }`,

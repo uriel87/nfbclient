@@ -3,7 +3,8 @@ import React, { memo, useState, useEffect, useCallback } from 'react'
 import { useSelector } from "react-redux";
 import Loading from '../loading/loading'
 import ExpensesListItem from './expensesListItem/expencesListItem'
-import { filterByDate } from '../../helpers/filters'
+import TableHeaderBalace from '../tableHeaderBalace/tableHeaderBalace'
+import { filterMonthlyExpensesByDate } from '../../helpers/filters'
 import "./monthlyExpenses.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
@@ -12,11 +13,11 @@ import 'bootstrap/dist/js/bootstrap.js'
 const MonthlyExpenses = (props) => {
 
     const monthlyExpensesRedux = useSelector(state => state.user.monthlyExpensesList)
-    const [monthlyExpenses, setMonthlyExpenses] = useState(monthlyExpensesRedux)
     const [date, setDate] = useState(new Date().toISOString().substr(0,7))
+    const [monthlyExpenses, setMonthlyExpenses] = useState(filterMonthlyExpensesByDate(monthlyExpensesRedux, date))
 
     useEffect(() => {
-        setMonthlyExpenses(monthlyExpensesRedux)
+        setMonthlyExpenses(filterMonthlyExpensesByDate(monthlyExpensesRedux, date))
         // console.log("MonthlyExpenses - data", date)
         // console.log("MonthlyExpenses - monthlyExpenses", monthlyExpenses)
     }, [date, monthlyExpensesRedux]);
@@ -30,13 +31,14 @@ const MonthlyExpenses = (props) => {
     if(!monthlyExpenses) {return (<Loading />)}
     return (
         <div>
-            <div className="">
-                <h4 className="">Monthly expenses page</h4>
+            <div className="header-content">
+                <h4 className="">Monthly expenses</h4>
             </div>
-            <form>
+            <form className="form-date">
                 <input type="month" value={date} onChange={handleChange} />
             </form>
-            <div className="header-personal-page">
+            <div className="table-container" aria-label="Destinations">
+                <TableHeaderBalace />
                 { monthlyExpenses.length ? monthlyExpenses.map((expense, index) => (
                     <ExpensesListItem key={index} expense={expense} />
                 )) : "Don't have monthly expenses"}

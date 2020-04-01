@@ -1,4 +1,11 @@
 
+
+
+.form-lightBox {
+    width: 80%;
+}
+
+
 @mixin centerDiv($width, $height, $zIndex) {
     position: fixed;
     width: $width;

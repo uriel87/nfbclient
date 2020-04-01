@@ -20,7 +20,7 @@ export const SIGNUP = (inputs) => {
 }
 
 
-export const CREATE_MONTHLY_EXPENSES = (inputs, userId) => {
+export const CREATE_MONTHLY_EXPENSE = (inputs, userId) => {
   return {
     query: `
       mutation CreateMonthlyExpenses($monthlyExpenesInput: MonthlyExpensesInput) {
@@ -28,6 +28,7 @@ export const CREATE_MONTHLY_EXPENSES = (inputs, userId) => {
           name
           description
           amount
+          amountPerMonth
           monthly
           category
           payments
@@ -36,7 +37,7 @@ export const CREATE_MONTHLY_EXPENSES = (inputs, userId) => {
     variables: {
       name: inputs.name,
       description: inputs.description,
-      amount: parseInt(inputs.amount),
+      amount: parseFloat(inputs.amount),
       monthly: inputs.monthly,
       category: inputs.category,
       payments: parseInt(inputs.payments),
@@ -75,7 +76,7 @@ export const CREATE_TASK = (inputs, userId) => {
 }
 
 
-export const EDIT_USER = (inputs, userId) => {
+export const EDIT_USER = (inputs, userId, fallBack) => {
   return {
     query: `
       mutation editUser($editUserInput: EditUserInput) {
@@ -86,10 +87,10 @@ export const EDIT_USER = (inputs, userId) => {
         }
     }`,
     variables: {
-      email: inputs.email,
-      name: inputs.name,
-      password: inputs.password,
-      tel: inputs.tel
+      email: inputs.email || fallBack.email,
+      name: inputs.name || fallBack.name,
+      password: inputs.password || fallBack.password,
+      tel: inputs.tel || fallBack.tel
     },
     userId: userId
   }
@@ -108,19 +109,45 @@ export const CREATE_MONTHLY_INCOMES = (inputs, userId) => {
           time
           year
           month
+          category
         }
       }`,
     variables: {
       name: inputs.name,
       description: inputs.description,
-      amount: parseInt(inputs.amount),
+      amount: parseFloat(inputs.amount),
+      category: inputs.category,
       monthly: inputs.monthly || false,
     },
     userId: userId
   }
 }
 
-export const EDIT_TASK = (inputs, userId) => {
+export const CREATE_EXPECTED_EXPENSES = (inputs, userId) => {
+  return {
+    query: `
+      mutation CreateMonthlyExpectedExpenses($monthlyExpectedExpensesInput: MonthlyExpectedExpensesInput) {
+        createMonthlyExpectedExpenses(monthlyExpectedExpensesInput: $monthlyExpectedExpensesInput){
+          _id
+        }
+      }`,
+    variables: {
+      groceries: parseInt(inputs.groceries),
+      car: parseInt(inputs.car),
+      bills: parseInt(inputs.bills),
+      fun: parseInt(inputs.fun),
+      education: parseInt(inputs.education),
+      devices: parseInt(inputs.devices),
+      clothings: parseInt(inputs.clothings),
+      other: parseInt(inputs.other)
+    },
+    userId: userId
+  }
+}
+
+
+export const EDIT_TASK = (inputs, userId, fallBack) => {
+  console.log("EDIT_TASK - fallBack", fallBack)
   return {
     query: `
       mutation EditTask($editTaskInput: EditTaskInput) {
@@ -136,13 +163,13 @@ export const EDIT_TASK = (inputs, userId) => {
         }
       }`,
     variables: {
-      _id: inputs.id,
-      name: inputs.name,
-      description: inputs.description,
-      category: inputs.category,
-      priority: inputs.priority,
-      startTime: inputs.startTime,
-      endTime: inputs.endTime,
+      _id: fallBack._id,
+      name: inputs.name || fallBack.name,
+      description: inputs.description || fallBack.description,
+      category: inputs.category || fallBack.category,
+      priority: inputs.priority || fallBack.priority,
+      startTime: inputs.startTime || fallBack.startTime,
+      endTime: inputs.endTime || fallBack.endTime,
       daily: inputs.daily || false
     },
     userId: userId
@@ -197,7 +224,7 @@ export const DELETE_EXPENSE = (inputs, userId) => {
 }
 
 
-export const EDIT_INCOME = (inputs, userId) => {
+export const EDIT_INCOME = (inputs, userId, fallBack) => {
   return {
     query: `
       mutation EditMonthlyIncomes($editMonthlyIncomesInput: EditMonthlyIncomesInput) {
@@ -206,18 +233,19 @@ export const EDIT_INCOME = (inputs, userId) => {
         }
       }`,
     variables: {
-      _id: inputs.id,
-      name: inputs.name,
-      description: inputs.description,
-      amount: parseInt(inputs.amount),
-      monthly: inputs.monthly || false,
+      _id: fallBack._id,
+      name: inputs.name || fallBack.name,
+      description: inputs.description || fallBack.description,
+      amount: parseFloat(inputs.amount) || fallBack.amount,
+      category: inputs.category || fallBack.category,
+      monthly: inputs.monthly || fallBack.monthly || false,
     },
     userId: userId
   }
 }
 
 
-export const EDIT_EXPENSE = (inputs, userId) => {
+export const EDIT_EXPENSE = (inputs, userId, fallBack) => {
   return {
     query: `
       mutation EditMonthlyExpense($editMonthlyExpenseInput: EditMonthlyExpenseInput) {
@@ -226,21 +254,17 @@ export const EDIT_EXPENSE = (inputs, userId) => {
         }
       }`,
     variables: {
-      _id: inputs.id,name: inputs.name,
-      description: inputs.description,
-      amount: parseInt(inputs.amount),
-      monthly: inputs.monthly,
-      category: inputs.category,
-      payments: parseInt(inputs.payments)
+      _id: fallBack._id,
+      name: inputs.name || fallBack.name,
+      description: inputs.description || fallBack.description,
+      amount: parseFloat(inputs.amount) || fallBack.amount,
+      monthly: inputs.monthly || fallBack.monthly,
+      category: inputs.category || fallBack.category,
+      payments: parseInt(inputs.payments) || fallBack.payments
     },
     userId: userId
   }
 }
-
-
-
-
-
 
 
 

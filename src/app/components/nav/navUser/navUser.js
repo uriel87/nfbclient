@@ -9,11 +9,12 @@ import './navUser.css'
 
 
 export const NavUser = (props) => {
-    console.log("render NavUser")
-
+    // console.log("render NavUser")
     const [isDropdown, setIsDropDown] = useState(false)
     const [showLogout, setShowLogout] = useState(false)
-    const [user, setUser] = useState(props.user)
+    // const [user, setUser] = useState(props.user)
+    const user = props.user
+
     
     function setDropdown() {
         setIsDropDown(!isDropdown)
@@ -26,7 +27,7 @@ export const NavUser = (props) => {
     if(!user) {return <div></div>}
     return (
         <div className="dropdown">
-            <button onClick= {setDropdown} className="">Hi {user.name}</button>
+            <button onClick= {setDropdown} className="">Hi {user.name} <i className="fas fa-caret-down"></i></button>
             <div id="navUser" className= { `dropdown-content ${isDropdown ? "" : "hide" }`}>
                 <ul>
                     <li><Link to="/settings" >Settings</Link></li>

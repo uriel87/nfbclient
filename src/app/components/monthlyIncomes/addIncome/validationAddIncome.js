@@ -22,6 +22,11 @@ export default function validation(values) {
         errors.amount = "Amount is requierd";
     }
 
+    if (!values.category) {
+        errors.category = "Please select category";
+        console.log("validation - category", errors.category)
+    }
+
     console.log("validation: ", errors)
 
     return errors;

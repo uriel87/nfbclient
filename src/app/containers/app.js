@@ -7,8 +7,7 @@ import Nav from "../components/nav/nav"
 
 
 export const App = () => {
-    console.log("render App")
-
+    // console.log("render App")
     return (
         <Router>
             <div className="container"></div>

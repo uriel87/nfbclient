@@ -8,8 +8,7 @@ import './navLogout.css'
 
 
 export const NavLogout = () => {
-    console.log("render NavLogout")
-
+    // console.log("render NavLogout")
     return(
         <div className="container-logout">
             <div className="link-logout">

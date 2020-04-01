@@ -7,7 +7,8 @@ import './monthlyIncomesListItem.css'
 
 export const MonthlyIncomesListItem = (props) => {
 
-    const [income, setIncome] = useState(props.income)
+    // const [income, setIncome] = useState(props.income)
+    const income = props.income
     const [isEditCmpOpen, setIsEditCmpOpen] = useState(false)
     const [isDeleteCmpOpen, setIsDeleteCmpOpen] = useState(false)
 
@@ -20,24 +21,22 @@ export const MonthlyIncomesListItem = (props) => {
 	}
 
     return (
-        <div className="MonthlyIncomesListItem"> 
-            <p className="">ID - {income._id}</p>
-            <p className="">name - {income.name}</p>
-            <p className="">description - {income.description}</p>
-            <p className="">amount - {income.amount}</p>
-            <p className="">time - {income.time}</p>
-            <p className="">year - {income.year}</p>
-            <p className="">month - {income.month}</p>
-            <p className="">monthly - {String(income.monthly)}</p>
+        <div className="flex-table-rows"> 
+            <div className="flex-row" data-label="name">{income.name}</div>
+            <div className="flex-row" data-label="description">{income.description}</div>
+            <div className="flex-row" data-label="amount">{income.amount}</div>
+            <div className="flex-row" data-label="category">{income.category}</div>
+            <div className="flex-row" data-label="time">{income.time}</div>
+            <div className="flex-row" data-label="payments"> - </div>
 
-            <div className="link-logout">
-                <button onClick={openUpdateCmp.bind(this)}>Edit</button>
-			    { isEditCmpOpen? <EditIncome income={income} isOpenCmp={isEditCmpOpen}/> : "" }
+            <div className="flex-row">
+                <span onClick={openUpdateCmp.bind(this)}><i className="far fa-edit action"></i></span>
+			    { isEditCmpOpen? <EditIncome income={income} isOpenCmp={isEditCmpOpen}/> : <div></div> }
             </div>
 
-            <div className="link-logout">
-                <button onClick={openDeleteCmp.bind(this)}>Delete</button>
-			    { isDeleteCmpOpen? <DeleteIncome income={income} isOpenCmp={isDeleteCmpOpen}/> : "" }
+            <div className="flex-row">
+                <span onClick={openDeleteCmp.bind(this)}><i className="far fa-trash-alt action"></i></span>
+			    { isDeleteCmpOpen? <DeleteIncome income={income} isOpenCmp={isDeleteCmpOpen}/> : <div></div> }
             </div>
         </div>
     )

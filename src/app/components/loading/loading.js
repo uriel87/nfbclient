@@ -4,8 +4,6 @@ import './loading.css'
 
 
 export const Loading = () => {
-    console.log("render Loading")
-
     return (
         <div className="loader-container">
             <div className="loader"></div>

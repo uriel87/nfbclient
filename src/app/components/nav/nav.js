@@ -11,11 +11,11 @@ import './nav.css'
 
 
 export const Nav  = () => {
-    console.log("render Nav")
+    // console.log("render Nav")
     const history = useHistory();
     const auth = useSelector(state => state.auth);
     const[isLoggedin, setIsLoggedin] = useState(false)
-    const [ isLoading, setIsLoading ] = useState(false)
+    // const[isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         Cookies.get('auth')? setIsLoggedin(true) : setLogout()
@@ -28,12 +28,11 @@ export const Nav  = () => {
         history.push('/');	
     }
 
-    if(isLoading) {return <div></div>}
-
+    // if(isLoading) {return <div></div>}
     return(
         <div>
-            <nav>
-                <Link id="logo" to="/" className="check"></Link>
+            <nav className="nav-main">
+                <Link id="logo" to="/" ></Link>
                 <div className="container-link">
                     <div className="nav-base">
                         <Link to="/about">About</Link>

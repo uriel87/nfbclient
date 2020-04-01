@@ -8,18 +8,15 @@ const initalState = {
 }
 
 const authReducer = (state = initalState, action) => {
-    console.log("authReducer inputs", action)
-
     switch(action.type) {
-        
-        case constantAuth.setLogin:
+        case constantAuth.SET_LOGIN:
             return state = {
                 ...state,
                 token: action.payload.token,
                 userId: action.payload.userId,
                 tokenExpiration: action.payload.tokenExpiration
             }
-        case constantAuth.setLogout:
+        case constantAuth.SET_LOGOUT:
             return state = {
                 token: null,
                 userId: null,
