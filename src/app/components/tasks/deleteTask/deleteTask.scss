@@ -27,12 +27,12 @@
 }
 
 
-.lightBoxBackground {
+.lightboxBackground {
     @include centerDiv(100%, 100% , 1);
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.lightBoxContainer {
+.lightboxContainer {
     @include centerDiv(80%, 80% , 2);
     text-align: center;
     background-color: #fff;

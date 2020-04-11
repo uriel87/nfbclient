@@ -1,3 +1,7 @@
+
+import { validationErrors } from "../../../helpers/errors"
+
+
 export default function validation(values) {
 
     console.log("validation - actions", values)
@@ -6,36 +10,15 @@ export default function validation(values) {
 
     if (values.name) {
         if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/.test(values.name)) {
-            errors.name = "Name should have only in English characters and numbers"
+            errors.name = validationErrors.NAME_IN_ENGLISH
         }
     }
 
     if (values.description) {
         if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/.test(values.description)) {
-            errors.description = "Description should have only in English characters and numbers"
+            errors.description = validationErrors.DESCRIPTION_IN_ENGLISH
         }
     }
-
-    // if (!values.category) {
-    //     errors.category = "Please select Category";
-    // }
-
-    // if (!values.priority) {
-    //     errors.priority = "Please select Priority";
-    // }
-
-    // if (!values.startTime) {
-    //     errors.startTime = "Please select Start time";
-    // }
-
-    // if (!values.endTime) {
-    //     errors.endTime = "Please select End time";
-    // }
-
-    console.log("validation: ", errors)
-
-
-
 
     return errors;
 

@@ -3,17 +3,22 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "../routes/routes";
 import Nav from "../components/nav/nav"
-
+import Footer from "../components/footer/footer";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 
 
 export const App = () => {
     // console.log("render App")
     return (
-        <Router>
-            <div className="container"></div>
-            <Nav />
-            <Routes />
-        </Router>
+        <div className="app-container">
+            <Router>
+                <Nav />
+                <Routes />
+                <Footer />
+            </Router>
+        </div>
+
     );
 };
 

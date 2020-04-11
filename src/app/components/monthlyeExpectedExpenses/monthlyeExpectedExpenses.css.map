@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AAAA,4BAA4B,CAAC;EACzB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,MAAM;EACf,UAAU,EAAE,MAAM;CACrB;;AAGD,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAC/B,AAAA,4BAA4B,CAAC;IACzB,KAAK,EAAE,GAAG;IACV,OAAO,EAAE,IAAI;GAChB",
     "sources": [
         "monthlyeExpectedExpenses.scss"
     ],

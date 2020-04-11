@@ -1,11 +1,5 @@
-.modal-body label {
-  margin: 0 0.5em;
-  display: block;
-}
-
-.modal-body input {
-  overflow: visible;
-  width: 100%;
-  padding: 0.5em;
+.login-container {
+  padding: 0 20%;
+  margin: auto;
 }
 /*# sourceMappingURL=login.css.map */

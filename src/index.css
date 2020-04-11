@@ -1,33 +1,62 @@
-
-
-html,
-body {
-  height: 100%;
+@charset "UTF-8";
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+.cta-btn {
+  width: 60%;
+  height: 50px;
+  border-radius: 30px;
+  background: #2A2A72;
+  color: #f5f6f7;
+  border: none;
+  -webkit-box-shadow: 1px 2px #a9acaf;
+          box-shadow: 1px 2px #a9acaf;
+  margin-top: 25px;
 }
 
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column;
+.cta-btn:active {
+  position: relative;
+  top: 1px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.cta-btn:hover {
+  background: #13A6E8;
 }
 
-
-#root {
-  display: flex;
-  flex-direction: column;
-  height: inherit;
-  background-color: #f7f6f6;
-  font-size: 16px;
+.cta-btn:focus {
+  outline: none;
 }
 
+.header-name {
+  font-size: 5vw;
+  text-align: center;
+  color: #2A2A72;
+  margin: 25px 0;
+}
+
+.page-container {
+  padding: 50px 0;
+  width: 90%;
+  margin: auto;
+}
+
+.edit-btn-lightbox .btn-open-lightbox {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.edit-btn-lightbox .btn-open-lightbox:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-dialog .btn-open-dialog {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-dialog .btn-open-dialog:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+/*# sourceMappingURL=index.css.map */

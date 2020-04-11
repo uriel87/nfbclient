@@ -63,7 +63,7 @@ export default memo(NavLogin);
 // import Cookies from 'js-cookie'
 // import validationAuth from "./validationAuth"
 // import UseForm from '../../helpers/useForm'
-// import Input from '../../components/Input/Input'
+// import Input from '../../components/input/input'
 // import { formInputType, formName } from '../../constant'
 
 

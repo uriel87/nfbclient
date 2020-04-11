@@ -2,10 +2,12 @@
 import React, { memo } from 'react'
 import UseForm from '../../helpers/useForm'
 import validationExpectedExpenses from './validationExpectedExpenses'
-import Input from '../../components/Input/Input'
+import Input from '../../components/input/input'
 import { actionFetch } from '../../helpers/actionFetch'
 import { fetchAction } from '../../constant'
 import { formInputType, formName } from '../../constant'
+import"./monthlyeExpectedExpenses.css"
+import "../../../index.css"
 
 
 
@@ -18,80 +20,93 @@ const MonthlyeExpectedExpenses = (props) => {
     }
 
     return(
-        <div>
-            <div className="">
-                <form onSubmit={handleOnSubmit}>
-                    <div className="modal-header">
-                        <h4 className="modal-title">Expected expenses</h4>
-                    </div>
+        <div className="expected-expenses-container">
+            <h4 className="header-name">Expected expenses</h4>
+            <form onSubmit={handleOnSubmit}>
 
-                    <Input
-                        name={formName.GROCERIES}
-                        placeholder={formName.GROCERIES}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.groceries}
-                        value={inputs.groceries} />
+                <Input
+                    name={formName.GROCERIES}
+                    label={formName.GROCERIES}
+                    placeholder={formName.GROCERIES}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.groceries}
+                    value={inputs.groceries}
+                    min={"0"} />
 
-                    <Input
-                        name={formName.CAR}
-                        placeholder={formName.CAR}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.car}
-                        value={inputs.car} />
+                <Input
+                    name={formName.CAR}
+                    label={formName.CAR}
+                    placeholder={formName.CAR}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.car}
+                    value={inputs.car}
+                    min={"0"} />
 
-                    <Input
-                        name={formName.BILLS}
-                        placeholder={formName.BILLS}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.bills}
-                        value={inputs.bills} />
+                <Input
+                    name={formName.BILLS}
+                    label={formName.BILLS}
+                    placeholder={formName.BILLS}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.bills}
+                    value={inputs.bills}
+                    min={"0"} />
 
-                    <Input
-                        name={formName.FUN}
-                        placeholder={formName.FUN}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.fun}
-                        value={inputs.fun} />
+                <Input
+                    name={formName.FUN}
+                    label={formName.FUN}
+                    placeholder={formName.FUN}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.fun}
+                    value={inputs.fun}
+                    min={"0"} />
 
-                    <Input
-                        name={formName.EDUCATION}
-                        placeholder={formName.EDUCATION}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.education}
-                        value={inputs.education} />
+                <Input
+                    name={formName.EDUCATION}
+                    label={formName.EDUCATION}
+                    placeholder={formName.EDUCATION}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.education}
+                    value={inputs.education}
+                    min={"0"} />
 
-                    <Input
-                        name={formName.DEVICES}
-                        placeholder={formName.DEVICES}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.devices}
-                        value={inputs.devices} />
+                <Input
+                    name={formName.DEVICES}
+                    label={formName.DEVICES}
+                    placeholder={formName.DEVICES}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.devices}
+                    value={inputs.devices}
+                    min={"0"} />
 
-                    <Input
-                        name={formName.CLOTHINGS}
-                        placeholder={formName.CLOTHINGS}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.clothings}
-                        value={inputs.clothings} />
+                <Input
+                    name={formName.CLOTHINGS}
+                    label={formName.CLOTHINGS}
+                    placeholder={formName.CLOTHINGS}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.clothings}
+                    value={inputs.clothings}
+                    min={"0"} />
 
-                    <Input
-                        name={formName.OTHER}
-                        placeholder={formName.OTHER}
-                        type={formInputType.NUMBER}
-                        handleOnChange={handleOnChange}
-                        error={errors.other}
-                        value={inputs.other} />
+                <Input
+                    name={formName.OTHER}
+                    label={formName.OTHER}
+                    placeholder={formName.OTHER}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.other}
+                    value={inputs.other}
+                    min={"0"} />
 
-                    <button type="submit" className="btn btn-success">Save</button>
-                </form>
-            </div>
+                <button type="submit" className="cta-btn">Save</button>
+
+            </form>
         </div>
     )
 }

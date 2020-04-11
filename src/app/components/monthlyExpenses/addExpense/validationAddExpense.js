@@ -1,3 +1,8 @@
+
+
+import { validationErrors } from "../../../helpers/errors"
+
+
 export default function validation(values) {
 
     let errors = {};
@@ -5,31 +10,29 @@ export default function validation(values) {
     console.log("validation - actions", values)
 
     if (!values.name) {
-        errors.name = "Name is requierd";
+        errors.name = validationErrors.REQUIRED_NAME
     } else if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
         .test(values.name)) {
-        errors.name = "Name should have only in English characters and numbers"
+        errors.name = validationErrors.NAME_IN_ENGLISH
     }
 
     if (!values.description) {
-        errors.description = "Description is requierd";
+        errors.description = validationErrors.REQUIRED_DESCRIPTION
     } else if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
         .test(values.description)) {
-        errors.description = "Description should have only in English characters and numbers"
+        errors.description = validationErrors.DESCRIPTION_IN_ENGLISH
     }
 
     if (!values.amount) {
-        errors.amount = "Amount is requierd";
+        errors.amount = validationErrors.REQUIRED_AMOUNT
     }
 
     if (!values.payments || parseInt(values.payments) < 1) {
-        errors.payments = "Payments should at list 1 payment";
-        console.log("validation - payments", errors.payments)
+        errors.payments = validationErrors.PAYMENTS_MIN
     }
 
     if (!values.category) {
-        errors.category = "Please select category";
-        console.log("validation - category", errors.category)
+        errors.category = validationErrors.REQUIRED_CATEGORY
     }
 
     return errors;   

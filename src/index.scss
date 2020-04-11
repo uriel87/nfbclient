@@ -1,0 +1,136 @@
+
+// @import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+
+$primary-color: #2A2A72;
+$secondary-color1: #13A6E8;
+$secondary-color2: #FFA400;
+$secondary-color3: #ffd200;
+
+$dive-grey-1: #f5f6f7;
+$dive-grey-2: #e9ecef;
+$dive-grey-3: #a9acaf;
+$dive-grey-4: #67697c;
+$dive-grey-5: #434649;
+$dive-grey-6: #F2B922;
+
+$fontawesome: 'Font Awesome 5 Free'; //FontAwesome
+$delete-icon: "\f2ed";
+$edit-icon: "\f044";
+$plus-icon: "\f067";
+$minus-icon: "\f068";
+$task-list-icon: "\f15c";
+$credit-card-icon: "\f09d";
+$piggy-bank-icon: "\f4d3";
+
+
+
+
+
+.cta-btn {
+    width: 60%;
+    height: 50px;
+    border-radius: 30px;
+    background: $primary-color;
+    color: $dive-grey-1;
+    border: none;
+    box-shadow: 1px 2px $dive-grey-3;
+    margin-top: 25px;
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+
+    &:hover {
+      background: $secondary-color1;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.header-name {
+  font-size: 5vw;
+  text-align: center;
+  color: $primary-color;
+  margin: 25px 0;
+}
+
+
+.page-container {
+  padding: 50px 0;
+  width: 90%;
+  margin: auto;
+}
+
+
+.edit-btn-lightbox{
+  .btn-open-lightbox{
+      background-color: transparent;
+      outline: none;
+      border: none;
+
+      &:before {
+        content: $edit-icon;
+        font-family: $fontawesome
+      }
+
+  }
+}
+
+
+.delete-btn-dialog {
+  .btn-open-dialog {
+      background-color: transparent;
+      outline: none;
+      border: none;
+
+      &:before {
+        content: $delete-icon;
+        font-family: $fontawesome
+      }
+
+  }
+}
+
+
+
+@mixin icon-btn($icon-before, $icon-after) {  
+  flex: 1;
+  outline: none;
+  border: none;
+  width: 80px;
+  height: 40px;
+  background-color: #2A2A72;
+  color: #f5f6f7;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 1px 3px #a9acaf;
+  font-family: "FontAwesome";
+  margin: 10px 5px;
+
+  &:before {
+      content: $icon-before;
+      margin: 0 5px;
+  }
+
+  @if $icon-after {
+      &:after {
+        content: $icon-after;
+        margin: 0 5px;
+    }
+  }
+
+  &:hover {
+      background-color: $icon-after;
+  }
+
+  &:active {
+      background-color: $secondary-color1;
+      position: relative;
+      top: 1px;
+  }
+
+}

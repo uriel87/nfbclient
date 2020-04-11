@@ -1,8 +1,276 @@
-.home-container {
+@import url("https://fonts.googleapis.com/css?family=Proza+Libre");
+@import url("https://fonts.googleapis.com/css?family=Unna");
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oranienbaum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap");
+.container {
+  width: 100%;
   height: 100%;
+  min-height: 100%;
 }
 
-.home-container .home-text {
+.router-conatainer {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.home-container {
+  background-color: #fcfcfc;
+}
+
+.home-container .home-wallpaper {
+  min-height: 87%;
+  height: 500px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../../../images/background-nfb3.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../../images/background-nfb3.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  font-family: 'Proza Libre', sans-serif;
+}
+
+.home-container .home-wallpaper .home-title {
+  text-transform: capitalize;
+  position: relative;
+  top: 20%;
+  z-index: 3;
+  width: 46%;
+  padding: 0px 80px 0 50px;
+}
+
+.home-container .home-wallpaper .home-title h3 {
+  font-family: 'Lalezar', cursive;
+  font-size: 4vw;
+  color: #2A2A72;
+}
+
+.home-container .home-wallpaper .home-title p:first-child {
+  font-family: 'Lato', sans-serif;
+  font-size: 2vw;
+  color: #f5f6f7;
+}
+
+.home-container .home-wallpaper .home-title .btn-signUp .btn-open-lightbox {
+  background-color: #2A2A72;
+  width: 130px;
+  outline: 0;
+  height: 50px;
+  border-radius: 70px;
+  border-color: #2A2A72;
+  color: #f5f6f7;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+
+.home-container .home-wallpaper .home-title .btn-signUp .btn-open-lightbox:hover {
+  background-color: #13A6E8;
+}
+
+.home-container .explaintaion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 50px;
+  color: #2A2A72;
+}
+
+.home-container .explaintaion .explaintaion-image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.home-container .explaintaion .explaintaion-image img {
+  width: 100%;
+  height: auto;
+}
+
+.home-container .explaintaion .explaintaion-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  padding-top: 60px;
+  font-size: 1.5vw;
+}
+
+.home-container .explaintaion .explaintaion-content h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 4vw;
+  color: #2A2A72;
+}
+
+.home-container .explaintaion .explaintaion-content p {
+  margin: 30px 0;
+}
+
+.home-container .explaintaion .explaintaion-content ul {
+  margin: 30px 0;
+}
+
+.home-container .explaintaion .explaintaion-content ul li {
+  list-style-type: none;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.home-container .explaintaion .explaintaion-content ul li i {
+  margin-right: 10px;
+}
+
+.home-container .advantages {
+  width: 90%;
+  height: 700px;
+  margin: auto;
   text-align: center;
+  padding: 50px 0 15px 0;
+}
+
+.home-container .advantages h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 4vw;
+  color: #2A2A72;
+}
+
+.home-container .advantages p {
+  margin: 35px 0px;
+  color: #2A2A72;
+  font-size: 1.5vw;
+}
+
+.home-container .advantages .advantage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 25px 0;
+}
+
+.home-container .advantages .advantage .plan {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 35px 20px 40px;
+  height: 400px;
+  margin: 0 20px;
+  -webkit-box-shadow: 5px 5px 10px #e6e6e6;
+          box-shadow: 5px 5px 10px #e6e6e6;
+  color: #2A2A72;
+  background-image: linear-gradient(135deg, #FFA400, #ffd200);
+}
+
+.home-container .advantages .advantage .plan img {
+  width: 35%;
+  height: auto;
+}
+
+.home-container .advantages .advantage .plan h4 {
+  color: #2A2A72;
+  margin: 20px 0 40px 0px;
+}
+
+.home-container .signUp-home-section {
+  text-align: center;
+  padding: 40px 20px;
+  color: #2A2A72;
+  height: 300px;
+}
+
+.home-container .signUp-home-section h2 {
+  color: #2A2A72;
+  font-size: 3vw;
+}
+
+.home-container .signUp-home-section p {
+  padding: 20px 0;
+  font-size: 1.5vw;
+}
+
+.home-container .signUp-home-section .btn-signUp .btn-open-lightbox {
+  background-color: #2A2A72;
+  width: 130px;
+  outline: 0;
+  height: 50px;
+  border-radius: 70px;
+  border-color: #2A2A72;
+  color: #f5f6f7;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+
+.home-container .signUp-home-section .btn-signUp .btn-open-lightbox:hover {
+  background-color: #13A6E8;
+}
+
+@media screen and (max-width: 620px) {
+  .home-container {
+    background-color: #fcfcfc;
+  }
+  .home-container .home-wallpaper {
+    height: 400px;
+    margin-bottom: 40px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../../../images/background-nfb3.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../images/background-nfb3.png");
+  }
+  .home-container .home-wallpaper .home-title {
+    text-transform: capitalize;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+  }
+  .home-container .home-wallpaper .home-title h3 {
+    font-size: 6vw;
+    color: #fcfcfc;
+  }
+  .home-container .home-wallpaper .home-title p {
+    font-size: 4vw;
+    color: #fcfcfc;
+  }
+  .home-container .explaintaion {
+    padding: 0px 20px;
+  }
+  .home-container .explaintaion .explaintaion-image {
+    display: none;
+  }
+  .home-container .explaintaion .explaintaion-content {
+    text-align: center;
+    padding-top: 0px;
+  }
+  .home-container .explaintaion .explaintaion-content p {
+    margin: 30px 0;
+    font-size: 2.5vw;
+  }
+  .home-container .explaintaion .explaintaion-content ul li {
+    font-size: 2.5vw;
+  }
+  .home-container .advantages {
+    height: 900px;
+  }
+  .home-container .advantages p {
+    margin: 5px 0px;
+    font-size: 2.5vw;
+  }
+  .home-container .advantages .advantage {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home-container .advantages .advantage .plan {
+    margin: 20px 0px;
+  }
+  .home-container .advantages .advantage .plan img {
+    width: 10%;
+  }
+  .home-container .advantages .advantage .plan h4 {
+    margin: 10px 0 0px 0px;
+    font-size: 4.5vw;
+  }
+  .home-container .signUp-home-section {
+    padding: 80px 0 0px;
+  }
 }
 /*# sourceMappingURL=home.css.map */

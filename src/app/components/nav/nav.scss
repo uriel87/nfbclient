@@ -1,11 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+// }
+
+@import '../../../index.scss';
 
 nav {
     display: flex;
+    order: 1
 }
 
 .modal-content {
@@ -13,9 +16,6 @@ nav {
     padding: 20px 0px 35px;
 }
 
-.btn-danger {
-    margin-right: 20px;
-}
 
 .modal-backdrop {
     z-index: 0;
@@ -23,12 +23,10 @@ nav {
 
 .nav-main { 
     display: flex;
-    // flex: 1 2 100%;
-    // justify-content: space-between;
     padding: .5%;
-    margin: 0 0 30px 0;
-    background: linear-gradient(-45deg, #ffe4fb, #b1dcff);
-    // border: 1px solid #000;
+    color: #06266F;
+    box-shadow: 0px 1px 5px $dive-grey-3;
+
 
     #logo {
         flex: 1 3 100%;
@@ -62,21 +60,18 @@ nav {
                     margin-left: 2em;
                 }
             }
-
-            button {
-                all: unset;
-            }
             
-            a, button {
+            a, .btn-open-lightbox, .nav-user-btn{
                 list-style-type: none;
                 padding: 5px;
-                // border: 1px solid #0829bb;
-                //border-bottom: none;
+                background-color: transparent;
                 color: #06005e;
                 transition: all  0.3s linear;
                 text-decoration: none;
                 margin-right: 0.8em;
                 font-size: 2vh;
+                border: none;
+                outline: none;
                 cursor: pointer;
 
                 &:hover {
@@ -91,7 +86,7 @@ nav {
 
 
 $table-header: #e6e6e6;
-$table-header-border: #47405d;
+$table-header-border: #03277b;
 $table-border: #d9d9d9;
 $row-bg: #e0e0e0;
 
@@ -125,8 +120,10 @@ $row-bg: #e0e0e0;
             list-style-type: none;
             text-decoration: none;
             margin: 0 1rem;
+           
             a {
                 text-decoration: none;
+                color: $table-header-border;
             }
         }
     }
@@ -136,7 +133,7 @@ $row-bg: #e0e0e0;
 .header-content {
     h4 {
         font-size: 3rem;
-        color: #79b0fa;
+        color: $table-header-border;
         text-align: center;
         margin: 2.5rem 0;
     }
@@ -155,7 +152,7 @@ $row-bg: #e0e0e0;
     align-items: stretch;
     align-content: space-around;
     font-size: 0.75rem;
-    margin: 30px auto;
+    margin-top: 40px;
     width: 100%;
     text-align: center;
 
@@ -256,27 +253,27 @@ $row-bg: #e0e0e0;
             justify-content: center;
             margin: 20px 0;
 
-            .nav-base {
+            // .nav-base {
     
-                .container-logout {
+            //     .container-logout {
 
-                    .link-logout {
+            //         .link-logout {
 
-                    }
-                }
+            //         }
+            //     }
     
-                button {
+            //     button {
                     
-                }
+            //     }
                 
-                a, button {
+            //     a, button {
 
     
-                    &:hover {
+            //         &:hover {
 
-                    }
-                }
-            }
+            //         }
+            //     }
+            // }
         }
     }
   }

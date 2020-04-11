@@ -1,91 +1,71 @@
 
-import React, { memo, useState } from 'react'
+import React, { memo } from 'react'
 import UseForm from '../../../helpers/useForm'
-import Input from '../../Input/Input'
+import Input from '../../input/input'
 import SelectInput from '../../selectInput/selectInput'
 import CheckboxInput from '../../checkboxInput/checkboxInput'
 import { formInputType, formName, formCategoryInput } from '../../../constant'
 import { actionFetch } from '../../../helpers/actionFetch'
+import "../../../../index.css";
 
 
 const FormIncome = (props) => {
 
     const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, props.validation)
-
-    const income = props.income
-    console.log("FormExpense - props", props)
     
-    const [isOpenCmp, setIsOpenCmp] = useState(props.isOpenCmp)
-
-    const openCmp = () => {
-		setIsOpenCmp(!isOpenCmp)
-	}
-
     function submit() {
-        console.log("submit FormExpense - inputs", inputs)
-        actionFetch(props.fetchAction, inputs, income)
+        actionFetch(props.fetchAction, inputs, props.income)
     }
 
     return (
         <div>
-            { isOpenCmp?
-            <div>
-                <div className="lightBoxBackground" onClick={openCmp.bind(this)}></div>
-                <div className="lightBoxContainer">
-                    <form onSubmit={handleOnSubmit} className="form-lightBox">
-                        <span onClick={openCmp.bind(this)}>&times;</span>
-                        <div className="modal-header">
-                            <h4 className="modal-title">Income form</h4>
-                            { income ? <h4 className="modal-title">{income.name}</h4> : ""}
-                        </div>
+            { props.income ? <h4 className="modal-title">{props.income.name}</h4> : ""}
+            <form onSubmit={handleOnSubmit}>
+                <Input
+                    name={formName.NAME}
+                    label={formName.NAME}
+                    placeholder={formName.NAME}
+                    type={formInputType.TEXT}
+                    handleOnChange={handleOnChange}
+                    error={errors.name}
+                    value={inputs.name} />
 
-                        <Input
-                            name={formName.NAME}
-                            placeholder={formName.NAME}
-                            type={formInputType.TEXT}
-                            handleOnChange={handleOnChange}
-                            error={errors.name}
-                            value={inputs.name} />
+                <Input
+                    name={formName.DESCRIPTION}
+                    label={formName.DESCRIPTION}
+                    placeholder={formName.DESCRIPTION}
+                    type={formInputType.TEXT}
+                    handleOnChange={handleOnChange}
+                    error={errors.description}
+                    value={inputs.description} />
 
-                        <Input
-                            name={formName.DESCRIPTION}
-                            placeholder={formName.DESCRIPTION}
-                            type={formInputType.TEXT}
-                            handleOnChange={handleOnChange}
-                            error={errors.description}
-                            value={inputs.description} />
+                <Input
+                    name={formName.AMOUNT}
+                    label={formName.AMOUNT}
+                    placeholder={formName.AMOUNT}
+                    type={formInputType.NUMBER}
+                    handleOnChange={handleOnChange}
+                    error={errors.amount}
+                    value={inputs.amount}
+                    min={"1"} />
 
-                        <Input
-                            name={formName.AMOUNT}
-                            placeholder={formName.AMOUNT}
-                            type={formInputType.number}
-                            handleOnChange={handleOnChange}
-                            error={errors.amount}
-                            value={inputs.amount} />
+                <SelectInput
+                    name={formName.CATEGORY}
+                    handleOnChange={handleOnChange}
+                    values={formCategoryInput.BALANCE_CATEGORIES}
+                    error={errors.category}
+                    inputs={inputs} />
 
-                        <SelectInput
-                            name={formName.CATEGORY}
-                            handleOnChange={handleOnChange}
-                            values={formCategoryInput.BALANCE_CATEGORIES}
-                            error={errors.category}
-                            inputs={inputs} />
+                <CheckboxInput
+                    name={formName.MOUNTHLY}
+                    label={formName.MOUNTHLY}
+                    handleOnChange={handleOnChange}
+                    error={errors.monthly}
+                    value={this} /> 
 
-                        <CheckboxInput
-                            name={formName.MOUNTHLY}
-                            label={formName.MOUNTHLY}
-                            handleOnChange={handleOnChange}
-                            error={errors.monthly}
-                            value={this} /> 
+                <button type="submit" className="cta-btn">Save income</button>
 
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-danger" onClick={openCmp.bind(this)} >Cancel</button>
-                            <button type="submit" className="btn btn-success">Create income</button>
-                        </div>
-                        
-                    </form>
-                </div>
-            </div> : <div></div>
-            }
+            </form>
         </div>
     )
 }
@@ -96,9 +76,28 @@ export default memo(FormIncome)
 
 
 
+// console.log("FormExpense - props", props)
+// const [isOpenCmp, setIsOpenCmp] = useState(props.isOpenCmp)
+// const openCmp = () => {
+// 	setIsOpenCmp(!isOpenCmp)
+// }
 
 
+{/* console.log("submit FormExpense - inputs", inputs) */}
 
+{/* { isOpenCmp?
+<div>
+<div className="lightBoxBackground" onClick={openCmp.bind(this)}></div>
+<div className="lightBoxContainer">
+<span onClick={openCmp.bind(this)}>&times;</span> */}
+
+
+{/* <button type="button" className="btn btn-danger" onClick={openCmp.bind(this)} >Cancel</button> */}
+
+
+// </div>
+// </div> : <div></div>
+// }
 
 
 {/* <div className="form-group">

@@ -1,23 +1,77 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+@charset "UTF-8";
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+.cta-btn {
+  width: 60%;
+  height: 50px;
+  border-radius: 30px;
+  background: #2A2A72;
+  color: #f5f6f7;
+  border: none;
+  -webkit-box-shadow: 1px 2px #a9acaf;
+          box-shadow: 1px 2px #a9acaf;
+  margin-top: 25px;
+}
+
+.cta-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+.cta-btn:hover {
+  background: #13A6E8;
+}
+
+.cta-btn:focus {
+  outline: none;
+}
+
+.header-name {
+  font-size: 5vw;
+  text-align: center;
+  color: #2A2A72;
+  margin: 25px 0;
+}
+
+.page-container {
+  padding: 50px 0;
+  width: 90%;
+  margin: auto;
+}
+
+.edit-btn-lightbox .btn-open-lightbox {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.edit-btn-lightbox .btn-open-lightbox:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-dialog .btn-open-dialog {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-dialog .btn-open-dialog:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
 }
 
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .modal-content {
   z-index: 2;
   padding: 20px 0px 35px;
-}
-
-.btn-danger {
-  margin-right: 20px;
 }
 
 .modal-backdrop {
@@ -29,8 +83,9 @@ nav {
   display: -ms-flexbox;
   display: flex;
   padding: .5%;
-  margin: 0 0 30px 0;
-  background: linear-gradient(-45deg, #ffe4fb, #b1dcff);
+  color: #06266F;
+  -webkit-box-shadow: 0px 1px 5px #a9acaf;
+          box-shadow: 0px 1px 5px #a9acaf;
 }
 
 .nav-main #logo {
@@ -87,23 +142,22 @@ nav {
   margin-left: 2em;
 }
 
-.nav-main .container-link .nav-base button {
-  all: unset;
-}
-
-.nav-main .container-link .nav-base a, .nav-main .container-link .nav-base button {
+.nav-main .container-link .nav-base a, .nav-main .container-link .nav-base .btn-open-lightbox, .nav-main .container-link .nav-base .nav-user-btn {
   list-style-type: none;
   padding: 5px;
+  background-color: transparent;
   color: #06005e;
   -webkit-transition: all  0.3s linear;
   transition: all  0.3s linear;
   text-decoration: none;
   margin-right: 0.8em;
   font-size: 2vh;
+  border: none;
+  outline: none;
   cursor: pointer;
 }
 
-.nav-main .container-link .nav-base a:hover, .nav-main .container-link .nav-base button:hover {
+.nav-main .container-link .nav-base a:hover, .nav-main .container-link .nav-base .btn-open-lightbox:hover, .nav-main .container-link .nav-base .nav-user-btn:hover {
   color: #6ec5ff;
 }
 
@@ -156,11 +210,12 @@ nav {
 
 .nav-balance ul li a {
   text-decoration: none;
+  color: #03277b;
 }
 
 .header-content h4 {
   font-size: 3rem;
-  color: #79b0fa;
+  color: #03277b;
   text-align: center;
   margin: 2.5rem 0;
 }
@@ -194,7 +249,7 @@ nav {
   -ms-flex-line-pack: distribute;
       align-content: space-around;
   font-size: 0.75rem;
-  margin: 30px auto;
+  margin-top: 40px;
   width: 100%;
   text-align: center;
 }
@@ -210,7 +265,7 @@ nav {
   border-left: solid 1px #d9d9d9;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  background: #47405d;
+  background: #03277b;
   color: #eeeeee;
   font-weight: bold;
 }

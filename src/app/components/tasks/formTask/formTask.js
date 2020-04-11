@@ -1,106 +1,87 @@
 
-import React, { useState, memo } from 'react'
+import React, { memo, useState } from 'react'
 import UseForm from '../../../helpers/useForm'
 import SelectInput from '../../selectInput/selectInput'
-import Input from '../../Input/Input'
+import Input from '../../input/input'
 import CheckboxInput from '../../checkboxInput/checkboxInput'
 import { formInputType, formName, formCategoryInput } from '../../../constant'
 import { actionFetch } from '../../../helpers/actionFetch'
+import "../../../../index.css";
 
 
 const FormTask = (props) => {
+
     const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, props.validation);
-    const task = props.task
-    console.log("FormTask - props", props)
-    
-    const [isOpenCmp, setIsOpenCmp] = useState(props.isOpenCmp)
-
-    const openCmp = () => {
-		setIsOpenCmp(!isOpenCmp)
-	}
-
     function submit() {
-        console.log("submit FormTask - inputs", inputs)
-        actionFetch(props.fetchAction, inputs, task)
+        actionFetch(props.fetchAction, inputs, props.task)
     }
     
     return(
         <div>
-            { isOpenCmp?
-            <div>
-                <div className="lightBoxBackground" onClick={openCmp.bind(this)}></div>
-                <div className="lightBoxContainer">
-                    <form onSubmit={handleOnSubmit}> 
-                        <span onClick={openCmp.bind(this)}>&times;</span>
-                        <div className="modal-header">
-                            <h4 className="modal-title">Task form</h4>
-                            { task ? <h4 className="modal-title">{task.name}</h4> : ""}
-                        </div>
+            <form onSubmit={handleOnSubmit}> 
+                { props.task ? <h4 className="modal-title">{props.task.name}</h4> : ""}
+                <Input
+                    name={formName.NAME}
+                    label={formName.NAME}
+                    placeholder={formName.NAME}
+                    type={formInputType.TEXT}
+                    handleOnChange={handleOnChange}
+                    error={errors.name}
+                    value={inputs.name} />
 
-                        <Input
-                            name={formName.NAME}
-                            placeholder={formName.NAME}
-                            type={formInputType.TEXT}
-                            handleOnChange={handleOnChange}
-                            error={errors.name}
-                            value={inputs.name} />
+                <Input
+                    name={formName.DESCRIPTION}
+                    label={formName.DESCRIPTION}
+                    placeholder={formName.DESCRIPTION}
+                    type={formInputType.TEXT}
+                    handleOnChange={handleOnChange}
+                    error={errors.description}
+                    value={inputs.description} />
 
-                        <Input
-                            name={formName.DESCRIPTION}
-                            placeholder={formName.DESCRIPTION}
-                            type={formInputType.TEXT}
-                            handleOnChange={handleOnChange}
-                            error={errors.description}
-                            value={inputs.description} />
+                <SelectInput
+                    name={formName.CATEGORY}
+                    handleOnChange={handleOnChange}
+                    values={formCategoryInput.TASK_CATEGORIES}
+                    error={errors.category}
+                    inputs={inputs} />
 
-                        <SelectInput
-                            name={formName.CATEGORY}
-                            handleOnChange={handleOnChange}
-                            values={formCategoryInput.TASK_CATEGORIES}
-                            error={errors.category}
-                            inputs={inputs} />
+                <SelectInput
+                    name={formName.PRIORITY}
+                    handleOnChange={handleOnChange}
+                    values={formCategoryInput.TASK_PRIORITIES}
+                    error={errors.priority}
+                    inputs={inputs} />
 
-                        <SelectInput
-                            name={formName.PRIORITY}
-                            handleOnChange={handleOnChange}
-                            values={formCategoryInput.TASK_PRIORITIES}
-                            error={errors.priority}
-                            inputs={inputs} />
+                <Input
+                    name={formName.START_TIME}
+                    label={formName.START_TIME}
+                    type={formInputType.DATE_TIME_LOCAL}
+                    handleOnChange={handleOnChange}
+                    error={errors.startTime}
+                    value={inputs.startTime}
+                    defaultValue={new Date().toISOString().substring(0,16)}
+                    min={new Date().toISOString().substring(0,16)} />
 
-                        <Input
-                            name={formName.START_TIME}
-                            label={"Start Time"}
-                            type={formInputType.DATE_TIME_LOCAL}
-                            handleOnChange={handleOnChange}
-                            error={errors.startTime}
-                            value={inputs.startTime}
-                            min={new Date().toISOString().substring(0,16)} />
+                <Input
+                    name={formName.END_TIME}
+                    label={formName.END_TIME}
+                    type={formInputType.DATE_TIME_LOCAL}
+                    defaultValue={new Date().toISOString().substring(0,16)}
+                    handleOnChange={handleOnChange}
+                    error={errors.endTime}
+                    value={inputs.endTime}
+                    min={inputs.startTime} />
 
-                        <Input
-                            name={formName.END_TIME}
-                            label={"End Time"}
-                            type={formInputType.DATE_TIME_LOCAL}
-                            handleOnChange={handleOnChange}
-                            error={errors.endTime}
-                            value={inputs.endTime}
-                            min={inputs.startTime} />
+                <CheckboxInput
+                    name={formName.DAILY}
+                    label={formName.DAILY}
+                    handleOnChange={handleOnChange}
+                    error={errors.daily}
+                    value={this} /> 
 
-                        <CheckboxInput
-                            name={formName.DAILY}
-                            label={"Daily"}
-                            handleOnChange={handleOnChange}
-                            error={errors.daily}
-                            value={this} /> 
+                <button type="submit" className="cta-btn">Save Task</button>
 
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-danger" onClick={openCmp.bind(this)} >Cancel</button>
-                            <button type="submit" className="btn btn-success">Edit task</button>
-                        </div>
-                        
-                    </form>
-                </div>
-            </div> : <div></div>
-        }
+            </form>
         </div>
     )
 }
@@ -110,12 +91,26 @@ export default memo(FormTask)
 
 
 
+        // console.log("submit FormTask - inputs", inputs)
 
 
+// console.log("FormTask - props", props)
+// const [isOpenCmp, setIsOpenCmp] = useState(props.isOpenCmp)
+// const openCmp = () => {
+// 	setIsOpenCmp(!isOpenCmp)
+// }
 
+{/* { isOpenCmp? */}
+{/* <div> */}
+{/* <div className="lightBoxBackground" onClick={openCmp.bind(this)}></div>
+<div className="lightBoxContainer">
+<span onClick={openCmp.bind(this)}>&times;</span> */}
 
+{/* <button type="button" className="btn btn-danger" onClick={openCmp.bind(this)} >Cancel</button> */}
 
-
+{/* </div> */}
+{/* </div> : <div></div>
+} */}
 
 // const checkEditInput = async (inputs) => { 
 

@@ -1,1 +1,21 @@
-/* No CSS *//*# sourceMappingURL=logout.css.map */
+.logout-container p:first-child {
+  margin: 40px auto;
+}
+
+.logout-container .logout-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logout-container .logout-btn button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  margin: 0 10px;
+  max-width: 150px;
+}
+/*# sourceMappingURL=logout.css.map */

@@ -1,40 +1,73 @@
 
 
-
-.form-lightBox {
-    width: 80%;
-}
-
-
-@mixin centerDiv($width, $height, $zIndex) {
-    position: fixed;
-    width: $width;
-    height: $height;
-    z-index: $zIndex;
-    margin: 0;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+    
+    
+    
+.about-container {
+    padding: 71px 10%;
     text-align: center;
-    background-color: #fff;
-    min-width: 70%;
-    min-height: 35%;
-}
+    background-color: #fcfcfc;
 
+    .history {
+        margin: 100px 0;
+    }
 
-.lightBoxBackground {
-    @include centerDiv(100%, 100% , 1);
-    background-color: rgba(0, 0, 0, 0.3);
-}
+    h1, h2 {
+        font-size: 4vw;
+        color: #03277b;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+    }
 
-.lightBoxContainer {
-    @include centerDiv(auto, auto, 2);
-    text-align: center;
-    background-color: #fff;
-    span {
-        position: absolute;
-        right: 0;
-        margin: 5px;
+    p {
+        font-size: 1.5vw;
     }
 }
+
+@media screen and (max-width: 620px) {
+    .about-container {
+        p {
+            font-size: 3vw;
+        }
+    }
+}
+
+
+
+// .form-lightBox {
+//     width: 80%;
+// }
+
+
+// @mixin centerDiv($width, $height, $zIndex) {
+//     position: fixed;
+//     width: $width;
+//     height: $height;
+//     z-index: $zIndex;
+//     margin: 0;
+//     top: 50%;
+//     left: 50%;
+//     margin-right: -50%;
+//     transform: translate(-50%, -50%);
+//     text-align: center;
+//     background-color: #fff;
+//     min-width: 70%;
+//     min-height: 35%;
+// }
+
+
+// .lightBoxBackground {
+//     @include centerDiv(100%, 100% , 1);
+//     background-color: rgba(0, 0, 0, 0.3);
+// }
+
+// .lightBoxContainer {
+//     @include centerDiv(auto, auto, 2);
+//     text-align: center;
+//     background-color: #fff;
+//     span {
+//         position: absolute;
+//         right: 0;
+//         margin: 5px;
+//     }
+// }

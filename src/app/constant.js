@@ -13,7 +13,8 @@ const formInputType = {
     PASSWORD: 'password',
     NUMBER: 'number',
     TEL: "tel",
-    DATE_TIME_LOCAL: 'datetime-local'
+    DATE_TIME_LOCAL: 'datetime-local',
+    MONTH: 'month'
 }
 
 const formName = {
@@ -66,6 +67,54 @@ const formCategoryInput = {
 }
 
 
+const title = {
+    DELETE_TASK: 'Delete task',
+    DELETE_EXPENSE: 'Delete expense',
+    DELETE_INCOME: 'Delete income',
+}
+
+const question = {
+    DELETE_TASK: 'Are you sure to delete task name',
+    DELETE_EXPENSE: 'Are you sure to delete expense name',
+    DELETE_INCOME: 'Are you sure to delete income name',
+}
+
+const headerContent = {
+    SIGNUP: "SignUp",
+    LOGIN: "Login",
+    LOGOUT: "Logout",
+    CREATE_NEW_EXPENSE: "Create New Expense",
+    EDIT_EXPENSE:"Edit Expense",
+    DELETE_EXPENSE:"Delete Expense",
+    CREATE_NEW_INCOME: "Create New Income",
+    EDIT_INCOME:"Edit Income",
+    DELETE_INCOME:"Delete Income",
+    CREATE_NEW_TASK: "Create New Task",
+    EDIT_TASK:"Edit Task",
+    DELETE_TASK:"Delete Task"
+}
+
+
+// const validationErrors = {
+//     REQUIRED_NAME: "Name is requierd",
+//     NAME_IN_ENGLISH: "Name should have only in English characters and numbers",
+//     REQUIRED_DESCRIPTION: "Description is requierd",
+//     DESCRIPTION_IN_ENGLISH : "Description should have only sin English characters and numbers",
+//     REQUIRED_CATEGORY: "Please select category",
+//     REQUIRED_PRIORITY: "Please select priority",
+//     REQUIRED_START_TIME: "Please select start time",
+//     REQUIRED_END_TIME: "Please select end time",
+//     REQUIRED_AMOUNT: "Amount is requierd",
+//     PAYMENTS_MIN: "Payments should at list 1 payment",
+//     REQUIRED_EMAIL: "Email address is requierd",
+//     EMAIL_INVALID: "Email adress is invalid",
+//     REQUIRED_PASSWORD: "password is requierd",
+//     PASSWORD_MIN: "Password should be more than 6 characters",
+//     REQUIRED_TEL: "telephone is requierd",
+//     TEL_RANGE: "elephone should be between 7 to 12"
+
+// }
+
 
 export {
     constantUser,
@@ -73,23 +122,8 @@ export {
     formInputType,
     formName,
     fetchAction,
-    formCategoryInput
+    formCategoryInput,
+    title,
+    question,
+    headerContent
 }
-
-
-
-
-
-
-
-// const constantLightBox = {
-//     setOpenEditTask: "SET_OPEN_EDIT_TASK",
-//     setOpenDeleteTask: "SET_OPEN_DELETE_TASK",
-
-//     setOpenEditExpense: "SET_OPEN_EDIT_EXPENSE",
-//     setOpenDeleteExpense: "SET_OPEN_DELETE_EXPENSE",
-
-//     setOpenEditIncome: "SET_CLOSE_EDIT_INCOME",
-//     setOpenDeleteIncome: "SET_CLOSE_DELETE_INCOME"
-// }
-

@@ -1,0 +1,57 @@
+
+
+
+.chart-responsive {
+    display: none;
+}
+
+
+@media screen and (max-width: 700px) {
+    .chart {
+        display: none;
+    }
+
+    .chart-responsive {
+        display: block;
+        width: 330px;
+        margin: 10px auto;
+        padding: 20px 25px 70px;
+        height: 470px;
+        background-image: linear-gradient(125deg, #ede574, #e1f5c4);
+        box-shadow: 5px 5px 10px #e6e6e6;
+
+        border-radius: 60px;
+        color: #03277b;
+
+        h3 {
+            text-align: center;
+            color: #03277b;
+            margin: 20px 0 55px;
+
+            &:after {
+                background-color: #03277b;
+                content: '';
+                display: block;
+                left: 47%;
+                position: absolute;
+                transform: translate(-44%, 0%);
+                width: 45%;
+                height: 1px;
+                margin: 15px auto;
+              }
+        }
+
+        div {
+            margin: 30px 0;
+            text-align: right;
+
+            &:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+        }
+    }
+}

@@ -1,31 +1,38 @@
 
-import React, { memo, useState,  } from 'react'
+import React, { memo } from 'react'
 import { Route, NavLink, HashRouter } from "react-router-dom"
 import MonthlyBalance from '../monthlyBalance/monthlyBalance'
 import MonthlyExpenses from '../monthlyExpenses/monthlyExpenses'
 import MonthlyIncomes from '../monthlyIncomes/monthlyIncomes'
-import AddIncome from '../monthlyIncomes/addIncome/addIncome'
-import AddExpense from '../monthlyExpenses/addExpense/addExpense'
-// import "./balance.css"
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap/dist/js/bootstrap.js'
+import LightboxBtn from '../lightboxBtn/lightboxBtn'
+import FormIncome from '../monthlyIncomes/formIncome/formIncome'
+import FormExpense from '../monthlyExpenses/formExpense/formExpense'
+import { fetchAction, headerContent } from '../../constant'
+import validationAddIncome from '../monthlyIncomes/validations/validationAddIncome'
+import validationAddExpense from '../monthlyExpenses/validations/validationAddExpense'
+import "./balance.css"
+import '../lightbox/lightbox.css'
+import "../../../index.css"
 
 
-const Balance = (props) => {
 
-    const [isCreateExpenseCmpOpen, setIsCreateExpenseCmpOpen] = useState(false)
-    const [isCreateIncomeCmpOpen, setIsCreateIncomeCmpOpen] = useState(false)
+const Balance = () => {
 
-    const openCreateExpenseCmp = () => {
-		setIsCreateExpenseCmpOpen(!isCreateExpenseCmpOpen)
-    }
-    
-    const openCreateIncomeCmp = () => {
-		setIsCreateIncomeCmpOpen(!isCreateIncomeCmpOpen)
-	}
+    const addIncomeForm = (
+        <FormIncome
+            validation={validationAddIncome}
+            fetchAction={fetchAction.CREATE_MONTHLY_INCOME}/>
+    )
+
+    const addExpenseForm = (
+        <FormExpense
+            validation={validationAddExpense}
+            fetchAction={fetchAction.CREATE_MONTHLY_EXPENSE}/>
+    )
+
 
     return (
-        <div>
+        <div className="balance-container">
             <HashRouter>
                 <div>
                     <nav className="nav-balance">
@@ -36,27 +43,21 @@ const Balance = (props) => {
                         </ul>
                     </nav>
                 </div>
+
                 <div className="balance-actions">
+                    <div className="add-expense-btn-lightbox">
+                        <LightboxBtn headerContent = {headerContent.CREATE_NEW_EXPENSE} cmp={addExpenseForm}/>
+                    </div>
 
-
-                <div className="add-income-btn">
-                    <button type="button" onClick={openCreateIncomeCmp.bind(this)}>
-                        <i className="fas fa-plus"></i>
-                        <i className="far fa-credit-card"></i>
-                    </button>
-                    { isCreateIncomeCmpOpen? <AddIncome isOpenCmp={isCreateIncomeCmpOpen}/> : <div></div> }
-                </div>
-
-                <div className="add-income-btn">
-                    <button type="button" onClick={openCreateExpenseCmp.bind(this)}>
-                        <i className="fas fa-minus"></i>
-                        <i className="far fa-credit-card"></i>
-                    </button>
-                    { isCreateExpenseCmpOpen? <AddExpense isOpenCmp={isCreateExpenseCmpOpen}/> : <div></div> }
+                    <div className="add-income-btn-lightbox">
+                        <LightboxBtn headerContent = {headerContent.CREATE_NEW_INCOME} cmp={addIncomeForm}/>
+                    </div>
                 </div>
 
 
-            </div>
+                    {/* <LightboxBtn content={addIncomeContent} headerContent = {headerContent.CREATE_NEW_INCOME} cmp={addIncomeForm}/> */}
+                    {/* <LightboxBtn content={addExpenseContent} headerContent = {headerContent.CREATE_NEW_EXPENSE} cmp={addExpenseForm}/> */}
+
                 <div className="content">
                     <Route path="/" exact component={MonthlyBalance} />
                     <Route path="/monthlyExpenses" component={MonthlyExpenses} />
@@ -68,6 +69,79 @@ const Balance = (props) => {
 }
 
 export default memo(Balance)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* <div className="balance-actions">
+    <AddIncomeBtn />
+    <AddExpenseBtn />
+</div> */}
+
+// import AddIncomeBtn from '../monthlyIncomes/addIncomeBtn/addIncomeBtn'
+// import AddExpenseBtn from '../monthlyExpenses/addExpenseBtn/addExpenseBtn'
+
+
+// const [isCreateExpenseCmpOpen, setIsCreateExpenseCmpOpen] = useState(false)
+// const [isCreateIncomeCmpOpen, setIsCreateIncomeCmpOpen] = useState(false)
+
+// const openCreateIncomeCmp = () => {
+// 	setIsCreateIncomeCmpOpen(!isCreateIncomeCmpOpen)
+// }
+
+// const openCreateExpenseCmp = () => {
+// 	setIsCreateExpenseCmpOpen(!isCreateExpenseCmpOpen)
+// }
+
+
+{/* <div className="flex-row">
+    <span onClick={openCreateExpenseCmp.bind(this)}>
+        <i className="fas fa-minus"></i>
+        <i className="far fa-credit-card"></i>
+    </span>
+    { isCreateExpenseCmpOpen?
+        <LightBox
+            cmp={ <FormExpense
+                validation={validationAddExpense}
+                fetchAction={fetchAction.CREATE_MONTHLY_EXPENSE} />
+            }
+            isOpenCmp={isCreateExpenseCmpOpen}/>
+    : null}
+</div> */}
+
+
+
+{/* <div className="flex-row">
+    <span onClick={openCreateIncomeCmp.bind(this)}>
+        <i className="fas fa-plus"></i>
+        <i className="far fa-credit-card"></i>
+    </span>
+    { isCreateIncomeCmpOpen?
+        <LightBox
+            cmp={ <FormIncome
+                validation={validationAddIncome}
+                fetchAction={fetchAction.CREATE_MONTHLY_INCOME} />
+            }
+            isOpenCmp={isCreateIncomeCmpOpen}/>
+    : null}
+</div> */}
+
+
+
+
+
 
 
 
@@ -94,6 +168,27 @@ export default memo(Balance)
 //             return <MonthlyBalance monthlyBalance={monthlyBalance} date={date} />
 //     }
 // }
+
+
+
+
+{/* <div className="add-income-btn">
+    <button type="button" onClick={openCreateIncomeCmp.bind(this)}>
+        <i className="fas fa-plus"></i>
+        <i className="far fa-credit-card"></i>
+    </button>
+    { isCreateIncomeCmpOpen? <AddIncome isOpenCmp={isCreateIncomeCmpOpen}/> : <div></div> }
+</div> */}
+
+{/* <div className="add-income-btn">
+    <button type="button" onClick={openCreateExpenseCmp.bind(this)}>
+        <i className="fas fa-minus"></i>
+        <i className="far fa-credit-card"></i>
+    </button>
+    { isCreateExpenseCmpOpen? <AddExpense isOpenCmp={isCreateExpenseCmpOpen}/> : <div></div> }
+</div> */}
+
+
 
 
 // Provider.propTypes = {
@@ -138,6 +233,8 @@ export default memo(Balance)
     </button>
 </div>
 <AddExpense /> */}
+
+
 
 
 

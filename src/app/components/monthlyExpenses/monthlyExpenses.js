@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 import Loading from '../loading/loading'
 import ExpensesListItem from './expensesListItem/expencesListItem'
 import TableHeaderBalace from '../tableHeaderBalace/tableHeaderBalace'
+import Input from '../input/input'
+import { formInputType } from '../../constant'
 import { filterMonthlyExpensesByDate } from '../../helpers/filters'
 import "./monthlyExpenses.css"
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
+import "../../../index.css"
+
 
 
 const MonthlyExpenses = (props) => {
@@ -31,11 +33,12 @@ const MonthlyExpenses = (props) => {
     if(!monthlyExpenses) {return (<Loading />)}
     return (
         <div>
-            <div className="header-content">
-                <h4 className="">Monthly expenses</h4>
-            </div>
+            <h4 className="header-name">Monthly expenses</h4>
             <form className="form-date">
-                <input type="month" value={date} onChange={handleChange} />
+                 <Input
+                    type={formInputType.MONTH}
+                    handleOnChange={handleChange}
+                    value={date} />
             </form>
             <div className="table-container" aria-label="Destinations">
                 <TableHeaderBalace />

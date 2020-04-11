@@ -1,4 +1,12 @@
 .chart {
   margin: 3rem 0;
 }
+
+@media screen and (max-width: 700px) {
+  .chart {
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
+}
 /*# sourceMappingURL=chart.css.map */

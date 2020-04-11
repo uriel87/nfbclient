@@ -1,8 +1,40 @@
 
 
-// .flex-row {
-//     width: calc(100% / 7);
-//     text-align: center;
-//     padding: 0.5em;
-//     border-bottom: solid 1px #d9d9d9;
-// }
+@import '../../../index.scss';
+
+// .add-task-btn-lightbox {
+//     .btn-open-lightbox{
+//         outline: none;
+//         border: none;
+//         width: 63px;
+//         height: 50px;
+//         background-color: #2A2A72;
+//         color: #f5f6f7;
+//         font-size: 2rem;
+//         border-radius: 15px;
+//         box-shadow: 1px 3px $dive-grey-3;
+  
+//         &:before {
+//             content: $task-list-icon;
+//             font-family: $fontawesome
+//         }
+
+//         &:hover {
+//             background-color: $secondary-color1;
+//         }
+
+//         &:active {
+//             background-color: $secondary-color1;
+//             position: relative;
+//             top: 1px;
+//         }
+  
+//     }
+//   }
+
+
+  .add-task-btn-lightbox {
+    .btn-open-lightbox{
+        @include icon-btn($task-list-icon);
+    }
+}

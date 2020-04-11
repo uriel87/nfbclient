@@ -7,9 +7,11 @@ import Chart from '../chart/chart'
 import ExpensesListItem from '../monthlyExpenses/expensesListItem/expencesListItem'
 import MonthlyIncomesListItem from '../monthlyIncomes/monthlyIncomesListItem/monthlyIncomesListItem'
 import TableHeaderBalace from '../tableHeaderBalace/tableHeaderBalace'
+import Input from '../input/input'
+import { formInputType } from '../../constant'
 import "./monthlyBalance.css"
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
+import "../../../index.css"
+
 
 
 import { sumExpense, sumIncomes ,sumBalance, sumExpectedExpense } from '../../helpers/calculators'
@@ -21,8 +23,6 @@ const MonthlyBalance = (props) => {
     const monthlyBalanceRedux = useSelector(state => state.user.monthlyBalanceList)
     const [monthlyBalance, setMonthlyBalance] = useState()
     const [date, setDate] = useState(new Date().toISOString().substr(0,7))
-
-
     const [totalIncomes, setTotalIncomes] = useState()
     const [totalExpenses, setTotalExpenses] = useState()
     const [totalBalance, setTotalBalance] = useState()
@@ -74,13 +74,24 @@ const MonthlyBalance = (props) => {
     if(!monthlyBalance && !charData) {return (<Loading />)}
     return (
         <div>
-            <div className="header-content">
-                <h4>Monthly balance</h4>
-            </div>
+            <h4 className="header-name">Monthly balance</h4>
+
             <form className="form-date">
-                <input type="month" value={date} onChange={handleChange} />
+                <Input
+                    type={formInputType.MONTH}
+                    handleOnChange={handleChange}
+                    value={date} />
             </form>
+
             <Chart data = {charData} className="chart"/>
+            <div className="chart-responsive">
+                <h3>Balance</h3>
+                <div className="flex-row" data-label="Balance">{totalBalance}</div>
+                <div className="flex-row" data-label="Expenses">{totalExpenses}</div>
+                <div className="flex-row" data-label="Incomes">{totalIncomes}</div>
+                <div className="flex-row" data-label="Expected expenses">{totalExpectedExpenses}</div>
+                <div className="flex-row" data-label="Total monthly balance">{totalMonthlyBalance}</div>
+            </div>
             <div className="table-container" aria-label="Destinations">
                 <TableHeaderBalace />
                 { monthlyBalance.map((balance, index) => (
@@ -96,11 +107,17 @@ const MonthlyBalance = (props) => {
 export default memo(MonthlyBalance)
 
 
-{/* <p>Balance: {totalBalance}</p>
-<p>Expense: {totalExpenses}</p>
-<p>Incomes: {totalIncomes}</p>
-<p>Expected expenses: {totalExpectedExpenses}</p>
-<p>Total monthly balance: {totalMonthlyBalance}</p> */}
+
+
+
+{/* 
+<p data-label="Balance">{totalBalance}</p>
+<p data-label="Expense">{totalExpenses}</p>
+<p data-label="Incomes">{totalIncomes}</p>
+<p data-label="Expected expenses">{totalExpectedExpenses}</p>
+<p data-label="Total monthly balance">{totalMonthlyBalance}</p> */}
+
+
 
 
 

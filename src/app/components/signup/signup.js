@@ -5,15 +5,15 @@ import Cookies from 'js-cookie'
 import UseForm from '../../helpers/useForm'
 import validationSignup from "./validationSignup"
 import { setLogin } from "../../actions/auth.action"
-import Input from '../../components/Input/Input'
+import Input from '../../components/input/input'
 import { actionFetch } from '../../helpers/actionFetch'
 import { fetchAction } from '../../constant'
 import { formInputType, formName } from '../../constant'
+// import "../../../index.css";
 
 
 
-
-export const Signup = () => {
+export const Signup = (props) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -24,69 +24,55 @@ export const Signup = () => {
         const data = await actionFetch(fetchAction.SIGNUP, inputs)
         dispatch(setLogin(data.createUser))
         Cookies.set('auth', data.createUser)
-        history.push('/');
+        history.push('/expectedExpenses');
     } catch(err) {
         console.log("error in Signup submit ", err)
         throw err;
     }
   }
 
-
   return(
-    <div className="container">
-      <div className="modal" id="signup">
-        <div className="lightBoxBackground" data-dismiss="modal" ></div>
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <form onSubmit={handleOnSubmit} className="form-lightBox">
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <div className="modal-header">
-                <h4 className="modal-title">Signup</h4>
-              </div>
+      <form onSubmit={handleOnSubmit} className="form-lightbox">
+        <Input
+            name={formName.NAME}
+            label={formName.NAME}
+            placeholder={formName.NAME}
+            type={formInputType.TEXT}
+            handleOnChange={handleOnChange}
+            error={errors.name}
+            value={inputs.name} />
 
-              <Input
-                  name={formName.NAME}
-                  placeholder={formName.NAME}
-                  type={formInputType.TEXT}
-                  handleOnChange={handleOnChange}
-                  error={errors.name}
-                  value={inputs.name} />
+        <Input
+            name={formName.EMAIL}
+            label={formName.EMAIL}
+            placeholder={formName.EMAIL}
+            type={formInputType.TEXT}
+            handleOnChange={handleOnChange}
+            error={errors.email}
+            value={inputs.email} />
 
-              <Input
-                  name={formName.EMAIL}
-                  placeholder={formName.EMAIL}
-                  type={formInputType.TEXT}
-                  handleOnChange={handleOnChange}
-                  error={errors.email}
-                  value={inputs.email} />
+        <Input
+            name={formName.PASSWORD}
+            label={formName.PASSWORD}
+            placeholder={formName.PASSWORD}
+            type={formInputType.PASSWORD}
+            handleOnChange={handleOnChange}
+            error={errors.password}
+            value={inputs.password} />
 
-              <Input
-                  name={formName.PASSWORD}
-                  placeholder={formName.PASSWORD}
-                  type={formInputType.PASSWORD}
-                  handleOnChange={handleOnChange}
-                  error={errors.password}
-                  value={inputs.password} />
+        <Input
+            name={formName.TEL}
+            label={formName.TEL}
+            placeholder={formName.TEL}
+            type={formInputType.TEXT}
+            handleOnChange={handleOnChange}
+            error={errors.tel}
+            value={inputs.tel} />
 
-              <Input
-                  name={formName.TEL}
-                  placeholder={formName.TEL}
-                  type={formInputType.TEXT}
-                  handleOnChange={handleOnChange}
-                  error={errors.tel}
-                  value={inputs.tel} />
+        <button type="submit" className="cta-btn">Create user</button>
 
-              <div className="modal-footer">
-                <button type="submit" className="btn btn-primary">Create user</button>
-              </div>
-              {errors && <p className="mediaInput-input-error">{errors.userExist}</p>}
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+        {errors && <p className="mediaInput-input-error">{errors.userExist}</p>}
+      </form>
   )
 }
 
@@ -96,6 +82,27 @@ export default memo(Signup);
 
 
 
+
+
+
+
+
+{/* <div className="container">
+  <div className="modal" id="signup">
+    <div className="lightBoxBackground" data-dismiss="modal" ></div>
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <form onSubmit={handleOnSubmit} className="form-lightBox">
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i className="far fa-times-circle"></i></span>
+          </button>
+          <div className="modal-header">
+            <h4 className="modal-title">Signup</h4>
+          </div> */}
+
+    {/* </div>
+  </div>
+</div> */}
 
 
 // if(token.data.errors) {

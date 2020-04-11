@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,aAAa,CAAC;EACV,gBAAgB,EAAE,OAAO;CAC5B",
+    "sources": [
+        "tableHeaderBalace.scss"
+    ],
+    "names": [],
+    "file": "tableHeaderBalace.css"
+}

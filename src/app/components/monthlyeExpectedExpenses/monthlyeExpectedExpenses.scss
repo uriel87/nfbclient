@@ -1,0 +1,16 @@
+
+
+.expected-expenses-container {
+    width: 80%;
+    margin: auto;
+    padding: 2% 15%;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 520px) {
+    .expected-expenses-container {
+        width: 90%;
+        padding: 2% 0;
+    }
+}

@@ -1,8 +1,275 @@
 
 
+@import '../../containers//app.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oranienbaum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+
+
+@mixin btn-signUp() {
+	.btn-signUp {
+		.btn-open-lightbox {
+			background-color: $primary-color;
+			width: 130px;
+			outline: 0;
+			height: 50px;
+			border-radius: 70px;
+			border-color: $primary-color;
+			color: $dive-grey-1;
+			transition: background-color 0.4s;
+
+			&:hover {
+				background-color: $secondary-color1;
+			}
+		}
+	}
+}
+
 .home-container {
-	height: 100%;
-	.home-text {
+	// height: 100%;
+	background-color: #fcfcfc;
+
+	.home-wallpaper {
+		min-height: 87%;
+		height: 500px;
+		background-image:  linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('../../../images/background-nfb3.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		font-family: 'Proza Libre', sans-serif;
+
+		.home-title {
+			text-transform: capitalize;
+			position: relative;
+			top: 20%;
+			z-index: 3;
+			width: 46%;
+			padding: 0px 80px 0 50px;
+
+			h3 {
+				font-family: 'Lalezar', cursive;
+				font-size: 4vw;
+				color: $primary-color;
+			}
+
+			p:first-child {
+				font-family: 'Lato', sans-serif;
+				font-size: 2vw;
+				color: $dive-grey-1;
+			}
+
+			@include btn-signUp();
+
+		}
+	}
+
+
+	.explaintaion {
+		display: flex;
+		padding: 50px;
+		color: $primary-color;
+
+		
+		.explaintaion-image {
+			flex: 1;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		.explaintaion-content {
+			flex: 1 1;
+			padding-top: 60px;
+			font-size: 1.5vw;
+			
+			h2 {
+				font-family: 'Lato', sans-serif;
+				font-weight: 900;
+				font-size: 4vw;
+				color: $primary-color;
+			}
+
+			p {
+				margin: 30px 0;
+			}
+			
+			ul {
+				margin: 30px 0;
+				li {
+					list-style-type: none;
+					text-decoration: none;
+					margin: 15px 0;
+
+					i {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+
+	}
+
+	.advantages {
+		width: 90%;
+		height: 700px;
+		margin: auto;
 		text-align: center;
-	}		
+		padding: 50px 0 15px 0;
+
+		h2 {
+			font-family: 'Lato', sans-serif;
+			font-weight: 900;
+			font-size: 4vw;
+			color: $primary-color;
+		}
+
+		p {
+			margin: 35px 0px;
+			color: $primary-color;
+			font-size: 1.5vw;
+		}
+
+		.advantage {
+			display: flex;
+			padding: 25px 0;
+
+			.plan {
+				flex: 1;
+				padding: 35px 20px 40px;
+				height: 400px;
+				margin: 0 20px;
+				box-shadow: 5px 5px 10px #e6e6e6;
+				color: $primary-color;
+				background-image: linear-gradient(135deg, $secondary-color2, $secondary-color3);
+
+				img {
+					width: 35%;
+					height: auto;
+				}
+
+				h4 {
+					color: $primary-color;
+					margin: 20px 0 40px 0px;
+				}
+			}
+		}
+	}
+
+
+	.signUp-home-section {
+
+		text-align: center;
+		padding: 40px 20px;
+		color: $primary-color;
+		height: 300px;
+
+		h2 {
+			color: $primary-color;
+			font-size: 3vw;
+		}
+
+		p {
+			padding: 20px 0;
+			font-size: 1.5vw;
+		}
+
+		@include btn-signUp();
+	}
+}
+
+
+
+
+
+
+@media screen and (max-width: 620px) {
+
+	.home-container {
+		background-color: #fcfcfc;
+	
+		.home-wallpaper {
+			height: 400px;
+			margin-bottom: 40px;
+			background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../../../images/background-nfb3.png');
+	
+			.home-title {
+				text-transform: capitalize;
+				position: relative;
+				bottom: 0;
+				width: 100%;
+				padding: 30px;
+				text-align: center;
+	
+				h3 {
+					font-size: 6vw;
+					color: #fcfcfc;
+				}
+	
+				p {
+					font-size: 4vw;
+					color: #fcfcfc;
+				}
+			}
+		}
+	
+	
+		.explaintaion {
+			padding: 0px 20px;
+	
+			.explaintaion-image {
+				display: none;
+			}
+	
+			.explaintaion-content {
+				text-align: center;
+				padding-top: 0px;
+
+				p {
+					margin: 30px 0;
+					font-size: 2.5vw;
+				}
+				
+				ul {
+					li {
+						font-size: 2.5vw;
+					}
+				}
+			}
+	
+		}
+	
+		.advantages {
+			height: 900px;
+
+			p {
+				margin: 5px 0px;
+				font-size: 2.5vw;
+			}
+	
+			.advantage {
+				flex-direction: column;
+	
+				.plan {
+					margin: 20px 0px;
+	
+					img {
+						width: 10%;
+					}
+	
+					h4 {
+						margin: 10px 0 0px 0px;
+						font-size: 4.5vw;
+					}
+				}
+			}
+		}
+	
+		.signUp-home-section {
+			padding: 80px 0 0px;
+		}
+
+	}
+
 }

@@ -1,3 +1,7 @@
+
+import { checkInvalidEmail } from "../../helpers/validation"
+
+
 export default function validation(values) {
 
     console.log("validation - values", values)
@@ -12,11 +16,12 @@ export default function validation(values) {
     }
 
     if (values.email) {
-        if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            .test(values.email)) {
-            errors.email = "Email adress is invalid"
+        if (checkInvalidEmail(values.email)) {
+            errors.email = validationErrors.EMAIL_INVALID
         }
     }
+
+    
 
     if (values.password) {
         if (values.password.length < 7) {

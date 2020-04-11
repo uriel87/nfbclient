@@ -1,14 +1,18 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setLogin } from "../../actions/auth.action"
 import Cookies from 'js-cookie'
 import validationAuth from "./validationAuth"
 import UseForm from '../../helpers/useForm'
-import Input from '../../components/Input/Input'
+import Input from '../../components/input/input'
+import Loading from '../loading/loading'
 import { actionFetch } from '../../helpers/actionFetch'
 import { fetchAction } from '../../constant'
 import { formInputType, formName } from '../../constant'
+import './login.css'
+
+
 
 
 
@@ -16,54 +20,48 @@ const Login = () => {
 
   const history = useHistory();
   const dispatch = useDispatch();
+  const [ isLoading, setIsLoading] = useState(false)
   const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, validationAuth);
 
   async function submit() {
     try {
+        setIsLoading(true)
         const data = await actionFetch(fetchAction.LOGIN_USER, inputs)
         dispatch(setLogin(data.login))
         Cookies.set('auth', data.login)
-        history.push('/');
+        setIsLoading(false)
+        history.push('/balance');
     } catch(err) {
+        setIsLoading(false)
         console.log("error in Settings submit ", err)
         throw err;
     }
   }
 
+  if(isLoading) {return (<Loading />)}
   return(
-    <div className="container">
-      <div className="modal" id="login">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <form className="form-lightBox" onSubmit={handleOnSubmit}>
-              <span type="button" className="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">&times;</span>
-                <div className="modal-header">
-                  <h4 className="modal-title">Login</h4>
-                </div>
+    <div className="login-container">
+      <form onSubmit={handleOnSubmit}>
+        <Input
+          name={formName.EMAIL}
+          label={formName.EMAIL}
+          placeholder={formName.EMAIL}
+          type={formInputType.TEXT}
+          handleOnChange={handleOnChange}
+          error={errors.email}
+          value={inputs.email} />
 
-                <Input
-                  name={formName.EMAIL}
-                  placeholder={formName.EMAIL}
-                  type={formInputType.TEXT}
-                  handleOnChange={handleOnChange}
-                  error={errors.email}
-                  value={inputs.email} />
+        <Input
+          name={formName.PASSWORD}
+          label={formName.PASSWORD}
+          placeholder={formName.PASSWORD}
+          type={formInputType.PASSWORD}
+          handleOnChange={handleOnChange}
+          error={errors.password}
+          value={inputs.password} />
 
-                <Input
-                  name={formName.PASSWORD}
-                  placeholder={formName.PASSWORD}
-                  type={formInputType.PASSWORD}
-                  handleOnChange={handleOnChange}
-                  error={errors.password}
-                  value={inputs.password} />
-
-                <div className="modal-footer">
-                  <button type="submit" className="btn btn-primary" >Login</button>
-                </div>
-            </form>
-          </div>
-        </div>
-      </div>
+          <button type="submit" className="cta-btn" >Login</button>
+      </form>
     </div>
   )
 }
@@ -75,6 +73,33 @@ export default memo(Login);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <div className="container">
+//   <div className="modal" id="login">
+//     <div className="modal-dialog">
+//       <div className="modal-content">
+//         <form className="form-lightBox" onSubmit={handleOnSubmit}>
+//           <span type="button" className="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><i className="far fa-times-circle"></i></span>
+//             <div className="modal-header">
+//               <h4 className="modal-title">Login</h4>
+//             </div>
+
+//     </div>
+//   </div>
+// </div>
 
 
 

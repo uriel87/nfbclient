@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import Cookies from 'js-cookie'
 import UseForm from '../../helpers/useForm'
 import validationSettings from './validationSettings'
-import Input from '../../components/Input/Input'
+import Input from '../../components/input/input'
 import { setLogin } from "../../actions/auth.action"
 import { actionFetch } from '../../helpers/actionFetch'
 import { fetchAction } from '../../constant'
 import { formInputType, formName } from '../../constant'
+import './settings.css'
 
 
 const Settings = () => {
@@ -30,14 +31,13 @@ const Settings = () => {
 
     return(
         <div>
-            <div className="">
+            <div className="settings-container">
                 <form onSubmit={handleOnSubmit}>
-                    <div className="">
-                        <h4 className="">Personal Settings</h4>
-                    </div>
+                    <h4 className="">Personal Settings</h4>
 
                     <Input
                         name={formName.NAME}
+                        label={formName.NAME}
                         placeholder={formName.NAME}
                         type={formInputType.TEXT}
                         handleOnChange={handleOnChange}
@@ -46,6 +46,7 @@ const Settings = () => {
 
                     <Input
                         name={formName.EMAIL}
+                        label={formName.EMAIL}
                         placeholder={formName.EMAIL}
                         type={formInputType.TEXT}
                         handleOnChange={handleOnChange}
@@ -54,6 +55,7 @@ const Settings = () => {
 
                     <Input
                         name={formName.PASSWORD}
+                        label={formName.PASSWORD}
                         placeholder={formName.PASSWORD}
                         type={formInputType.PASSWORD}
                         handleOnChange={handleOnChange}
@@ -62,15 +64,15 @@ const Settings = () => {
 
                     <Input
                         name={formName.TEL}
+                        label={formName.TEL}
                         placeholder={formName.TEL}
                         type={formInputType.TEL}
                         handleOnChange={handleOnChange}
                         error={errors.tel}
                         value={inputs.tel} />
 
-                    <div className="modal-footer">
-                        <button type="submit" className="btn btn-primary">Save</button>
-                    </div>
+                    <button type="submit" className="cta-btn">Save</button>
+
                     {errors && <p className="mediaInput-input-error">{errors.userExist}</p>}
                 </form>
             </div>
@@ -90,6 +92,10 @@ export default memo(Settings)
 
 
 
+
+{/* <div className="modal-footer">
+    <button type="submit" className="btn btn-primary">Save</button>
+</div> */}
 
 // const submit = async () => {
 //     const data = await actionFetch(fetchAction.EDIT_USER, inputs, user)

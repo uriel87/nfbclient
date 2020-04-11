@@ -1,0 +1,181 @@
+@charset "UTF-8";
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+.cta-btn {
+  width: 60%;
+  height: 50px;
+  border-radius: 30px;
+  background: #2A2A72;
+  color: #f5f6f7;
+  border: none;
+  -webkit-box-shadow: 1px 2px #a9acaf;
+          box-shadow: 1px 2px #a9acaf;
+  margin-top: 25px;
+}
+
+.cta-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+.cta-btn:hover {
+  background: #13A6E8;
+}
+
+.cta-btn:focus {
+  outline: none;
+}
+
+.header-name {
+  font-size: 5vw;
+  text-align: center;
+  color: #2A2A72;
+  margin: 25px 0;
+}
+
+.page-container {
+  padding: 50px 0;
+  width: 90%;
+  margin: auto;
+}
+
+.edit-btn-lightbox .btn-open-lightbox {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.edit-btn-lightbox .btn-open-lightbox:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-dialog .btn-open-dialog {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-dialog .btn-open-dialog:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.lightboxBackground {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  min-height: 35%;
+  padding: 25px;
+  -webkit-animation: show-lightbox-background 0.2s linear;
+          animation: show-lightbox-background 0.2s linear;
+}
+
+.lightboxBackground.hide-lightbox {
+  animation: show-lightbox-container 0.2s linear reverse;
+  animation: show-lightbox-background 0.2s linear reverse;
+}
+
+.lightboxContainer {
+  position: fixed;
+  width: 300px;
+  height: auto;
+  z-index: 11;
+  margin: 0;
+  top: 380px;
+  left: 50%;
+  background-color: #f5f6f7;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  min-height: 35%;
+  padding: 25px;
+  min-width: 60%;
+  max-width: 70%;
+  text-align: center;
+  -webkit-animation: show-lightbox-container 0.2s linear;
+          animation: show-lightbox-container 0.2s linear;
+}
+
+.lightboxContainer .btn-close-lightbox {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+.lightboxContainer .btn-close-lightbox:hover {
+  color: #6ec5ff;
+}
+
+.lightboxContainer .btn-close-lightbox:visited {
+  text-shadow: 0px 0px #b9b9b9;
+}
+
+.lightboxContainer .btn-close-lightbox:active {
+  position: absolute;
+  top: 6px;
+}
+
+.lightboxContainer .title-lightbox {
+  color: #2A2A72;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 4vh;
+}
+
+@-webkit-keyframes show-lightbox-container {
+  0% {
+    top: 365px;
+  }
+  100% {
+    top: 380px;
+  }
+}
+
+@keyframes show-lightbox-container {
+  0% {
+    top: 365px;
+  }
+  100% {
+    top: 380px;
+  }
+}
+
+@-webkit-keyframes show-lightbox-background {
+  25% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes show-lightbox-background {
+  25% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+/*# sourceMappingURL=lightbox.css.map */

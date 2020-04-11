@@ -1,1 +1,7 @@
-/* No CSS *//*# sourceMappingURL=settings.css.map */
+.settings-container {
+  width: 80%;
+  margin: auto;
+  padding: 10% 10%;
+  text-align: center;
+}
+/*# sourceMappingURL=settings.css.map */

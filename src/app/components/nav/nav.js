@@ -32,7 +32,12 @@ export const Nav  = () => {
     return(
         <div>
             <nav className="nav-main">
-                <Link id="logo" to="/" ></Link>
+
+                { isLoggedin?
+                    <Link id="logo" to="/balance"></Link>
+                    : <Link id="logo" to="/"></Link>
+                }
+
                 <div className="container-link">
                     <div className="nav-base">
                         <Link to="/about">About</Link>

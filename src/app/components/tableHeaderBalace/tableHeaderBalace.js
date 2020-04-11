@@ -7,7 +7,7 @@ import React, { memo } from "react";
 
 const TableHeaderBalace = () => {
     return(
-        <div className="flex-table-header">
+        <div className="flex-table-header header-table">
             <div className="flex-row">Name</div>
             <div className="flex-row">Description</div>
             <div className="flex-row">Amount</div>
