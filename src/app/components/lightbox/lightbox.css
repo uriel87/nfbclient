@@ -1,5 +1,12 @@
 @charset "UTF-8";
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .cta-btn {
   width: 60%;
   height: 50px;
@@ -60,6 +67,12 @@
   font-family: "Font Awesome 5 Free";
 }
 
+@media screen and (min-width: 520px) {
+  .header-name {
+    margin: 100px 0 40px 0;
+  }
+}
+
 .lightboxBackground {
   position: fixed;
   width: 100%;
@@ -76,11 +89,6 @@
   padding: 25px;
   -webkit-animation: show-lightbox-background 0.2s linear;
           animation: show-lightbox-background 0.2s linear;
-}
-
-.lightboxBackground.hide-lightbox {
-  animation: show-lightbox-container 0.2s linear reverse;
-  animation: show-lightbox-background 0.2s linear reverse;
 }
 
 .lightboxContainer {
@@ -176,6 +184,45 @@
   }
   100% {
     background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@-webkit-keyframes hide-lightbox-background {
+  25% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  25% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes hide-lightbox-background {
+  25% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  25% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .lightboxContainer {
+    top: 45%;
+    left: 45%;
+    padding: 25px 5px;
+    min-width: 90%;
   }
 }
 /*# sourceMappingURL=lightbox.css.map */

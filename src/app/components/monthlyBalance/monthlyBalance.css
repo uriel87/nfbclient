@@ -1,3 +1,78 @@
+@charset "UTF-8";
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.cta-btn {
+  width: 60%;
+  height: 50px;
+  border-radius: 30px;
+  background: #2A2A72;
+  color: #f5f6f7;
+  border: none;
+  -webkit-box-shadow: 1px 2px #a9acaf;
+          box-shadow: 1px 2px #a9acaf;
+  margin-top: 25px;
+}
+
+.cta-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+.cta-btn:hover {
+  background: #13A6E8;
+}
+
+.cta-btn:focus {
+  outline: none;
+}
+
+.header-name {
+  font-size: 5vw;
+  text-align: center;
+  color: #2A2A72;
+  margin: 25px 0;
+}
+
+.page-container {
+  padding: 50px 0;
+  width: 90%;
+  margin: auto;
+}
+
+.edit-btn-lightbox .btn-open-lightbox {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.edit-btn-lightbox .btn-open-lightbox:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-dialog .btn-open-dialog {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-dialog .btn-open-dialog:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+@media screen and (min-width: 520px) {
+  .header-name {
+    margin: 100px 0 40px 0;
+  }
+}
+
 .chart-responsive {
   display: none;
 }
@@ -12,7 +87,7 @@
     margin: 10px auto;
     padding: 20px 25px 70px;
     height: 470px;
-    background-image: linear-gradient(125deg, #ede574, #e1f5c4);
+    background-image: linear-gradient(135deg, #FFA400, #ffd200);
     -webkit-box-shadow: 5px 5px 10px #e6e6e6;
             box-shadow: 5px 5px 10px #e6e6e6;
     border-radius: 60px;

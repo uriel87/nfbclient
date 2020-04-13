@@ -2,6 +2,13 @@
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 @import url("https://fonts.googleapis.com/css?family=Proza+Libre");
 @import url("https://fonts.googleapis.com/css?family=Unna");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .cta-btn {
   width: 60%;
   height: 50px;
@@ -60,6 +67,12 @@
 .delete-btn-dialog .btn-open-dialog:before {
   content: "";
   font-family: "Font Awesome 5 Free";
+}
+
+@media screen and (min-width: 520px) {
+  .header-name {
+    margin: 100px 0 40px 0;
+  }
 }
 
 .container {

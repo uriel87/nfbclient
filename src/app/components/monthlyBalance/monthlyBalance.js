@@ -90,7 +90,7 @@ const MonthlyBalance = (props) => {
                 <div className="flex-row" data-label="Expenses">{totalExpenses}</div>
                 <div className="flex-row" data-label="Incomes">{totalIncomes}</div>
                 <div className="flex-row" data-label="Expected expenses">{totalExpectedExpenses}</div>
-                <div className="flex-row" data-label="Total monthly balance">{totalMonthlyBalance}</div>
+                <div className="flex-row" data-label="Total monthly balance">{totalMonthlyBalance.toFixed(2)}</div>
             </div>
             <div className="table-container" aria-label="Destinations">
                 <TableHeaderBalace />

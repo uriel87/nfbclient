@@ -1,5 +1,13 @@
 @charset "UTF-8";
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+@import url(/Users/urielchechique/Documents/ראיונות עבודה/nfbclient/src/app/components/lightbox/lightbox.css);
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .cta-btn {
   width: 60%;
   height: 50px;
@@ -60,6 +68,12 @@
   font-family: "Font Awesome 5 Free";
 }
 
+@media screen and (min-width: 520px) {
+  .header-name {
+    margin: 100px 0 40px 0;
+  }
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -78,6 +92,10 @@ nav {
   z-index: 0;
 }
 
+.main-mobile-background {
+  display: none;
+}
+
 .nav-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -86,6 +104,7 @@ nav {
   color: #06266F;
   -webkit-box-shadow: 0px 1px 5px #a9acaf;
           box-shadow: 0px 1px 5px #a9acaf;
+  background-color: #f5f6f7;
 }
 
 .nav-main #logo {
@@ -99,6 +118,10 @@ nav {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.nav-main .nav-mobile-btn {
+  display: none;
 }
 
 .nav-main .container-link {
@@ -139,6 +162,7 @@ nav {
 }
 
 .nav-main .container-link .nav-base .container-logout .link-logout {
+  border: 1px solid #008ac0;
   margin-left: 2em;
 }
 
@@ -354,6 +378,129 @@ nav {
         -ms-flex-pack: center;
             justify-content: center;
     margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .main-mobile-background {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    margin: 0;
+    top: 13.5%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    min-height: 35%;
+    padding: 25px;
+    -webkit-animation: show-main-mobile-background 0.2s linear;
+            animation: show-main-mobile-background 0.2s linear;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  @-webkit-keyframes show-main-mobile-background {
+    25% {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    75% {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  @keyframes show-main-mobile-background {
+    25% {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    75% {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  .nav-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    padding: 0 15px;
+  }
+  .nav-main #logo {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    text-align: center;
+  }
+  .nav-main .nav-mobile-btn {
+    display: block;
+    height: 60px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+  }
+  .nav-main .container-link {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 90%;
+    background-color: #f5f6f7;
+    z-index: 5;
+    padding: 10px 15px;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  .nav-main .container-link.show-container-link {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  .nav-main .container-link .nav-base {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    height: 600px;
+    text-align: left;
+  }
+  .nav-main .container-link .nav-base a {
+    width: 100%;
+    margin: calc(25%/4) 0;
+    padding: 0;
+  }
+  .nav-main .container-link .nav-base .container-logout {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1;
+            flex: 1 1;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 400px;
   }
 }
 /*# sourceMappingURL=nav.css.map */

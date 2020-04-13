@@ -14,16 +14,16 @@ const LightboxBtn = (props) => {
 
     return (
         <div>
-            <button type="button" className="btn-open-lightbox" onClick = { openLightbox.bind(this) }>
+            <button type="button" className="btn-open-lightbox" onClick={props.showMobileNav } onClick = { openLightbox.bind(this) } >
                 {props.content}
             </button>
-            { isOpenLightbox?
+            {/* { isOpenLightbox? */}
                 <Lightbox
                     cmp = { props.cmp }
                     headerContent = {props.headerContent}
                     OpenCmp = { openLightbox.bind(this) }
                     isOpenCmp = { isOpenLightbox } />
-            : null}
+            {/* : null} */}
         </div>
     )
 }

@@ -9,7 +9,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 import './navLogout.css'
 
 
-export const NavLogout = () => {
+export const NavLogout = (props) => {
     return(
         <div className="container-logout">
             <LightboxBtn content={headerContent.LOGIN} headerContent = {headerContent.LOGIN} cmp={<Login />}/>

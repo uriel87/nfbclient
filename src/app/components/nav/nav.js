@@ -5,17 +5,16 @@ import { Link, useHistory } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import NavLogout from './navLogout/navLogout'
 import NavLogin from './navLogin/navLogin'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
 import './nav.css'
 
 
 export const Nav  = () => {
-    // console.log("render Nav")
     const history = useHistory();
     const auth = useSelector(state => state.auth);
     const[isLoggedin, setIsLoggedin] = useState(false)
-    // const[isLoading, setIsLoading] = useState(false)
+    const[isMobileNavVisible, setIsMobileNavVisible] = useState(false)
+    console.log("isMobileNavVisible", isMobileNavVisible)
+
 
     useEffect(() => {
         Cookies.get('auth')? setIsLoggedin(true) : setLogout()
@@ -28,20 +27,26 @@ export const Nav  = () => {
         history.push('/');	
     }
 
+    const showMobileNav = () => {
+        setIsMobileNavVisible(!isMobileNavVisible)
+    }
+
     // if(isLoading) {return <div></div>}
     return(
         <div>
             <nav className="nav-main">
+                
+                <Link id="logo" to= {isLoggedin? "/balance" : "/"} ></Link>
 
-                { isLoggedin?
-                    <Link id="logo" to="/balance"></Link>
-                    : <Link id="logo" to="/"></Link>
-                }
+                <div className={`${isMobileNavVisible ? "main-mobile-background" : ""}`} 
+                    onClick={showMobileNav}>
+                </div>
 
-                <div className="container-link">
+                <button className="nav-mobile-btn" onClick={showMobileNav}><i className="fas fa-bars"></i></button>
+                <div className={`container-link ${isMobileNavVisible ? `show-container-link` : ""}`}>
                     <div className="nav-base">
-                        <Link to="/about">About</Link>
-                        { isLoggedin ? <NavLogin /> : <NavLogout /> }
+                        <Link to="/about" onClick={showMobileNav} >About </Link>
+                        { isLoggedin ? <NavLogin showMobileNav={showMobileNav} /> : <NavLogout /> }
                     </div>
                 </div>
             </nav>

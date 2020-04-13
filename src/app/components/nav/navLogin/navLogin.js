@@ -7,10 +7,12 @@ import NavUser from '../navUser/navUser'
 import { setUser } from "../../../actions/user.action"
 import { actionFetch } from '../../../helpers/actionFetch'
 import { fetchAction } from '../../../constant'
+import Logout from '../../logout/logout'
+import LightboxBtn from '../../lightboxBtn/lightboxBtn'
+import { headerContent } from '../../../constant'
 
 
-
-export const NavLogin = () => {
+export const NavLogin = (props) => {
     const dispatch = useDispatch();
     const [userDetails, setUserDetails] = useState()
 
@@ -21,7 +23,7 @@ export const NavLogin = () => {
     const getUserDetails = async () => {
         try {
             const userDetalis = await actionFetch(fetchAction.GET_USER_DETAILS)
-            console.log("getUserDetails - userDetalis", userDetalis.getUserDetails)
+            // console.log("getUserDetails - userDetalis", userDetalis.getUserDetails)
             dispatch(setUser(userDetalis.getUserDetails))
             Cookies.set('user', userDetalis.getUserDetails)
             setUserDetails(userDetalis.getUserDetails)
@@ -33,10 +35,16 @@ export const NavLogin = () => {
 
     return(
         <div className="container-logout">
-            <Link to="/balance">Balance</Link>
-            <Link to="/expectedExpenses" >Expected expenses</Link>
-            <Link to="/tasks">Tasks</Link>
-            <NavUser user={userDetails}/>
+            <Link to="/balance" onClick={props.showMobileNav }>Balance</Link>
+            <Link to="/expectedExpenses" onClick={props.showMobileNav } >Expected expenses</Link>
+            <Link to="/tasks" onClick={props.showMobileNav }>Tasks</Link>
+            <Link to="/settings" onClick={props.showMobileNav }>Settings</Link>
+            <LightboxBtn
+                showMobileNav={props.showMobileNav }
+                content={headerContent.LOGOUT}
+                headerContent = {headerContent.LOGOUT}
+                cmp={<Logout />} />
+            {/* <NavUser user={userDetails} showMobileNav={props.showMobileNav }/> */}
         </div>
     )
 }

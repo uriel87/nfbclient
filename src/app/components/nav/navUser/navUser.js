@@ -20,7 +20,7 @@ export const NavUser = (props) => {
             {isDropdown? 
                 <div className= "dropdown-content">
                     <ul>
-                        <li><Link to="/settings" >Settings</Link></li>
+                        <li><Link to="/settings" onClick={props.showMobileNav }>Settings</Link></li>
                         <li className="btn-logout">
                             <LightboxBtn content={headerContent.LOGOUT} headerContent = {headerContent.LOGOUT} cmp={<Logout />}/>
                         </li>

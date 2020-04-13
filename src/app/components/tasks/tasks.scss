@@ -33,8 +33,24 @@
 //   }
 
 
-  .add-task-btn-lightbox {
-    .btn-open-lightbox{
-        @include icon-btn($task-list-icon);
-    }
+.add-task-btn-lightbox {
+  .btn-open-lightbox{
+      @include icon-btn($task-list-icon, "");
+  }
+}
+
+.task-container {
+  width: 90%;
+  margin: auto;
+  padding: 25px 0;
+}
+
+
+@media screen and (max-width: 520px) {
+
+  .task-container {
+      width: 90%;
+      margin: auto;
+      padding: 130px 0;
+  }
 }

@@ -36,13 +36,12 @@ const Tasks = () => {
     
     if(!tasksList) {return (<Loading />)}
     return(
-        <div className="page-container">
+        <div className="task-container">
             <h4 className="header-name">Tasks</h4>
 
             <div className="add-task-btn-lightbox">
                 <LightboxBtn headerContent = {headerContent.CREATE_NEW_TASK} cmp={addForm}/>
             </div>
-
 
             <form>
                 <Input

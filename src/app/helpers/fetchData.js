@@ -32,17 +32,3 @@ export const fetchData = async (query) => {
         throw err;
     }
 };
-
-
-
-// console.log("in fetchData:")
-// console.log("in fetchData - res:", res.data.data)
-
-// let data = res.data.data
-// let status = res.status
-
-// return {
-//     data,
-//     status
-// }
-
