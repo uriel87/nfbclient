@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAIA,AAAA,gBAAgB,CAAC;EACb,MAAM,EAAE,SAAS;CACpB;;AAED,AAAA,iBAAiB,CAAC;EAEd,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CAQ1B;;AAXD,AAKI,iBALa,CAKb,MAAM,CAAC;EACH,IAAI,EAAE,GAAG;EACT,MAAM,EAAE,MAAM;EACd,SAAS,EAAE,KAAK;CACnB",
+    "sources": [
+        "deleteForm.scss"
+    ],
+    "names": [],
+    "file": "deleteForm.css"
+}

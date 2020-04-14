@@ -85,9 +85,23 @@ $piggy-bank-icon: "\f4d3";
   }
 }
 
+.delete-btn-lightbox{
+  .btn-open-lightbox{
+      background-color: transparent;
+      outline: none;
+      border: none;
 
-.delete-btn-dialog {
-  .btn-open-dialog {
+      &:before {
+        content: $delete-icon;
+        font-family: $fontawesome
+      }
+
+  }
+}
+
+
+.delete-btn-form {
+  .btn-open-form {
       background-color: transparent;
       outline: none;
       border: none;

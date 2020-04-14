@@ -22,7 +22,8 @@ const LightboxBtn = (props) => {
                     cmp = { props.cmp }
                     headerContent = {props.headerContent}
                     OpenCmp = { openLightbox.bind(this) }
-                    isOpenCmp = { isOpenLightbox } />
+                    isOpenCmp = { isOpenLightbox }
+                    cancelBtn = {props.cancelBtn}/>
             {/* : null} */}
         </div>
     )

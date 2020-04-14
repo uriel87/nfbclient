@@ -13,7 +13,6 @@ const Dialog = (props) => {
         <div>
             <div className="lightboxBackground" onClick={props.openCmp}></div>
             <div className="lightboxContainer">
-            {/* <span onClick={props.openCmp}><i className="far fa-times-circle"></i></span>   */}
             <button onClick={props.openCmp} className="btn-close-lightbox" ><i className="far fa-times-circle"></i></button>                     
                 <h2>{props.title}</h2>
                     <div className="form-lightbox">

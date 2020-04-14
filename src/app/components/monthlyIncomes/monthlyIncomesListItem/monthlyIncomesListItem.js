@@ -2,7 +2,7 @@
 
 import React, { memo } from 'react'
 import LightboxBtn from '../../lightboxBtn/lightboxBtn'
-import DialogBtn from '../../dialogBtn/dialogBtn'
+import DeleteFormBtn from '../../deleteForm/deleteFormBtn'
 import FormIncome from '../formIncome/formIncome'
 import validationEditIncome from '../validations/validationEditIncome'
 import { fetchAction, title, question, headerContent } from '../../../constant'
@@ -19,7 +19,7 @@ export const MonthlyIncomesListItem = (props) => {
             fetchAction={fetchAction.EDIT_MONTHLY_INCOME}
             income={props.income} />
     )
-
+    
     return (
         <div className="flex-table-rows"> 
             <div className="flex-row" data-label="name">{props.income.name}</div>
@@ -33,15 +33,15 @@ export const MonthlyIncomesListItem = (props) => {
             <div className="flex-row edit-btn-lightbox">
                 <LightboxBtn content={null} headerContent = {headerContent.EDIT_INCOME} cmp={editForm}/>
             </div>
-            
-            <div className="flex-row delete-btn-dialog">
-                <DialogBtn
+
+            <div className="flex-row delete-btn-form">
+                <DeleteFormBtn
                     title = {title.DELETE_INCOME}
                     question = {question.DELETE_INCOME}
                     item={props.income}
                     fetchAction={fetchAction.DELETE_MONTHLY_INCOME} />
             </div>
-
+            
         </div>
     )
 }
@@ -68,6 +68,27 @@ export default memo(MonthlyIncomesListItem)
 
 
 
+
+// const deleteForm = (
+//     <DeleteForm
+//         fetchAction={fetchAction.DELETE_MONTHLY_INCOME}
+//         item = {props.income}  />
+// )
+
+
+
+{/* <div className="flex-row delete-btn-lightbox">
+    <LightboxBtn headerContent = {headerContent.DELETE_INCOME} cmp={deleteForm} cancelBtn = {true}/>
+</div> */}
+
+
+{/* <div className="flex-row delete-btn-dialog">
+    <DialogBtn
+        title = {title.DELETE_INCOME}
+        question = {question.DELETE_INCOME}
+        item={props.income}
+        fetchAction={fetchAction.DELETE_MONTHLY_INCOME} />
+</div> */}
 
 
 

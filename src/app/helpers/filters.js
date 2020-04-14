@@ -41,7 +41,7 @@ module.exports = {
             return items.filter(
                 (item) => {
                     let finishedPayment = new Date(item.time)
-                    finishedPayment.setMonth(finishedPayment.getMonth() + item.payments)
+                    finishedPayment.setMonth(finishedPayment.getMonth() + item.payments -1 )
                     return (
                         ((Date.parse(finishedPayment) > dateChoosen) &&  
                         (item.year >= year) && (item.month <= month))

@@ -56,13 +56,24 @@
   font-family: "Font Awesome 5 Free";
 }
 
-.delete-btn-dialog .btn-open-dialog {
+.delete-btn-lightbox .btn-open-lightbox {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-.delete-btn-dialog .btn-open-dialog:before {
+.delete-btn-lightbox .btn-open-lightbox:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-form .btn-open-form {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-form .btn-open-form:before {
   content: "";
   font-family: "Font Awesome 5 Free";
 }

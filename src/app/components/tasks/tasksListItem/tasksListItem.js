@@ -1,8 +1,9 @@
 
 import React, { memo } from 'react'
 import LightboxBtn from '../../lightboxBtn/lightboxBtn'
-import DialogBtn from '../../dialogBtn/dialogBtn'
+import DeleteFormBtn from '../../deleteForm/deleteFormBtn'
 import FormTask from '../formTask/formTask'
+import DeleteForm from '../../deleteForm/deleteForm'
 import validationEditTask from '../validation/validationEditTask'
 import { fetchAction, title, question, headerContent } from '../../../constant'
 
@@ -25,17 +26,20 @@ export const TasksListItem = (props) => {
             <div className="flex-row" data-label="priority">{props.task.priority}</div>
             <div className="flex-row" data-label="endTime">{props.task.endTime}</div>
             <div className="flex-row" data-label="daily">{String(props.task.daily)}</div>
+
             <div className="flex-row edit-btn-lightbox">
                 <LightboxBtn headerContent = {headerContent.EDIT_TASK} cmp={editForm}/>
             </div>
 
-            <div className="flex-row delete-btn-dialog">
-                <DialogBtn
+
+            <div className="flex-row delete-btn-form">
+                <DeleteFormBtn
                     title = {title.DELETE_TASK}
                     question = {question.DELETE_TASK}
                     item={props.task}
                     fetchAction={fetchAction.DELETE_TASK} />
             </div>
+
 
 
         </div>
@@ -58,6 +62,26 @@ export default memo(TasksListItem)
 
 
 
+
+// const deleteForm = (
+//     <DeleteForm
+//         fetchAction={fetchAction.DELETE_TASK}
+//         item = {props.task}  />
+// )
+
+
+
+{/* <div className="flex-row delete-btn-lightbox">
+    <LightboxBtn headerContent = {headerContent.DELETE_TASK} cmp={deleteForm} cancelBtn = {true}/>
+</div> */}
+
+{/* <div className="flex-row delete-btn-dialog">
+    <DialogBtn
+        title = {title.DELETE_TASK}
+        question = {question.DELETE_TASK}
+        item={props.task}
+        fetchAction={fetchAction.DELETE_TASK} />
+</div> */}
 
 
 

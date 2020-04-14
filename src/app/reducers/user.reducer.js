@@ -28,8 +28,7 @@ const userReducer = (state = initialState, action) => {
 				tasksList: action.payload.tasksList,
 				monthlyExpensesList: action.payload.monthlyExpensesList,
 				monthlyIncomesList: action.payload.monthlyIncomesList,
-				monthlyExpectedExpensesList: action.payload.monthlyExpectedExpensesList,
-				monthlyBalanceList: action.payload.monthlyExpensesList.concat(action.payload.monthlyIncomesList)
+				monthlyExpectedExpensesList: action.payload.monthlyExpectedExpensesList
 			};
         default:
             return state
@@ -47,3 +46,5 @@ export default userReducer;
 // taskList: action.payload.tel,
 // monthlyExpensesList: action.payload.monthlyExpensesList,
 // monthlyIncomesList: action.payload.monthlyIncomesList
+
+// monthlyBalanceList: action.payload.monthlyExpensesList.concat(action.payload.monthlyIncomesList)

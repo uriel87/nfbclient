@@ -1,0 +1,21 @@
+.delete-question {
+  margin: 40px auto;
+}
+
+.delete-form-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.delete-form-btns button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  margin: 0 10px;
+  max-width: 150px;
+}
+/*# sourceMappingURL=deleteForm.css.map */

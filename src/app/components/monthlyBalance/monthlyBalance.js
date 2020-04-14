@@ -11,16 +11,16 @@ import Input from '../input/input'
 import { formInputType } from '../../constant'
 import "./monthlyBalance.css"
 import "../../../index.css"
-
-
-
 import { sumExpense, sumIncomes ,sumBalance, sumExpectedExpense } from '../../helpers/calculators'
-import { filterExpectedExpensesByDate } from '../../helpers/filters'
+import { filterExpectedExpensesByDate, filterMonthlyExpensesByDate, filterMonthlyIncomesByDate } from '../../helpers/filters'
 
 
 const MonthlyBalance = (props) => {
 
-    const monthlyBalanceRedux = useSelector(state => state.user.monthlyBalanceList)
+    const monthlyIncomesRedux = useSelector(state => state.user.monthlyIncomesList)
+    const monthlyExpensesRedux = useSelector(state => state.user.monthlyExpensesList)
+
+
     const [monthlyBalance, setMonthlyBalance] = useState()
     const [date, setDate] = useState(new Date().toISOString().substr(0,7))
     const [totalIncomes, setTotalIncomes] = useState()
@@ -33,12 +33,13 @@ const MonthlyBalance = (props) => {
 
 
     useEffect(() => {
-        setTotalIncomes(sumIncomes(monthlyBalanceRedux))
-        setTotalExpenses(sumExpense(monthlyBalanceRedux))
+        setMonthlyBalance(filterMonthlyExpensesByDate(monthlyExpensesRedux, date).concat(filterMonthlyIncomesByDate(monthlyIncomesRedux, date)))
+        setTotalIncomes(sumIncomes(filterMonthlyIncomesByDate(monthlyIncomesRedux, date)))
+        setTotalExpenses(sumExpense(filterMonthlyExpensesByDate(monthlyExpensesRedux, date)))
         setTotalExpectedExpenses(filterExpectedExpensesByDate(totalExpectedExpensesRedux, date))
         setTotalBalance(Math.abs(totalIncomes - totalExpenses))
-        setMonthlyBalance(monthlyBalanceRedux)
-        setTotalMonthlyBalance(totalExpectedExpenses - totalExpenses)
+        // setMonthlyBalance(monthlyBalanceRedux)
+        setTotalMonthlyBalance((totalExpectedExpenses - totalExpenses).toFixed(2))
 
         setCharData({
             labels:["Balance", "Expenses", "Incomes", "Expected expenses", "Total monthly balance"],
@@ -62,7 +63,7 @@ const MonthlyBalance = (props) => {
                 ]
             }]
         })
-    }, [props, totalIncomes, totalBalance, date, monthlyBalanceRedux, totalExpectedExpensesRedux, totalMonthlyBalance]);
+    }, [props, totalIncomes, totalBalance, date, monthlyIncomesRedux, monthlyExpensesRedux,totalExpectedExpensesRedux, totalMonthlyBalance]);
 
 
     const handleChange = useCallback((event) => {
@@ -90,7 +91,7 @@ const MonthlyBalance = (props) => {
                 <div className="flex-row" data-label="Expenses">{totalExpenses}</div>
                 <div className="flex-row" data-label="Incomes">{totalIncomes}</div>
                 <div className="flex-row" data-label="Expected expenses">{totalExpectedExpenses}</div>
-                <div className="flex-row" data-label="Total monthly balance">{totalMonthlyBalance.toFixed(2)}</div>
+                <div className="flex-row" data-label="Total monthly balance">{totalMonthlyBalance}</div>
             </div>
             <div className="table-container" aria-label="Destinations">
                 <TableHeaderBalace />
@@ -109,6 +110,10 @@ export default memo(MonthlyBalance)
 
 
 
+
+
+
+// const monthlyBalanceRedux = useSelector(state => state.user.monthlyBalanceList)
 
 {/* 
 <p data-label="Balance">{totalBalance}</p>

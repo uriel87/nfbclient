@@ -1,9 +1,9 @@
 
 import React, { memo } from 'react'
 import LightboxBtn from '../../lightboxBtn/lightboxBtn'
-import DialogBtn from '../../dialogBtn/dialogBtn'
 import FormExpense from '../formExpense/formExpense'
 import validationEditExpense from '../validations/validationEditExpense'
+import DeleteFormBtn from '../../deleteForm/deleteFormBtn'
 import { fetchAction, title, question, headerContent } from '../../../constant'
 import 'font-awesome/css/font-awesome.min.css'
 import "../../../../index.css"
@@ -27,18 +27,19 @@ export const ExpencesListItem = (props) => {
             <div className="flex-row" data-label="category">{props.expense.category}</div>
             <div className="flex-row" data-label="time">{props.expense.time}</div>
             <div className="flex-row" data-label="payments">{props.expense.payments}</div>
+
             <div className="flex-row edit-btn-lightbox">
                 <LightboxBtn headerContent = {headerContent.EDIT_EXPENSE} cmp={editForm}/>
             </div>
-            
-            <div className="flex-row delete-btn-dialog">
-                <DialogBtn
-                    title = {title.DELETE_EXPENSE}
-                    question = {question.DELETE_EXPENSE}
-                    item={props.expense}
-                    fetchAction={fetchAction.DELETE_MONTHLY_EXPENSE} />
-            </div>
 
+            <div className="flex-row delete-btn-form">
+                <DeleteFormBtn
+                title = {title.DELETE_EXPENSE}
+                question = {question.DELETE_EXPENSE}
+                item={props.expense}
+                fetchAction={fetchAction.DELETE_MONTHLY_EXPENSE} />
+            </div>
+            
         </div>
     )
 }
@@ -62,7 +63,28 @@ export default memo(ExpencesListItem)
 
 
 
+// const deleteForm = (
+//     <DeleteForm
+//         fetchAction={fetchAction.DELETE_MONTHLY_EXPENSE}
+//         item = {props.expense}  />
+// )
 
+
+
+
+{/* <div className="flex-row delete-btn-lightbox">
+    <LightboxBtn headerContent = {headerContent.DELETE_EXPENSE} cmp={deleteForm} cancelBtn = {true}/>
+</div> */}
+
+
+
+{/* <div className="flex-row delete-btn-dialog">
+    <DialogBtn
+        title = {title.DELETE_EXPENSE}
+        question = {question.DELETE_EXPENSE}
+        item={props.expense}
+        fetchAction={fetchAction.DELETE_MONTHLY_EXPENSE} />
+</div> */}
 
 
 // const expense = props.expense

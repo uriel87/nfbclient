@@ -54,10 +54,6 @@ const Balance = () => {
                     </div>
                 </div>
 
-
-                    {/* <LightboxBtn content={addIncomeContent} headerContent = {headerContent.CREATE_NEW_INCOME} cmp={addIncomeForm}/> */}
-                    {/* <LightboxBtn content={addExpenseContent} headerContent = {headerContent.CREATE_NEW_EXPENSE} cmp={addExpenseForm}/> */}
-
                 <div className="content">
                     <Route path="/" exact component={MonthlyBalance} />
                     <Route path="/monthlyExpenses" component={MonthlyExpenses} />
@@ -84,6 +80,8 @@ export default memo(Balance)
 
 
 
+{/* <LightboxBtn content={addIncomeContent} headerContent = {headerContent.CREATE_NEW_INCOME} cmp={addIncomeForm}/> */}
+{/* <LightboxBtn content={addExpenseContent} headerContent = {headerContent.CREATE_NEW_EXPENSE} cmp={addExpenseForm}/> */}
 
 {/* <div className="balance-actions">
     <AddIncomeBtn />
