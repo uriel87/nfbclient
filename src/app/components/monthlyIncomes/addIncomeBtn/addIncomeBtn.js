@@ -26,7 +26,7 @@ const AddIncomeBtn = () => {
                         validation={validationAddIncome}
                         fetchAction={fetchAction.CREATE_MONTHLY_INCOME} />
                     }
-                    OpenCmp={openCreateIncomeCmp.bind(this)}
+                    openCmp={openCreateIncomeCmp.bind(this)}
                     isOpenCmp={isCreateIncomeCmpOpen} />
             : null}
         </div>

@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 import TasksList from './tasksList/tasksList'
 import Loading from '../loading/loading'
 import LightboxBtn from '../lightboxBtn/lightboxBtn'
+import FormTask from '../tasks/formTask/formTask'
 import Input from '../input/input'
 import { formInputType, fetchAction, headerContent } from '../../constant'
 import{ filterTasksByDate } from '../../helpers/filters'
-import FormTask from '../tasks/formTask/formTask'
 import validationAddTask from '../tasks/validation/validationAddTask'
 import './tasks.css'
 
@@ -43,7 +43,7 @@ const Tasks = () => {
                 <LightboxBtn headerContent = {headerContent.CREATE_NEW_TASK} cmp={addForm}/>
             </div>
 
-            <form>
+            <form className="form-date">
                 <Input
                     type={formInputType.MONTH}
                     handleOnChange={handleChange}
@@ -56,51 +56,3 @@ const Tasks = () => {
 }
 
 export default memo(Tasks)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <AddTaskBtn /> */}
-
-// import AddTask from '../tasks/addTask/addTask'
-// import AddTaskBtn from '../tasks/addTaskBtn/addTaskBtn'
-
-{/* <div className="add-income-btn">
-    <button type="button" onClick={openCreateCmp.bind(this)}>
-        <i className="fas fa-plus"></i>
-        <i className="fas fa-tasks"></i>
-    </button>
-    { isCreateCmpOpen? <AddTask isOpenCmp={isCreateCmpOpen}/> : <div></div> }
-</div> */}
-
-
-{/* <div className="link-logout">
-    <button type="button" className="check" data-toggle="modal" data-target="#addTask" data-backdrop="false">add task</button>
-    <AddTask />
-</div> */}
-
-{/* <div className="add-income-btn">
-    <button type="button" className="check" data-toggle="modal" data-target="#addTask" data-backdrop="false">
-        <i className="fas fa-plus"></i>
-        <span>task</span>
-    </button>
-</div>
-<AddTask /> */}

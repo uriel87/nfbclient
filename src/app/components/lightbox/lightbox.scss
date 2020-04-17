@@ -10,26 +10,13 @@
     margin: 0;
     top: $top;
     left: 50%;
-    // margin-right: -50%;
     background-color: $bg;
     transform: translate(-50%, -50%);
     text-align: center;
-    // min-width: 70%;
     min-height: 35%;
     padding: 25px;
 }
 
-
-.lightboxBackground {
-    @include centerDiv(100%, 100%, rgba(0, 0, 0, 0.4), 50%, 10);
-    animation: show-lightbox-background 0.2s linear;
-    // display: none;
-    
-    // &.show-lightbox {
-    //     display: block;
-    // }
-
-}
 
 .lightboxContainer {
     @include centerDiv(300px, auto, $dive-grey-1, 380px, 11);
@@ -37,36 +24,6 @@
     max-width: 70%;
     text-align: center;
     animation: show-lightbox-container 0.2s linear;
-    // display: none;
-
-    // &.show-lightbox {
-    //     display: block;
-    // }
-
-    .btn-close-lightbox {
-        position: absolute;
-        right: 10px;
-        top: 5px;
-        cursor: pointer;
-        font-size: 20px;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        transition: color 0.4s;
-
-        &:hover {
-            color: #6ec5ff;
-        }
-
-        &:visited {
-            text-shadow: 0px 0px #b9b9b9;
-        }
-
-        &:active {
-            position: absolute;
-            top: 6px;
-        }
-    }
 
     .title-lightbox {
         color: #2A2A72;
@@ -78,45 +35,15 @@
 
 
 @keyframes show-lightbox-container {
-    // 0%  {top:37.5%;}
-    // 100% {top:40%;}
-
     0%  {top:365px;}
     100% {top:380px;}
 }
-
-@keyframes show-lightbox-background {
-    25%  {background-color: rgba(0, 0, 0, 0.2);}
-    75% {background-color: rgba(0, 0, 0, 0.3);}
-    100% {background-color: rgba(0, 0, 0, 0.4);}
-}
-
-
-// @keyframes hide-lightbox-container {
-//     0%  {top:37.5%;}
-//     100% {top:40%;}
-// }
-
-@keyframes hide-lightbox-background {
-    25%  {background-color: rgba(0, 0, 0, 0.0);}
-    25%  {background-color: rgba(0, 0, 0, 0.2);}
-    75% {background-color: rgba(0, 0, 0, 0.3);}
-    100% {background-color: rgba(0, 0, 0, 0.4);}
-}
-
-
-
-
-
-
-
 
 
 @media screen and (max-width: 620px) {
 
     .lightboxContainer {
-        top: 45%;
-        left: 45%;
+        left: 50%;
         padding: 25px 5px;
         min-width: 90%;
     }

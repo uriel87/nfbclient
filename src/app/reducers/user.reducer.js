@@ -16,7 +16,6 @@ const initialState = {
 
 
 const userReducer = (state = initialState, action) => {
-	console.log("userReducer - action:", action)
     switch (action.type) {
         case constantUser.SET_USER:
 			return state = {
@@ -35,16 +34,4 @@ const userReducer = (state = initialState, action) => {
     }
 };
 
-export default userReducer;
-
-
-// ...state,
-// id: action.payload._id,
-// name: action.payload.name,
-// email: action.payload.email,
-// tel: action.payload.tel,
-// taskList: action.payload.tel,
-// monthlyExpensesList: action.payload.monthlyExpensesList,
-// monthlyIncomesList: action.payload.monthlyIncomesList
-
-// monthlyBalanceList: action.payload.monthlyExpensesList.concat(action.payload.monthlyIncomesList)
+export default userReducer

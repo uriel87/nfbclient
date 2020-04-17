@@ -16,9 +16,7 @@ const validationErrors = {
     PASSWORD_MIN: "Password should be more than 6 characters",
     REQUIRED_TEL: "telephone is requierd",
     TEL_RANGE: "elephone should be between 7 to 12"
-
 }
-
 
 
 export {

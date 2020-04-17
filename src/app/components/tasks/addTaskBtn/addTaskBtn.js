@@ -26,7 +26,7 @@ const AddTaskBtn = () => {
                         validation={validationAddTask}
                         fetchAction={fetchAction.CREATE_TASK} />
                     }
-                    OpenCmp={openCreateTaskCmp.bind(this)}
+                    openCmp={openCreateTaskCmp.bind(this)}
                     isOpenCmp={isOpenCreateTaskCmp} />
             : null}
         </div>

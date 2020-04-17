@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
   .expected-expenses-container {
     width: 100%;
     padding: 130px 0;

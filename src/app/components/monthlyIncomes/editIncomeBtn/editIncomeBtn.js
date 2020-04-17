@@ -24,7 +24,7 @@ const EditIncomeBtn = (props) => {
                         fetchAction={fetchAction.EDIT_MONTHLY_INCOME}
                         income = {props.income} />
                     }
-                    OpenCmp={openEditCmp.bind(this)}
+                    openCmp={openEditCmp.bind(this)}
                     isOpenCmp={isEditCmpOpen} />
             : null}
         </div>

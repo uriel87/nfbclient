@@ -45,37 +45,3 @@
     width: 80%;
     margin: auto;
 }
-
-
-// @mixin centerDiv($width, $height, $zIndex) {
-//     position: fixed;
-//     width: $width;
-//     height: $height;
-//     z-index: $zIndex;
-//     margin: 0;
-//     top: 50%;
-//     left: 50%;
-//     margin-right: -50%;
-//     transform: translate(-50%, -50%);
-//     text-align: center;
-//     background-color: #fff;
-//     min-width: 70%;
-//     min-height: 35%;
-// }
-
-
-// .lightBoxBackground {
-//     @include centerDiv(100%, 100% , 1);
-//     background-color: rgba(0, 0, 0, 0.3);
-// }
-
-// .lightBoxContainer {
-//     @include centerDiv(auto, auto, 2);
-//     text-align: center;
-//     background-color: #fff;
-//     span {
-//         position: absolute;
-//         right: 0;
-//         margin: 5px;
-//     }
-// }

@@ -56,39 +56,38 @@
   font-family: "Font Awesome 5 Free";
 }
 
-.delete-btn-dialog .btn-open-dialog {
+.delete-btn-lightbox .btn-open-lightbox {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-.delete-btn-dialog .btn-open-dialog:before {
+.delete-btn-lightbox .btn-open-lightbox:before {
   content: "";
   font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-form .btn-open-form {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-form .btn-open-form:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.form-date {
+  width: 60%;
+  margin: 40px auto;
+  text-align: center;
 }
 
 @media screen and (min-width: 520px) {
   .header-name {
     margin: 100px 0 40px 0;
   }
-}
-
-.lightboxBackground {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  background-color: rgba(0, 0, 0, 0.4);
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  text-align: center;
-  min-height: 35%;
-  padding: 25px;
-  -webkit-animation: show-lightbox-background 0.2s linear;
-          animation: show-lightbox-background 0.2s linear;
 }
 
 .lightboxContainer {
@@ -110,32 +109,6 @@
   text-align: center;
   -webkit-animation: show-lightbox-container 0.2s linear;
           animation: show-lightbox-container 0.2s linear;
-}
-
-.lightboxContainer .btn-close-lightbox {
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  cursor: pointer;
-  font-size: 20px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  -webkit-transition: color 0.4s;
-  transition: color 0.4s;
-}
-
-.lightboxContainer .btn-close-lightbox:hover {
-  color: #6ec5ff;
-}
-
-.lightboxContainer .btn-close-lightbox:visited {
-  text-shadow: 0px 0px #b9b9b9;
-}
-
-.lightboxContainer .btn-close-lightbox:active {
-  position: absolute;
-  top: 6px;
 }
 
 .lightboxContainer .title-lightbox {
@@ -163,64 +136,9 @@
   }
 }
 
-@-webkit-keyframes show-lightbox-background {
-  25% {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  75% {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-}
-
-@keyframes show-lightbox-background {
-  25% {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  75% {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-}
-
-@-webkit-keyframes hide-lightbox-background {
-  25% {
-    background-color: rgba(0, 0, 0, 0);
-  }
-  25% {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  75% {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-}
-
-@keyframes hide-lightbox-background {
-  25% {
-    background-color: rgba(0, 0, 0, 0);
-  }
-  25% {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  75% {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-}
-
 @media screen and (max-width: 620px) {
   .lightboxContainer {
-    top: 45%;
-    left: 45%;
+    left: 50%;
     padding: 25px 5px;
     min-width: 90%;
   }

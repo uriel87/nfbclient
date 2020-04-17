@@ -1,5 +1,4 @@
 
-// @import "../node_modules/font-awesome/scss/font-awesome.scss";
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 
 $primary-color: #2A2A72;
@@ -114,6 +113,11 @@ $piggy-bank-icon: "\f4d3";
   }
 }
 
+.form-date {
+  width: 60%;
+  margin: 40px auto;
+  text-align: center;
+}
 
 
 @mixin icon-btn($icon-before, $icon-after) {  
@@ -130,6 +134,10 @@ $piggy-bank-icon: "\f4d3";
   font-family: "FontAwesome";
   margin: 10px 5px;
 
+  &:hover {
+    background-color: $secondary-color1;
+  }
+
   &:before {
       content: $icon-before;
       margin: 0 5px;
@@ -142,9 +150,6 @@ $piggy-bank-icon: "\f4d3";
     }
   }
 
-  &:hover {
-      background-color: $icon-after;
-  }
 
   &:active {
       background-color: $secondary-color1;
@@ -164,16 +169,7 @@ $piggy-bank-icon: "\f4d3";
 @media screen and (min-width: 520px) {
 
   .header-name {
-    // font-size: 60px;
     margin: 100px 0 40px 0;
   }
-
-}
-
-@media screen and (max-width: 520px) {
-
-  // .header-name {
-  //   font-size: 50px;
-  // }
 
 }

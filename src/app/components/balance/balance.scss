@@ -9,61 +9,30 @@
 }
 
 
-
-// @mixin icon-btn($icon-before, $icon-after) {  
-//     flex: 1;
-//     outline: none;
-//     border: none;
-//     width: 80px;
-//     height: 40px;
-//     background-color: #2A2A72;
-//     color: #f5f6f7;
-//     font-size: 1.5rem;
-//     border-radius: 15px;
-//     box-shadow: 1px 3px #a9acaf;
-//     font-family: "FontAwesome";
-//     margin: 10px 5px;
-
-//     &:before {
-//         content: $icon-before;
-//         margin: 0 5px;
-//     }
-
-//     &:after {
-//         content: $credit-card-icon;
-//         margin: 0 5px;
-//     }
-//     &:hover {
-//         background-color: $icon-after;
-//     }
-
-//     &:active {
-//         background-color: $secondary-color1;
-//         position: relative;
-//         top: 1px;
-//     }
-
-// }
-
-
 .balance-actions{
     display: flex;
 
     .add-expense-btn-lightbox{
         .btn-open-lightbox {
             @include icon-btn($minus-icon, $credit-card-icon);
+            &:hover {
+                background-color: $secondary-color1;
+              }
         }
     }
 
     .add-income-btn-lightbox {
         .btn-open-lightbox {
             @include icon-btn($plus-icon, $credit-card-icon);
+            &:hover {
+                background-color: $secondary-color1;
+              }
         }
     }
 }
 
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
 
     .balance-container {
         padding: 30% 3%;

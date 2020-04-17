@@ -1,9 +1,6 @@
 
 
-
 import React, { memo } from "react";
-// import './about.css'
-
 
 const TableHeaderBalace = () => {
     return(

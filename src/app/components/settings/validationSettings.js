@@ -1,6 +1,6 @@
 
 import { validationErrors } from "../../helpers/errors"
-import { checkInvalidEmail } from "../../helpers/validation"
+import { checkInvalidEmail, validChars } from "../../helpers/validation"
 
 
 export default function validation(values) {
@@ -10,8 +10,7 @@ export default function validation(values) {
     let errors = {};
 
     if (values.name) {
-        if (!/^[a-zA-Z\s]*$/
-            .test(values.name)) {
+        if (validChars(values.name)) {
             errors.name = validationErrors.NAME_IN_ENGLISH
         }
     }

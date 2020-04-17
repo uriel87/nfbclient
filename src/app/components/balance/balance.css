@@ -56,15 +56,32 @@
   font-family: "Font Awesome 5 Free";
 }
 
-.delete-btn-dialog .btn-open-dialog {
+.delete-btn-lightbox .btn-open-lightbox {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-.delete-btn-dialog .btn-open-dialog:before {
+.delete-btn-lightbox .btn-open-lightbox:before {
   content: "";
   font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-form .btn-open-form {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-form .btn-open-form:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.form-date {
+  width: 60%;
+  margin: 40px auto;
+  text-align: center;
 }
 
 @media screen and (min-width: 520px) {
@@ -103,6 +120,10 @@
   margin: 10px 5px;
 }
 
+.balance-actions .add-expense-btn-lightbox .btn-open-lightbox:hover {
+  background-color: #13A6E8;
+}
+
 .balance-actions .add-expense-btn-lightbox .btn-open-lightbox:before {
   content: "";
   margin: 0 5px;
@@ -113,14 +134,14 @@
   margin: 0 5px;
 }
 
-.balance-actions .add-expense-btn-lightbox .btn-open-lightbox:hover {
-  background-color: "";
-}
-
 .balance-actions .add-expense-btn-lightbox .btn-open-lightbox:active {
   background-color: #13A6E8;
   position: relative;
   top: 1px;
+}
+
+.balance-actions .add-expense-btn-lightbox .btn-open-lightbox:hover {
+  background-color: #13A6E8;
 }
 
 .balance-actions .add-income-btn-lightbox .btn-open-lightbox {
@@ -141,6 +162,10 @@
   margin: 10px 5px;
 }
 
+.balance-actions .add-income-btn-lightbox .btn-open-lightbox:hover {
+  background-color: #13A6E8;
+}
+
 .balance-actions .add-income-btn-lightbox .btn-open-lightbox:before {
   content: "";
   margin: 0 5px;
@@ -151,17 +176,17 @@
   margin: 0 5px;
 }
 
-.balance-actions .add-income-btn-lightbox .btn-open-lightbox:hover {
-  background-color: "";
-}
-
 .balance-actions .add-income-btn-lightbox .btn-open-lightbox:active {
   background-color: #13A6E8;
   position: relative;
   top: 1px;
 }
 
-@media screen and (max-width: 520px) {
+.balance-actions .add-income-btn-lightbox .btn-open-lightbox:hover {
+  background-color: #13A6E8;
+}
+
+@media screen and (max-width: 550px) {
   .balance-container {
     padding: 30% 3%;
     width: 90%;

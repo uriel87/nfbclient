@@ -3,8 +3,6 @@ import React, { memo } from 'react'
 import './pageNoFound.css'
 
 export const PageNoFound = () => {
-    console.log("render PageNoFound")
-
     return (
         <div className="title-page-not-found">
 			<h1>404</h1>

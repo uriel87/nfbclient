@@ -1,6 +1,5 @@
 
 import React, { memo } from "react";
-import 'antd/dist/antd.css';
 import './about.css'
 import '../../../index.css'
 

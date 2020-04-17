@@ -14,7 +14,8 @@ import { CREATE_TASK,
          EDIT_INCOME,
          DELETE_INCOME,
          EDIT_USER,
-         SIGNUP
+         SIGNUP,
+         FORGOT_PASSWORD
         } from '../queries/mutation'
 
 
@@ -88,6 +89,10 @@ export const actionFetch = async (action, inputs , fallBack) => {
 
             case fetchAction.SIGNUP:
                 data = await fetchData(SIGNUP(inputs))
+                return data
+
+            case fetchAction.FORGOT_PASSWORD:
+                data = await fetchData(FORGOT_PASSWORD(inputs))
                 return data
 
             default:

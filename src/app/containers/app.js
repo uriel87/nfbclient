@@ -9,7 +9,6 @@ import 'bootstrap/dist/js/bootstrap.js'
 
 
 export const App = () => {
-    // console.log("render App")
     return (
         <div className="app-container">
             <Router>

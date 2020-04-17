@@ -26,7 +26,7 @@ const EditTaskBtn = (props) => {
                         fetchAction={fetchAction.EDIT_TASK}
                         task = {props.task} />
                     }
-                    OpenCmp={openEditCmp.bind(this)}
+                    openCmp={openEditCmp.bind(this)}
                     isOpenCmp={isEditCmpOpen}
                     />
             : null}

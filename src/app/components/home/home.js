@@ -13,8 +13,6 @@ import { headerContent } from '../../constant'
 
 export const Home = () => {
 
-  
-
   return (
 			<div className="home-container">
         <section className="home-wallpaper">
@@ -31,7 +29,7 @@ export const Home = () => {
 
         <section className="explaintaion">
           <div className="explaintaion-image">
-            <img src={moneyTreeHand} />
+            <img src={moneyTreeHand} alt="moneyTreeHand"/>
           </div>
           <div className="explaintaion-content">
             <h2>All your money in one place</h2>
@@ -83,29 +81,5 @@ export const Home = () => {
     )
 }
 
-export default memo(Home);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className="btn-signUp">
-<button type="button" data-toggle="modal" data-target="#signup" data-backdrop="false">Signup</button>
-<Signup />
-</div> */}
-
-// import LightBoxBtn from '../lightBoxBtn/lightBoxBtn'
-// import { headerContent } from '../../constant'
-{/* <LightBoxBtn content={headerContent.SIGNUP} headerContent = {headerContent.SIGNUP} cmp={<Signup />}/> */}
-{/* <LightBoxBtn content={headerContent.SIGNUP} style={SIGNUP_HOME_PAGE} headerContent = {headerContent.SIGNUP} cmp={<Signup />}/> */}
+export default memo(Home)
 

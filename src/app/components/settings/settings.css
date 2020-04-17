@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
   .settings-container {
     width: 100%;
     margin: auto;

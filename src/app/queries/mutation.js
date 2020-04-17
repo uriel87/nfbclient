@@ -267,6 +267,21 @@ export const EDIT_EXPENSE = (inputs, userId, fallBack) => {
 }
 
 
+export const FORGOT_PASSWORD = (inputs) => {
+  return {
+    query: `
+      mutation forgotPassword($forgotPasswordInput: ForgotPasswordInput) {
+        forgotPassword(forgotPasswordInput: $forgotPasswordInput) {
+          status
+        }
+    }`,
+    variables: {
+      email: inputs.email
+    }
+  }
+}
+
+
 
 
 

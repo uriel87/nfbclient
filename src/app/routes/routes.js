@@ -29,6 +29,4 @@ const Routes = () => {
 	
 };
 
-export default Routes;
-
-{/* <Route path="/mediaItem/:id" exact component={MediaItem} /> */}
+export default Routes

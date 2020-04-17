@@ -56,15 +56,32 @@
   font-family: "Font Awesome 5 Free";
 }
 
-.delete-btn-dialog .btn-open-dialog {
+.delete-btn-lightbox .btn-open-lightbox {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-.delete-btn-dialog .btn-open-dialog:before {
+.delete-btn-lightbox .btn-open-lightbox:before {
   content: "";
   font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-form .btn-open-form {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-form .btn-open-form:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.form-date {
+  width: 60%;
+  margin: 40px auto;
+  text-align: center;
 }
 
 @media screen and (min-width: 520px) {
@@ -139,7 +156,7 @@
   display: none;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
   .dropdown .dropdown-content {
     position: absolute;
     right: -34px;

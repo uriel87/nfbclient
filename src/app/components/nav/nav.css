@@ -57,15 +57,32 @@
   font-family: "Font Awesome 5 Free";
 }
 
-.delete-btn-dialog .btn-open-dialog {
+.delete-btn-lightbox .btn-open-lightbox {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-.delete-btn-dialog .btn-open-dialog:before {
+.delete-btn-lightbox .btn-open-lightbox:before {
   content: "";
   font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-form .btn-open-form {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-form .btn-open-form:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.form-date {
+  width: 60%;
+  margin: 40px auto;
+  text-align: center;
 }
 
 @media screen and (min-width: 520px) {
@@ -244,16 +261,6 @@ nav {
   margin: 2.5rem 0;
 }
 
-.form-date {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 .table-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -305,11 +312,11 @@ nav {
 }
 
 .table-container .flex-table-rows:nth-child(odd) {
-  background: #e6e6e6;
+  background: #e9ecef;
 }
 
 .table-container .flex-table-rows:nth-child(even) {
-  background: #d4d4d4;
+  background: #f5f6f7;
 }
 
 .table-container .flex-row {
@@ -381,7 +388,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
   .main-mobile-background {
     display: block;
     position: fixed;

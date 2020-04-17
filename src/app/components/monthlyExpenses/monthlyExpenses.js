@@ -20,8 +20,6 @@ const MonthlyExpenses = (props) => {
 
     useEffect(() => {
         setMonthlyExpenses(filterMonthlyExpensesByDate(monthlyExpensesRedux, date))
-        // console.log("MonthlyExpenses - data", date)
-        // console.log("MonthlyExpenses - monthlyExpenses", monthlyExpenses)
     }, [date, monthlyExpensesRedux]);
     
     const handleChange = useCallback((event) => {
@@ -51,35 +49,6 @@ const MonthlyExpenses = (props) => {
 }
 
 export default memo(MonthlyExpenses)
-
-
-// const [monthlyExpenses, setMonthlyExpenses] = useState(props.monthlyExpenses)
-
-// useEffect(() => {
-//     setMonthlyExpenses(filterByDate(props.monthlyExpenses, props.date))
-// }, [props]);
-
-// return (
-//     <div>
-//         { monthlyExpenses.map((expense, index) => (
-//             <ExpensesListItem key={index} expense={expense} />
-//         ))}
-//     </div>
-// )
-
-{/* <div className="link-logout">
-    <button type="button" className="check" data-toggle="modal" data-target="#addExpenses" data-backdrop="false">Add Expenses</button>
-    <AddExpenses />
-</div> */}
-
-//     <div className="header-personal-page">
-//     <form>
-//         <input type="month" value={date} onChange={handleChange} />
-//     </form> */}
-//     { monthlyExpenses.length ? <ExpensesList monthlyExpenses = { monthlyExpenses } date={date} /> : "Don't have monthly expenses" }
-
-//     {/* {/* <ExpensesList monthlyExpenses = { userMonthlyExpenses } date={date} /> */}
-// </div>
 
 
 

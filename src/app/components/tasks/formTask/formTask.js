@@ -4,6 +4,7 @@ import UseForm from '../../../helpers/useForm'
 import SelectInput from '../../selectInput/selectInput'
 import Input from '../../input/input'
 import CheckboxInput from '../../checkboxInput/checkboxInput'
+import Loading from '../../loading/loading'
 import { formInputType, formName, formCategoryInput } from '../../../constant'
 import { actionFetch } from '../../../helpers/actionFetch'
 import "../../../../index.css";
@@ -11,11 +12,16 @@ import "../../../../index.css";
 
 const FormTask = (props) => {
 
+    const [ isLoading, setIsLoading] = useState(false)
     const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, props.validation);
-    function submit() {
-        actionFetch(props.fetchAction, inputs, props.task)
+    
+    async function submit() {
+        setIsLoading(true)
+        await actionFetch(props.fetchAction, inputs, props.task)
+        setIsLoading(false)
     }
     
+    if(isLoading) {return (<Loading />)}
     return(
         <div>
             <form onSubmit={handleOnSubmit}> 
@@ -87,88 +93,3 @@ const FormTask = (props) => {
 }
 
 export default memo(FormTask)
-
-
-
-
-        // console.log("submit FormTask - inputs", inputs)
-
-
-// console.log("FormTask - props", props)
-// const [isOpenCmp, setIsOpenCmp] = useState(props.isOpenCmp)
-// const openCmp = () => {
-// 	setIsOpenCmp(!isOpenCmp)
-// }
-
-{/* { isOpenCmp? */}
-{/* <div> */}
-{/* <div className="lightBoxBackground" onClick={openCmp.bind(this)}></div>
-<div className="lightBoxContainer">
-<span onClick={openCmp.bind(this)}>&times;</span> */}
-
-{/* <button type="button" className="btn btn-danger" onClick={openCmp.bind(this)} >Cancel</button> */}
-
-{/* </div> */}
-{/* </div> : <div></div>
-} */}
-
-// const checkEditInput = async (inputs) => { 
-
-//     inputs.id = task._id
-
-//     if(!inputs.name) {
-//         inputs.name = task.name
-//     }
-//     if(!inputs.description) {
-//         inputs.description = task.description
-//     }
-//     if(!inputs.category) {
-//         inputs.category = task.category
-//     }
-//     if(!inputs.priority) {
-//         inputs.priority = task.priority
-//     }
-//     if(!inputs.startTime) {
-//         inputs.startTime = task.startTime
-//     }
-//     if(!inputs.endTime) {
-//         inputs.endTime = task.endTime
-//     }
-//     if(!inputs.daily) {
-//         inputs.daily = task.daily
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
-// const formActionFetch = async (action) => {
-//     // console.log("in editTask:", task)
-//     try {
-//         setIsLoading(true);
-//         const auth = JSON.parse(Cookies.get('auth'))
-//         switch(action) {
-//             case fetchAction.CREATE_TASK:
-//                 await fetchData(CREATE_TASK(inputs, auth.userId))
-//                 break;
-//             case fetchAction.EDIT_TASK:
-//                 // checkEditInput(inputs)
-//                 await fetchData(EDIT_TASK(inputs, auth.userId))
-//                 break;
-//             default:
-//         }
-//         setIsLoading(false);
-//         window.location.reload()
-//     } catch(err) {
-//         console.log("error editTask.js - editTask")
-//         setIsLoading(false);
-//         throw err;
-//     }
-// }

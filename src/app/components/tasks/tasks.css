@@ -56,15 +56,32 @@
   font-family: "Font Awesome 5 Free";
 }
 
-.delete-btn-dialog .btn-open-dialog {
+.delete-btn-lightbox .btn-open-lightbox {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-.delete-btn-dialog .btn-open-dialog:before {
+.delete-btn-lightbox .btn-open-lightbox:before {
   content: "";
   font-family: "Font Awesome 5 Free";
+}
+
+.delete-btn-form .btn-open-form {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.delete-btn-form .btn-open-form:before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+}
+
+.form-date {
+  width: 60%;
+  margin: 40px auto;
+  text-align: center;
 }
 
 @media screen and (min-width: 520px) {
@@ -91,6 +108,10 @@
   margin: 10px 5px;
 }
 
+.add-task-btn-lightbox .btn-open-lightbox:hover {
+  background-color: #13A6E8;
+}
+
 .add-task-btn-lightbox .btn-open-lightbox:before {
   content: "";
   margin: 0 5px;
@@ -101,14 +122,14 @@
   margin: 0 5px;
 }
 
-.add-task-btn-lightbox .btn-open-lightbox:hover {
-  background-color: "";
-}
-
 .add-task-btn-lightbox .btn-open-lightbox:active {
   background-color: #13A6E8;
   position: relative;
   top: 1px;
+}
+
+.add-task-btn-lightbox .btn-open-lightbox:hover {
+  background-color: #13A6E8;
 }
 
 .task-container {
@@ -117,7 +138,7 @@
   padding: 25px 0;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
   .task-container {
     width: 90%;
     margin: auto;

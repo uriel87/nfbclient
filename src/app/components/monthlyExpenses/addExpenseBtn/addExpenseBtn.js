@@ -26,7 +26,7 @@ const AddExpenseBtn = (props) => {
                         validation={validationAddExpense}
                         fetchAction={fetchAction.CREATE_MONTHLY_EXPENSE} />
                     }
-                    OpenCmp={openCreateExpenseCmp.bind(this)}
+                    openCmp={openCreateExpenseCmp.bind(this)}
                     isOpenCmp={isCreateExpenseCmpOpen} />
             : null}
         </div>

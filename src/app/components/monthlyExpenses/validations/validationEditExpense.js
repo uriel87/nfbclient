@@ -1,23 +1,22 @@
 
 import { validationErrors } from "../../../helpers/errors"
+import { validCharsAndNumbers } from "../../../helpers/validation"
 
 
 export default function validation(values) {
 
     let errors = {};
 
-    // console.log("validation - actions", values)
+    // console.log("validation - actions", values) 
 
     if (values.name) {
-        if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
-        .test(values.name)) {
+        if (validCharsAndNumbers(values.name)) {
             errors.name = validationErrors.NAME_IN_ENGLISH
         }
     }
 
     if (values.description) {
-        if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
-        .test(values.description)) {
+        if (validCharsAndNumbers(values.description)) {
             errors.description = validationErrors.DESCRIPTION_IN_ENGLISH
         }
     }

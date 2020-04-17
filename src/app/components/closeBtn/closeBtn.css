@@ -1,0 +1,26 @@
+.close-btn {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+.close-btn:hover {
+  color: #6ec5ff;
+}
+
+.close-btn:visited {
+  text-shadow: 0px 0px #b9b9b9;
+}
+
+.close-btn:active {
+  position: absolute;
+  top: 6px;
+}
+/*# sourceMappingURL=closeBtn.css.map */

@@ -1,6 +1,7 @@
 
 
 import { validationErrors } from "../../../helpers/errors"
+import { validCharsAndNumbers } from "../../../helpers/validation"
 
 
 export default function validation(values) {
@@ -11,15 +12,13 @@ export default function validation(values) {
 
     if (!values.name) {
         errors.name = validationErrors.REQUIRED_NAME
-    } else if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
-        .test(values.name)) {
+    } else if (validCharsAndNumbers(values.name)) {
         errors.name = validationErrors.NAME_IN_ENGLISH
     }
 
     if (!values.description) {
         errors.description = validationErrors.REQUIRED_DESCRIPTION
-    } else if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
-        .test(values.description)) {
+    } else if (validCharsAndNumbers(values.description)) {
         errors.description = validationErrors.DESCRIPTION_IN_ENGLISH
     }
 

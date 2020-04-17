@@ -14,11 +14,10 @@ const UseForm = (callback, validation) => {
             ...inputs,
             [name]: value || checked
         })
-        // console.log("handleOnChange - event.target", event.target)
 	};
 
     const handleOnSubmit = (event) => {
-        console.log("handleOnSubmit - inputs", inputs)
+        // console.log("handleOnSubmit - inputs", inputs)
         event.preventDefault();
         setErrors(validation(inputs));
         setIsSubmitted(true);
