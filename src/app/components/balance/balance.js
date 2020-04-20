@@ -36,7 +36,7 @@ const Balance = () => {
 
     return (
         <div className="balance-container">
-            <h2>Hi {userName}</h2>
+            <h2>hi {userName}</h2>
             <HashRouter>
                 <div>
                     <nav className="nav-balance">
