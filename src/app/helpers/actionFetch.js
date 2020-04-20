@@ -21,12 +21,9 @@ import { CREATE_TASK,
 
 
 export const actionFetch = async (action, inputs , fallBack) => {
-    let isLoading = false
     let data, auth
 
     try {
-        isLoading = true;
-
         if (Cookies.get('auth') === undefined || Cookies.get('auth') === null) {
             auth = '' 
         } else {
@@ -97,12 +94,9 @@ export const actionFetch = async (action, inputs , fallBack) => {
 
             default:
         }
-
-        isLoading = false
         window.location.reload()
     } catch(err) {
         console.log("error in action ", action)
-        isLoading = false
         throw err;
     }
 }

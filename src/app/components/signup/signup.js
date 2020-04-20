@@ -6,6 +6,7 @@ import UseForm from '../../helpers/useForm'
 import validationSignup from "./validationSignup"
 import Input from '../../components/input/input'
 import Loading from '../loading/loading'
+import { responseCode } from '../../helpers/responseCode'
 import { setLogin } from "../../actions/auth.action"
 import { actionFetch } from '../../helpers/actionFetch'
 import { fetchAction } from '../../constant'
@@ -16,19 +17,27 @@ import { formInputType, formName } from '../../constant'
 
 export const Signup = (props) => {
 
-  const [ isLoading, setIsLoading] = useState(false)
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, validationSignup);
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const [ msg, setMsg] = useState()
+    const [ status, setStatus] = useState()
+    const [ isLoading, setIsLoading] = useState(false)
+    const { inputs, handleOnSubmit, handleOnChange, errors } = UseForm(submit, validationSignup)
 
   async function submit() {
     try {
         setIsLoading(true)
         const data = await actionFetch(fetchAction.SIGNUP, inputs)
+        if(data.createUser.status === 4) {
+            setMsg(responseCode(data.createUser.status))
+            setStatus(data.createUser.status)
+            setIsLoading(false)
+            return;
+        }
         dispatch(setLogin(data.createUser))
         Cookies.set('auth', data.createUser)
         setIsLoading(false)
-        history.push('/expectedExpenses');
+        history.push('/expectedExpenses')
     } catch(err) {
         console.log("error in Signup submit ", err)
         setIsLoading(false)
@@ -76,6 +85,8 @@ export const Signup = (props) => {
             value={inputs.tel} />
 
         <button type="submit" className="cta-btn">Create user</button>
+
+        <p className={ status !== 4 ? "success-msg" : "error-msg"}>{msg}</p>
 
         {errors && <p className="mediaInput-input-error">{errors.userExist}</p>}
       </form>

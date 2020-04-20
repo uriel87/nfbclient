@@ -1,5 +1,6 @@
 
 import React, { memo } from 'react'
+import { useSelector } from "react-redux";
 import { Route, NavLink, HashRouter } from "react-router-dom"
 import MonthlyBalance from '../monthlyBalance/monthlyBalance'
 import MonthlyExpenses from '../monthlyExpenses/monthlyExpenses'
@@ -18,6 +19,8 @@ import "../../../index.css"
 
 const Balance = () => {
 
+    const userName = useSelector(state => state.user.name)
+
     const addIncomeForm = (
         <FormIncome
             validation={validationAddIncome}
@@ -33,6 +36,7 @@ const Balance = () => {
 
     return (
         <div className="balance-container">
+            <h2>Hi {userName}</h2>
             <HashRouter>
                 <div>
                     <nav className="nav-balance">
@@ -55,9 +59,9 @@ const Balance = () => {
                 </div>
 
                 <div className="content">
-                    <Route path="/" exact component={MonthlyBalance} />
-                    <Route path="/monthlyExpenses" component={MonthlyExpenses} />
-                    <Route path="/monthlyIncomes" component={MonthlyIncomes} />
+                    <Route path="/" exact render={() => <MonthlyBalance /> } />
+                    <Route path="/monthlyExpenses" render={() => <MonthlyExpenses /> } />
+                    <Route path="/monthlyIncomes" render={() => <MonthlyIncomes /> } />
                 </div>
             </HashRouter>
         </div>

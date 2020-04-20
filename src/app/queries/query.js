@@ -8,6 +8,7 @@ export const LOGIN_USER = (auth) => {
           userId
           token
           tokenExpiration
+          status
         }
       }`,
     variables: {

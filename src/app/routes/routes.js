@@ -16,14 +16,14 @@ const Routes = () => {
 	
     return (
         <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/about" exact component={About} />
-            <Route path="/balance" exact component={Balance} />
-            <Route path="/tasks" exact component={Tasks} />
-            <Route path="/settings" exact component={Settings} />
-            <Route path="/expectedExpenses" exact component={MonthlyeExpectedExpenses} />
-            <Route path="/loading" exact component={Loading} />
-			<Route component={PageNoFound} />
+            <Route path="/" exact render={() => <Home /> } />
+            <Route path="/about" exact render={() => <About /> } />
+            <Route path="/balance" exact render={() => <Balance /> } />
+            <Route path="/tasks" exact render={() => <Tasks /> }/>
+            <Route path="/settings" exact render={() => <Settings /> } />
+            <Route path="/expectedExpenses" exact render={() => <MonthlyeExpectedExpenses /> } />
+            <Route path="/loading" exact render={() => <Loading /> } />
+			<Route render={() => <PageNoFound /> } />
         </Switch>
     );
 	

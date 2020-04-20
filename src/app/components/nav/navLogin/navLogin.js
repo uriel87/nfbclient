@@ -12,19 +12,19 @@ import { headerContent } from '../../../constant'
 
 
 export const NavLogin = (props) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const [userDetails, setUserDetails] = useState()
 
     useEffect(() => {
         getUserDetails()
-    }, []);
+    }, [])
 
     const getUserDetails = async () => {
         try {
-            const userDetalis = await actionFetch(fetchAction.GET_USER_DETAILS)
-            dispatch(setUser(userDetalis.getUserDetails))
-            Cookies.set('user', userDetalis.getUserDetails)
-            setUserDetails(userDetalis.getUserDetails)
+            const userDetailsRes = await actionFetch(fetchAction.GET_USER_DETAILS)
+            dispatch(setUser(userDetailsRes.getUserDetails))
+            Cookies.set('user', userDetailsRes.getUserDetails)
+            setUserDetails(userDetailsRes.getUserDetails)
         } catch(err) {
             console.log("error personalArea.js - getUserDetails", err)
             throw err;

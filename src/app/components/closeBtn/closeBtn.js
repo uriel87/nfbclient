@@ -6,7 +6,7 @@ import React, { memo } from 'react'
 import './closeBtn.css'
 
 
-const CloseBtn = (props) => {
+const CloseBtn = (props) => {    
     return(
         <div>
             <button onClick={props.openCmp} className="close-btn">

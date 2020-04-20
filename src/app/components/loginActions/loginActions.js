@@ -1,6 +1,6 @@
 
 import React, { memo, useEffect } from 'react'
-import { Route, NavLink, HashRouter, useHistory } from "react-router-dom"
+import { Route, NavLink, HashRouter, useHistory, BrowserRouter, Switch } from "react-router-dom"
 import Login from '../login/login'
 import ForgotPassword from '../forgotPassword/forgotPassword'
 import SignUp from '../signup/signup'
@@ -12,16 +12,19 @@ import "../../../index.css"
 
 const LoginActions = (props) => {
 
+
     return (
         <div className="balance-container">
             <BackBtn />
-            <HashRouter>
+            <BrowserRouter>
                 <div className="content">
-                    <Route path="/" exact component={Login} />
-                    <Route path="/forgotPassword" component={ForgotPassword} />
-                    <Route path="/signUp" component={SignUp} />
+                    <Switch>
+                        <Route path="/" exact render={() => <Login /> }/>
+                        <Route path="/forgotPassword" render={() => <ForgotPassword /> }/>
+                        <Route path="/signUp" render={() => <SignUp /> } />
+                    </Switch>
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         </div>
     )
     

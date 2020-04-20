@@ -5,6 +5,7 @@ import UseForm from '../../helpers/useForm'
 import validationSettings from './validationSettings'
 import Input from '../../components/input/input'
 import Loading from '../loading/loading'
+import { responseCode } from '../../helpers/responseCode'
 import { setLogin } from "../../actions/auth.action"
 import { actionFetch } from '../../helpers/actionFetch'
 import { fetchAction } from '../../constant'
@@ -14,6 +15,8 @@ import './settings.css'
 
 const Settings = () => {
 
+    const [ msg, setMsg] = useState()
+    const [ status, setStatus] = useState()
     const [ isLoading, setIsLoading] = useState(false)
     const user= useSelector(state => state.user)
     const dispatch = useDispatch();
@@ -23,6 +26,12 @@ const Settings = () => {
         try {
             setIsLoading(true)
             const data = await actionFetch(fetchAction.EDIT_USER, inputs, user)
+            if(data.editUser.status === 4) {
+                setMsg(responseCode(data.editUser.status))
+                setStatus(data.editUser.status)
+                setIsLoading(false)
+                return;
+            }
             dispatch(setLogin(data.editUser))
             Cookies.set('auth', data.editUser)
             setIsLoading(false)
@@ -80,7 +89,8 @@ const Settings = () => {
 
                     <button type="submit" className="cta-btn">Save</button>
 
-                    {errors && <p className="mediaInput-input-error">{errors.userExist}</p>}
+                    <p className={ status !== 4 ? "success-msg" : "error-msg"}>{msg}</p>
+
                 </form>
             </div>
         </div>

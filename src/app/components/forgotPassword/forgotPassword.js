@@ -47,7 +47,7 @@ const ForgotPassword = () => {
           error={errors.email}
           value={inputs.email} />
 
-          <p class={ status ? "success-msg" : "error-msg"}>{msg}</p>
+          <p className={ status ? "success-msg" : "error-msg"}>{msg}</p>
           <button type="submit" className="cta-btn" >Send</button>
 
       </form>

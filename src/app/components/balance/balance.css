@@ -96,6 +96,12 @@
   margin: auto;
 }
 
+.balance-container h2 {
+  color: #2A2A72;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .balance-actions {
   display: -webkit-box;
   display: -ms-flexbox;

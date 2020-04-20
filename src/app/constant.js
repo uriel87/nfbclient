@@ -49,7 +49,7 @@ const fetchAction = {
     CREATE_MONTHLY_INCOME: 'createMonthlyIncome',
     EDIT_MONTHLY_INCOME: 'editMonthlyIncome',
     DELETE_MONTHLY_INCOME: 'deleteMonthlyIncome',
-    CREATE_EXPECTED_EXPENSE: 'createExpectedExpense', 
+    CREATE_EXPECTED_EXPENSES: 'createExpectedExpense', 
     CREATE_TASK: 'createTask',
     EDIT_TASK: 'editTask',
     DELETE_TASK: "deleteTask",

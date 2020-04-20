@@ -12,7 +12,7 @@ const UseForm = (callback, validation) => {
         const { name, value, checked } = event.target;
         setSignupInputs({
             ...inputs,
-            [name]: value || checked
+            [name]: value || checked || ""
         })
 	};
 

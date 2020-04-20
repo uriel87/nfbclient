@@ -8,6 +8,7 @@ export const SIGNUP = (inputs) => {
           userId
           token
           tokenExpiration
+          status
         }
     }`,
     variables: {
@@ -84,6 +85,7 @@ export const EDIT_USER = (inputs, userId, fallBack) => {
           userId
           token
           tokenExpiration
+          status
         }
     }`,
     variables: {

@@ -1,21 +1,20 @@
 
 import React, { memo, useState,  } from 'react'
-import { useHistory } from "react-router-dom"
-
 import Lightbox from '../lightbox/lightbox'
 import 'font-awesome/css/font-awesome.min.css'
+
+// import { useHistory } from "react-router-dom"
+
 
 
 const LightboxBtn = (props) => {
 
     const [isOpenLightbox, setIsOpenLightbox] = useState(false)
-    const history = useHistory();
+    // const history = useHistory();
 
     const openLightbox = (e) => {
-        // if(e.target !== e.currentTarget) return
         setIsOpenLightbox(!isOpenLightbox)
-        history.push('/');
-
+        // history.push('/')
     }
 
     return (
