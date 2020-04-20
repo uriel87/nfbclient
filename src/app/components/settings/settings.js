@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Cookies from 'js-cookie'
 import UseForm from '../../helpers/useForm'
 import validationSettings from './validationSettings'
-import Input from '../../components/input/input.js'
+import Input from '../../components/input/input'
 import Loading from '../loading/loading'
 import { responseCode } from '../../helpers/responseCode'
 import { setLogin } from "../../actions/auth.action"

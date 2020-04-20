@@ -1,7 +1,7 @@
 
 import React, { memo, useState } from 'react'
 import UseForm from '../../../helpers/useForm'
-import Input from '../../input/input.js'
+import Input from '../../input/input'
 import SelectInput from '../../selectInput/selectInput'
 import CheckboxInput from '../../checkboxInput/checkboxInput'
 import Loading from '../../loading/loading'

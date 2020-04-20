@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Loading from '../loading/loading'
 import ExpensesListItem from './expensesListItem/expencesListItem'
 import TableHeaderBalace from '../tableHeaderBalace/tableHeaderBalace'
-import Input from '../input/input.js'
+import Input from '../input/input'
 import { formInputType } from '../../constant'
 import { filterMonthlyExpensesByDate } from '../../helpers/filters'
 import "./monthlyExpenses.css"

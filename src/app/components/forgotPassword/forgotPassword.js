@@ -1,7 +1,7 @@
 
 import React, { memo, useState } from 'react'
 import UseForm from '../../helpers/useForm'
-import Input from '../../components/input/input.js'
+import Input from '../../components/input/input'
 import Loading from '../loading/loading'
 import validationForgotPassword from "./validationForgotPassword"
 import { actionFetch } from '../../helpers/actionFetch'
