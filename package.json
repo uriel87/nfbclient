@@ -4,6 +4,9 @@
   "engines": {
     "node": "12.13.1"
   },
+  "devServer": {
+    "publicPath" : "/public"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.11",
