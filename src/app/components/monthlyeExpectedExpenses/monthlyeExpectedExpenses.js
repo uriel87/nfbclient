@@ -1,6 +1,6 @@
 
 import React, { memo } from 'react'
-import Input from '../../components/input/input'
+import Input from '../../components/input/input.js'
 import UseForm from '../../helpers/useForm'
 import validationExpectedExpenses from './validationExpectedExpenses'
 import { actionFetch } from '../../helpers/actionFetch'

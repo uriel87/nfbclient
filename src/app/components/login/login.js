@@ -5,7 +5,7 @@ import { setLogin } from "../../actions/auth.action"
 import Cookies from 'js-cookie'
 import validationAuth from "./validationAuth"
 import UseForm from '../../helpers/useForm'
-import Input from '../../components/input/input'
+import Input from '../../components/input/input.js'
 import Loading from '../loading/loading'
 import { responseCode } from '../../helpers/responseCode'
 import { actionFetch } from '../../helpers/actionFetch'

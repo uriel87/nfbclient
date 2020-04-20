@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import Cookies from 'js-cookie'
 import UseForm from '../../helpers/useForm'
 import validationSignup from "./validationSignup"
-import Input from '../../components/input/input'
+import Input from '../../components/input/input.js'
 import Loading from '../loading/loading'
 import { responseCode } from '../../helpers/responseCode'
 import { setLogin } from "../../actions/auth.action"
