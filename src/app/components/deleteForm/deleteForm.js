@@ -1,6 +1,8 @@
 
 
 import React, { memo } from 'react'
+import LightboxBg from '../lightboxBg/lightboxBg'
+import CloseBtn from '../closeBtn/closeBtn'
 import { actionFetch } from '../../helpers/actionFetch'
 import './deleteForm.css'
 
@@ -15,9 +17,9 @@ const DeleteForm = (props) => {
  
     return(
         <div>
-            <div className="lightboxBackground" onClick={props.openCmp}></div>
+            <LightboxBg openCmp={props.openCmp}/>
             <div className="lightboxContainer">
-                <button onClick={props.openCmp} className="btn-close-lightbox" ><i className="far fa-times-circle"></i></button>                     
+                <CloseBtn openCmp={props.openCmp} />
                 <h4 className="modal-title">{props.item.name}</h4>
                 <p className="delete-question">Are you sure to delete {props.item.name}?</p>
                 <form onSubmit={submit}>
