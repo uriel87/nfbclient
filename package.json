@@ -4,6 +4,7 @@
   "engines": {
     "node": "12.13.1"
   },
+  "main": "index.js",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.11",
