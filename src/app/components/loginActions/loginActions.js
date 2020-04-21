@@ -15,7 +15,7 @@ const LoginActions = (props) => {
 
     return (
         <div className="balance-container">
-            <BackBtn />
+            {/* <BackBtn /> */}
             <BrowserRouter> 
                 <div className="content">
                     <Switch>
