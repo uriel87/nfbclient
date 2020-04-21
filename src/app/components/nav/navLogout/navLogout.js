@@ -1,6 +1,5 @@
 
 import React, { memo } from "react";
-import Login from '../../login/login'
 import LoginActions from '../../loginActions/loginActions'
 import Signup from '../../signup/signup'
 import LightboxBtn from '../../lightboxBtn/lightboxBtn'

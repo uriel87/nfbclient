@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react'
-import { useHistory, NavLink, Link} from "react-router-dom"
+import { useHistory, NavLink} from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setLogin } from "../../actions/auth.action"
 import Cookies from 'js-cookie'

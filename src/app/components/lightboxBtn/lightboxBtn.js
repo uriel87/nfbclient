@@ -1,20 +1,22 @@
 
 import React, { memo, useState,  } from 'react'
 import Lightbox from '../lightbox/lightbox'
+import { headerContent } from '../../constant'
 import 'font-awesome/css/font-awesome.min.css'
-
-// import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 
 
 const LightboxBtn = (props) => {
 
     const [isOpenLightbox, setIsOpenLightbox] = useState(false)
-    // const history = useHistory();
+    const history = useHistory();
 
-    const openLightbox = (e) => {
+    const openLightbox = () => {
         setIsOpenLightbox(!isOpenLightbox)
-        // history.push('/')
+        if(props.content != headerContent.LOGOUT ) {
+            history.push('/')
+        }
     }
 
     return (
