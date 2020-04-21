@@ -293,7 +293,7 @@
   .home-container .home-wallpaper .home-title {
     text-transform: capitalize;
     position: relative;
-    bottom: 0;
+    top: 35%;
     width: 100%;
     padding: 30px;
     text-align: center;
