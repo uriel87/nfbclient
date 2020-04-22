@@ -9,7 +9,7 @@ const Footer = (props) => {
             <div className='footer-info'>
                 <div className="footer-content">
                     <h4>Content</h4>
-                    <p>easy-to-use online personal finance application that imports data from Quicken and Mint and automatically downloads data from banking, credit card, and retirement accounts. With no software to install, we’re anywhere you have an Internet connection.</p>
+                    <p>Easy-to-use online personal finance application that imports data from Quicken and Mint and automatically downloads data from banking, credit card, and retirement accounts. With no software to install, we’re anywhere you have an Internet connection.</p>
                     <div className='social-media'>
                         <ul>
                             <li><i className="fab fa-facebook"></i></li>

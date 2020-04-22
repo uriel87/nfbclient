@@ -261,7 +261,7 @@
 
 .home-container .signUp-home-section p {
   padding: 20px;
-  font-size: 2.5vw;
+  font-size: 130%;
 }
 
 .home-container .signUp-home-section .btn-signUp .btn-open-lightbox {
@@ -323,12 +323,9 @@
   .home-container .explaintaion .explaintaion-content ul li {
     font-size: 2.5vw;
   }
-  .home-container .advantages {
-    height: 900px;
-  }
   .home-container .advantages p {
     margin: 5px 0px;
-    font-size: 2.5vw;
+    font-size: 130%;
   }
   .home-container .advantages .advantage {
     -webkit-box-orient: vertical;
